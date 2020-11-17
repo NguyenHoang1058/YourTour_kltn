@@ -10,6 +10,7 @@ namespace YourTour.Models.db
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID{ get; set; }
+        public string Code { get; set; }
         public string Tentour { get; set; }
         public string Diadiemkhoihanh { get; set; }
         public string Diemden { get; set; }
@@ -19,6 +20,9 @@ namespace YourTour.Models.db
         public string Lichtrinh { get; set; }
         public int Gianguoilon { get; set; }
         public int Giatreem { get; set; }
+        public string Mota { get; set; }
+        public byte Trongnuoc{ get; set; }
+        public byte Tuychon { get; set; }
 
         public ICollection<Diadiemdulich> Diadiemduliches{ get; set; }
 
