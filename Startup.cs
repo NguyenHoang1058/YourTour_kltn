@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using YourTour.Models.db;
+using YourTour.Service;
 
 namespace YourTour
 {
@@ -33,6 +34,7 @@ namespace YourTour
             //services.AddDatabaseDeveloperPageExceptionFilter();
             //services.AddControllersWithViews();
             //services.AddSession();
+            services.AddScoped<TourService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
