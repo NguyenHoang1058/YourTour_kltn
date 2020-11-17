@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
+using YourTour.Models.ViewModels;
 
 namespace YourTour.Models.db
 {
@@ -24,8 +25,32 @@ namespace YourTour.Models.db
         public string Mota { get; set; }
         public byte Trongnuoc{ get; set; }
         public byte Tuychon { get; set; }
+        public int Songuoi { get; set; }
 
         public ICollection<Diadiemdulich> Diadiemduliches{ get; set; }
+
+        public Tour(TourViewModel tourViewModel)
+        {
+            this.ID = tourViewModel.ID;
+            this.Code = tourViewModel.Code;
+            this.Tentour = tourViewModel.Tentour;
+            this.Diadiemkhoihanh = tourViewModel.Diadiemkhoihanh;
+            this.Diemden = tourViewModel.Diemden;
+            this.Ngaydi = tourViewModel.Ngaydi;
+            this.Ngayve = tourViewModel.Ngayve;
+            this.Hinhanh = tourViewModel.Hinhanh;
+            this.Lichtrinh = tourViewModel.Lichtrinh;
+            this.Gianguoilon = tourViewModel.Gianguoilon;
+            this.Giatreem = tourViewModel.Giatreem;
+            this.Mota = tourViewModel.Mota;
+            this.Trongnuoc = tourViewModel.Trongnuoc;
+            this.Tuychon = tourViewModel.Tuychon;
+            this.Songuoi = tourViewModel.Songuoi;
+        }
+        public Tour()
+        {
+
+        }
 
     }
 }

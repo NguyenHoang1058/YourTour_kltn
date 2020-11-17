@@ -118,11 +118,11 @@ namespace YourTour.Models.db
                 new Tour{Code="T001", Tentour="Tour Tây An Cổ Tự - Miếu Bà Chúa Xứ", Diadiemkhoihanh="TP Hồ Chí Minh",
                     Diemden="Miếu Bà Chúa Xứ", Ngaydi=DateTime.Parse("2020-11-10"), Ngayve=DateTime.Parse("2020-11-15"), Thoigiandi=5,
                     Hinhanh="chua co", Gianguoilon=1200000, Giatreem=1000000,
-                    Lichtrinh="Xuất phát từ tp Hồ Chí Minh đi qua Tây An Cổ Tự sau đó đến Miếu Bà Chúa Xứ", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Trongnuoc=1},
+                    Lichtrinh="Xuất phát từ tp Hồ Chí Minh đi qua Tây An Cổ Tự sau đó đến Miếu Bà Chúa Xứ", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Trongnuoc=1, Songuoi=9},
                 new Tour{Code="T002", Tentour="Tour Đầm Ô Loan", Diadiemkhoihanh="TP Hồ Chí Minh",
                     Diemden="Đầm Ô Loan", Ngaydi=DateTime.Parse("2020-11-10"), Ngayve=DateTime.Parse("2020-11-15"), Thoigiandi=5,
                     Hinhanh="chua co", Gianguoilon=1200000, Giatreem=1000000,
-                    Lichtrinh="Xuất phát từ tp Hồ Chí Minh đi đến đầm Ô Loan", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Trongnuoc=1}
+                    Lichtrinh="Xuất phát từ tp Hồ Chí Minh đi đến đầm Ô Loan", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Trongnuoc=1, Songuoi=9}
 
             };
             foreach (Tour tr in tour)
