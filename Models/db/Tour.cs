@@ -16,6 +16,7 @@ namespace YourTour.Models.db
         public string Diemden { get; set; }
         public DateTime Ngaydi { get; set; }
         public DateTime Ngayve { get; set; }
+        public int Thoigiandi { get; set; }
         public string Hinhanh { get; set; }
         public string Lichtrinh { get; set; }
         public int Gianguoilon { get; set; }
