@@ -26,15 +26,15 @@ namespace YourTour
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //
-            services.AddMvc();
             services.AddDbContext<YourTourContext>(opt => 
                 opt.UseSqlServer(Configuration.GetConnectionString("YourTourContext")));
             //
             //services.AddDatabaseDeveloperPageExceptionFilter();
             //services.AddControllersWithViews();
-            //services.AddSession();
+            services.AddSession();
             services.AddScoped<TourService>();
+            services.AddScoped<DattourService>();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +54,7 @@ namespace YourTour
             app.UseStaticFiles();
 
             app.UseRouting();
-            //app.UseSession();
+            app.UseSession();
 
             app.UseAuthorization();
 

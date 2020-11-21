@@ -17,7 +17,8 @@ namespace YourTour.Models.db
 
             var nguoidung = new Nguoidung[]
             {
-                new Nguoidung{Hoten="Hoang Si Nguyen", Gioitinh="Nam", Email="abc@gmail.com", Sdt="0123456789" }
+                new Nguoidung{Hoten="Hoàng Sĩ Nguyên", Gioitinh="Nam", Email="nv@gmail.com", Sdt="0123456789" },
+                new Nguoidung{Hoten="Lê Tuấn Kiệt", Gioitinh="Nam", Email="admin@gmail.com", Sdt="0123456789" }
             };
             foreach (Nguoidung nd in nguoidung)
             {
@@ -31,7 +32,8 @@ namespace YourTour.Models.db
 
             var taikhoan = new Taikhoan[]
             {
-                new Taikhoan{Email="abc@gmail.com", Matkhau="123", Vaitro="nv"}
+                new Taikhoan{Email="admin@gmail.com", Matkhau="123", Vaitro="admin"},
+                new Taikhoan{Email="nv@gmail.com", Matkhau="123", Vaitro="nv"}
             };
             foreach (Taikhoan tk in taikhoan)
             {
@@ -45,8 +47,8 @@ namespace YourTour.Models.db
 
             var khachhang = new Khachhang[]
             {
-                new Khachhang{Hoten="Nguyễn Văn A", Gioitinh="Nam", Email="test@gmail.com", Sdt="0123456789"},
-                new Khachhang{Hoten="Nguyễn Văn B", Gioitinh="Nam", Email="test@gmail.com", Sdt="0987465133"}
+                new Khachhang{Hoten="Nguyễn Văn A", Cmnd = 251139125, Diachi="12 Nguyễn Văn Bảo", Email="test@gmail.com", Sdt="0123456789"},
+                new Khachhang{Hoten="Nguyễn Văn B", Cmnd = 251133132, Diachi="12 Nguyễn Văn Bảo", Email="test@gmail.com", Sdt="0987465133"}
             };
             foreach (Khachhang kh in khachhang)
             {
@@ -117,11 +119,15 @@ namespace YourTour.Models.db
             {
                 new Tour{Code="T001", Tentour="Tour Tây An Cổ Tự - Miếu Bà Chúa Xứ", Diadiemkhoihanh="TP Hồ Chí Minh",
                     Diemden="Miếu Bà Chúa Xứ", Ngaydi=DateTime.Parse("2020-11-10"), Ngayve=DateTime.Parse("2020-11-15"), Thoigiandi=5,
-                    Hinhanh="chua co", Gianguoilon=1200000, Giatreem=1000000,
-                    Lichtrinh="Xuất phát từ tp Hồ Chí Minh đi qua Tây An Cổ Tự sau đó đến Miếu Bà Chúa Xứ", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Trongnuoc=1, Songuoi=9},
+                    Hinhanh="mieu_ba_chua_xu.jpg", Gianguoilon=1200000, Giatreem=1000000,
+                    Lichtrinh="<table border=1 cellpadding=1 cellspacing=1>< tbody >< tr >< td >ngay 1 </ td >< td >dia diem </ td ></ tr >< tr >< td >a </ td >< td >c </ td ></ tr ></ tbody ></ table >< p >&nbsp;</ p >", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Trongnuoc=1, Songuoi=9},
                 new Tour{Code="T002", Tentour="Tour Đầm Ô Loan", Diadiemkhoihanh="TP Hồ Chí Minh",
                     Diemden="Đầm Ô Loan", Ngaydi=DateTime.Parse("2020-11-10"), Ngayve=DateTime.Parse("2020-11-15"), Thoigiandi=5,
-                    Hinhanh="chua co", Gianguoilon=1200000, Giatreem=1000000,
+                    Hinhanh="phu-yen-dam-o-loan.jpg", Gianguoilon=1200000, Giatreem=1000000,
+                    Lichtrinh="Xuất phát từ tp Hồ Chí Minh đi đến đầm Ô Loan", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Trongnuoc=1, Songuoi=9},
+                new Tour{Code="T001", Tentour="Tour Đầm Ô Loan", Diadiemkhoihanh="TP Hồ Chí Minh",
+                    Diemden="Đầm Ô Loan", Ngaydi=DateTime.Parse("2020-11-10"), Ngayve=DateTime.Parse("2020-11-15"), Thoigiandi=5,
+                    Hinhanh="phu-yen-dam-o-loan.jpg", Gianguoilon=1200000, Giatreem=1000000,
                     Lichtrinh="Xuất phát từ tp Hồ Chí Minh đi đến đầm Ô Loan", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Trongnuoc=1, Songuoi=9}
 
             };
@@ -153,9 +159,9 @@ namespace YourTour.Models.db
 
             var hoadon = new Hoadon[]
             {
-                new Hoadon{KhachHangID=1, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000, Tinhtrang=0},
-                new Hoadon{KhachHangID=1, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000, Tinhtrang=1},
-                new Hoadon{KhachHangID=2, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000, Tinhtrang=0}
+                new Hoadon{KhachHangID=1, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000},
+                new Hoadon{KhachHangID=1, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000},
+                new Hoadon{KhachHangID=2, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000}
             };
             foreach (Hoadon hd in hoadon)
             {
