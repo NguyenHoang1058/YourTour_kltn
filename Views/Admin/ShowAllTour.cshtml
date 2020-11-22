@@ -1,0 +1,116 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@*@using X.PagedList.Web.Common;*@
+@model IPagedList<YourTour.Models.ViewModels.TourViewModel>
+
+@{
+    ViewData["Title"] = "ShowAllTour";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 style="color:brown;text-align:center">Danh sách tour du lịch</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Tentour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().diadiemduliches)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Diadiemkhoihanh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Ngaydi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Ngayve)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Lichtrinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Hinhanh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Gianguoilon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Giatreem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().TenHDV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Trangthai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Songuoi)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <input type="hidden" name="@item.ID" />
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tentour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.diadiemduliches)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diadiemkhoihanh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaydi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngayve)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lichtrinh)
+            </td>
+            <td>
+                <img src="@Url.Content("/images/tour_images/" + item.Hinhanh)" style="width:150px;height:200px;" />
+            </td>
+            <td>
+                @item.Gianguoilon.ToString("#,##") VNĐ
+            </td>
+            <td>
+                @item.Giatreem.ToString("#,##") VNĐ
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenHDV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trangthai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Songuoi)
+            </td>
+
+            <td>
+                @Html.ActionLink("Sửa", "EditTour", "Admin", new { id = item.ID }) |
+                @Html.ActionLink("Chi tiết", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Xóa", "DeleteTour", "Admin", new { id = item.ID })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<br />
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("ShowAllTour", new { page }))

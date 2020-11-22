@@ -27,7 +27,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour where Trongnuoc=1").ToList();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour where Loaitour=N'Trong nước'").ToList();
             }
 
             return tourTrongNuoc;

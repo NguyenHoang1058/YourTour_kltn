@@ -1,0 +1,102 @@
+﻿@model YourTour.Models.Commands.InsertTourCommand
+@{
+    ViewData["Title"] = "InsertTour";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 style="text-align:center;color:brown;text-transform:uppercase">Thêm tour mới</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("InsertTour", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Code" class="control-label">Mã Tour</label>
+                <input name="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tentour" class="control-label">Tên tour</label>
+                <input name="Tentour" class="form-control" />
+                <span asp-validation-for="Tentour" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diadiemkhoihanh" class="control-label">Địa điểm khởi hành</label>
+                <input name="Diadiemkhoihanh" class="form-control" />
+                <span asp-validation-for="Diadiemkhoihanh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diemden" class="control-label">Điểm đến</label>
+                <input name="Diemden" class="form-control" />
+                <span asp-validation-for="Diemden" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ngaydi" class="control-label">Ngày đi</label>
+                <input type="date" asp-format="{0:yyyy-MM-dd}" name="Ngaydi" class="form-control" />
+                <span asp-validation-for="Ngaydi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ngayve" class="control-label">Ngày về</label>
+                <input type="date" asp-format="{0:yyyy-MM-dd}" name="Ngayve" class="form-control" />
+                <span asp-validation-for="Ngayve" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Thoigiandi" class="control-label">Thời gian đi</label>
+                <input type="number" name="Thoigiandi" class="form-control" />
+                <span asp-validation-for="Thoigiandi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hinhanh" class="control-label">Hình Ảnh</label>
+                <input name="Hinhanh" class="form-control input-file" type="file" />
+                <span asp-validation-for="Hinhanh" class="text-danger" style="color:red">@ViewBag.Picture</span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Lichtrinh" class="control-label">Lịch trình</label>
+                <input name="Lichtrinh" class="form-control" />
+                <span asp-validation-for="Lichtrinh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gianguoilon" class="control-label">Giá người lớn</label>
+                <input name="Gianguoilon" class="form-control" />
+                <span asp-validation-for="Gianguoilon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Giatreem" class="control-label">Giá trẻ em</label>
+                <input name="Giatreem" class="form-control" />
+                <span asp-validation-for="Giatreem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mota" class="control-label">Mô tả</label>
+                <input name="Mota" class="form-control" />
+                <span asp-validation-for="Mota" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loaitour" class="control-label">Trong nước hay nước ngoài</label>
+                <select class="form-control" name="Loaitour">
+                    <option value="Trong nước">Tour Trong Nước</option>
+                    <option value="Nước ngoài">Tour Nước Ngoài</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenHDV" class="control-label">Tên hướng dẫn viên</label>
+                <input name="TenHDV" class="form-control" />
+                <span asp-validation-for="TenHDV" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Songuoi" class="control-label">Số người</label>
+                <input type="number" name="Songuoi" class="form-control" />
+                <span asp-validation-for="Songuoi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trangthai" class="control-label">Trạng thái</label>
+                <input name="Trangthai" class="form-control" />
+                <span asp-validation-for="Trangthai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Thêm tour mới" class="btn btn-primary" />
+            </div>
+        }
+    </div>
+</div>
