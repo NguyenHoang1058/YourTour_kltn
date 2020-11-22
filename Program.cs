@@ -17,6 +17,7 @@ namespace YourTour
         {
             var host = CreateHostBuilder(args).Build();
 
+            
             CreateDbIfNotExists(host);
 
             host.Run();
@@ -28,8 +29,16 @@ namespace YourTour
             try
             {
                 var context = services.GetRequiredService<YourTourContext>();
-                //context.Database.EnsureCreated();
-                DataInitializer.Initialize(context);
+                if (context.Database.EnsureCreated() == true)
+                {
+                  
+                    DataInitializer.Initialize(context);
+                }
+                else
+                {
+                    context.Database.EnsureDeleted();
+                    DataInitializer.Initialize(context);
+                }
             }
             catch (Exception ex)
             {

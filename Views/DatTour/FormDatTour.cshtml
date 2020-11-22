@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model YourTour.Models.ViewModels.TourViewModel;
+@using (Html.BeginForm("DatTour", "DatTour", FormMethod.Post, new { @class = "row" }))
+{
+    <div class="col-sm-6 form-group contact-forms">
+        @Html.TextBox("Hoten", "", new { @class = "form-control", @placeholder = "Họ và tên" })
+        @Html.ValidationMessage("Hoten", "", new { @style = "color:red;" })
+    </div>
+    <div class="col-sm-6 form-group contact-forms">
+        @Html.TextBox("Cmnd", "", new { @class = "form-control", @placeholder = "Số chứng minh nhân dân" })
+        @Html.ValidationMessage("Cmnd", "", new { @style = "color:red;" })
+    </div>
+    <div class="col-sm-6 form-group contact-forms">
+        @Html.TextBox("Email", "", new { @class = "form-control", @placeholder = "Email" })
+        @Html.ValidationMessage("Email", "", new { @style = "color:red;" })
+    </div>
+    <div class="col-sm-6 form-group contact-forms">
+        @Html.TextBox("Sdt", "", new { @class = "form-control", @placeholder = "Số điện thoại" })
+        @Html.ValidationMessage("Sdt", "", new { @style = "color:red;" })
+    </div>
+    <div class="col-sm-6 form-group contact-forms">
+        @Html.TextBox("Diachi", "", new { @class = "form-control", @placeholder = "Địa chỉ" })
+        @Html.ValidationMessage("Diachi", "", new { @style = "color:red;" })
+    </div>
+    <div class="col-sm-6 form-group contact-forms">
+        @Html.TextBox("Songuoidi", "", new { @class = "form-control", @placeholder = "Số người đi", id = "b" })
+        @Html.ValidationMessage("Songuoidi", "", new { @style = "color:red;" })
+
+    </div>
+    <div class="col-sm-6 form-group contact-forms">
+        <input type="text" name="Tongtien" class="form-control" value="@Model.Gianguoilon" />
+    </div>
+    <input type="hidden" name="TourID" value="@Model.ID" />
+    <div class="col-md-12 booking-button">
+        <button type="submit" class="btn btn-block sent-butnn" id="btnSubmit">Đặt Tour</button>
+    </div>
+}

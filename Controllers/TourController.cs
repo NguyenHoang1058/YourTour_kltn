@@ -11,7 +11,7 @@ namespace YourTour.Controllers
     public class TourController : Controller
     {
         private readonly TourService _tourService;
-        private YourTourContext _db;
+        private readonly YourTourContext _db;
 
         public TourController(TourService tourService, YourTourContext db)
         {
@@ -21,6 +21,33 @@ namespace YourTour.Controllers
         public IActionResult TourTrongNuoc()
         {
             var model = this._tourService.TourTrongNuoc();
+            return View(model);
+        }
+        public IActionResult ChiTietTour(int ?id)
+        {
+            if(id == null)
+            {
+                return View("/Views/Shared/Error.cshtml");
+            }
+            var model = this._tourService.ChiTietTour(id);
+            if (model == null)
+            {
+                return null;
+            }
+
+            return View(model);
+        }
+        public IActionResult ThongTinChiTietTour(int? id)
+        {
+            if(id == null)
+            {
+                return View("/Views/Shared/Error.cshtml");
+            }
+            var model = this._tourService.ChiTietTour(id);
+            if(model == null)
+            {
+                return null;
+            }
             return View(model);
         }
     }

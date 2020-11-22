@@ -12,7 +12,7 @@ namespace YourTour.Service
 {
     public class TourService
     {
-        private YourTourContext _db;
+        private readonly YourTourContext _db;
 
         public TourService(YourTourContext db)
         {
@@ -31,6 +31,19 @@ namespace YourTour.Service
             }
 
             return tourTrongNuoc;
+        }
+        public TourViewModel ChiTietTour(int? id)
+        {
+            var tourId = new List<TourViewModel>();
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                tourId = conn.Query<TourViewModel>(@"select * from Tour where ID="+id).ToList();
+                conn.Close();
+            }
+
+            return tourId.SingleOrDefault(n => n.ID == id);
         }
     }
 }

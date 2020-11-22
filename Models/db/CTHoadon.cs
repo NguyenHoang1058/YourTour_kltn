@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
+using YourTour.Models.ViewModels;
 
 namespace YourTour.Models.db
 {
@@ -19,5 +20,17 @@ namespace YourTour.Models.db
         public int TourID { get; set; }
         public Hoadon Hoadon { get; set; }
         public Tour Tour { get; set; }
+        public CTHoadon() { }
+        public CTHoadon(CTHoadonViewModel cTHoadonViewModel)
+        {
+            this.ID = cTHoadonViewModel.ID;
+            this.Hotenkhachhang = cTHoadonViewModel.Hotenkhachhang;
+            this.Sdt = cTHoadonViewModel.Sdt;
+            this.Email = cTHoadonViewModel.Email;
+            this.Songuoidi = cTHoadonViewModel.Songuoidi;
+            this.Ptthanhtoan = cTHoadonViewModel.Ptthanhtoan;
+            this.HoadonID = cTHoadonViewModel.HoadonID;
+            this.TourID = cTHoadonViewModel.TourID;
+        }
     }
 }
