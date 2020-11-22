@@ -10,7 +10,7 @@ namespace YourTour.Models.db
     public class Tour
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID{ get; set; }
+        public int ID { get; set; }
         public string Code { get; set; }
         public string Tentour { get; set; }
         public string Diadiemkhoihanh { get; set; }
@@ -23,11 +23,12 @@ namespace YourTour.Models.db
         public int Gianguoilon { get; set; }
         public int Giatreem { get; set; }
         public string Mota { get; set; }
-        public byte Trongnuoc{ get; set; }
-        public byte Tuychon { get; set; }
+        public string Loaitour { get; set; }
+        public string TenHDV { get; set; }
         public int Songuoi { get; set; }
+        public string Trangthai { get; set; }
 
-        public ICollection<Diadiemdulich> Diadiemduliches{ get; set; }
+        public ICollection<Diadiemdulich> Diadiemduliches { get; set; }
 
         public Tour(TourViewModel tourViewModel)
         {
@@ -35,6 +36,7 @@ namespace YourTour.Models.db
             this.Code = tourViewModel.Code;
             this.Tentour = tourViewModel.Tentour;
             this.Diadiemkhoihanh = tourViewModel.Diadiemkhoihanh;
+            this.Diadiemduliches = tourViewModel.diadiemduliches;
             this.Diemden = tourViewModel.Diemden;
             this.Ngaydi = tourViewModel.Ngaydi;
             this.Ngayve = tourViewModel.Ngayve;
@@ -43,9 +45,10 @@ namespace YourTour.Models.db
             this.Gianguoilon = tourViewModel.Gianguoilon;
             this.Giatreem = tourViewModel.Giatreem;
             this.Mota = tourViewModel.Mota;
-            this.Trongnuoc = tourViewModel.Trongnuoc;
-            this.Tuychon = tourViewModel.Tuychon;
+            this.Loaitour = tourViewModel.Loaitour;
+            this.TenHDV = tourViewModel.TenHDV;
             this.Songuoi = tourViewModel.Songuoi;
+            this.Trangthai = tourViewModel.Trangthai;
         }
         public Tour()
         {
