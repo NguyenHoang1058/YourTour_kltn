@@ -11,6 +11,6 @@ namespace YourTour.Models.Commands
         public string Tendiadiem { get; set; }
         public string Mota { get; set; }
         public int TinhID { get; set; }
-        //public int MienID { get; set; }
+        public string Tentinh { get; set; }
     }
 }

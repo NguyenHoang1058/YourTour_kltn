@@ -186,13 +186,16 @@ namespace YourTour.Controllers
         {
             //ViewBag.Tinh = new SelectList(_db.Tinhs.Where(row => row.ID).ToList());
             //List<Tinh> lsTinh = new List<Tinh>();
-           var lsTinh = from t in _db.Tinhs
-                       select t.Tentinh.ToList();
-            ViewBag.msg = lsTinh;
+            //var lsTinh = _db.Tinhs.ToList();
+            //ViewBag.msg = lsTinh;
+            List<Tinh> listTinh = new List<Tinh>();
+            listTinh = (from t in _db.Tinhs select t).ToList();
+            listTinh.Insert(0, new Tinh { ID = 0, Tentinh = "Chọn tỉnh" });
+            ViewBag.ListTinh = listTinh;
             return View();
         }
         [HttpPost]
-        public IActionResult AddLocation(LocationCommand command)
+        public IActionResult AddLocation(LocationCommand command, Tinh tinh)
         {
             ViewBag.Tinh = new SelectList(_db.Tinhs.ToList());
             if (ModelState.IsValid)
@@ -200,6 +203,16 @@ namespace YourTour.Controllers
                 this._locationService.AddLocation(command);
                 return RedirectToAction("AllLocation", "Admin");
             }
+            if (command.ID == 0)
+            {
+                ModelState.AddModelError("", "Chọn tỉnh");
+            }
+            int SelectValue = tinh.ID;
+            ViewBag.SelectedValue = tinh.ID;
+            List<Tinh> listTinh = new List<Models.db.Tinh>();
+            listTinh = (from t in _db.Tinhs select t).ToList();
+            listTinh.Insert(0, new Tinh { ID = 0, Tentinh = "chọn tỉnh" });
+            ViewBag.ListTinh = listTinh;
             return View();
         }
         public IActionResult AllLocation()

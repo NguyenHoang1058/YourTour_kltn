@@ -1,5 +1,53 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<YourTour.Models.Commands.LocationCommand>
+
 @{
+    ViewData["Title"] = "AllLocation";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+
+<h1 style="text-align:center;color:brown">Danh sách địa điểm </h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tendiadiem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tentinh)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tendiadiem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mota)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tentinh)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>*@
+                <td>
+                    @Html.ActionLink("Edit", "EditLocation", "Admin", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "ChiTietNhanVien", "NhanVien", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
