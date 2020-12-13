@@ -33,5 +33,7 @@ namespace YourTour.Models.Validate
         public int Songuoidi { get; set; }
         public int Tongtien { get; set; }
         public int TourID { get; set; }
+        [Required(ErrorMessage = "Chọn hình thức thanh toán")]
+        public string Ptthanhtoan { get; set; }
     }
 }

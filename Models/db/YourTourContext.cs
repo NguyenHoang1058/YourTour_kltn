@@ -22,7 +22,6 @@ namespace YourTour.Models.db
         public DbSet<Hoadon> Hoadons { get; set; }
         public DbSet<CTHoadon> CTHoadons { get; set; }
         public DbSet<Tour> Tours { get; set; }
-        public DbSet<Diadiemtour> Diadiemtours{ get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,7 +34,6 @@ namespace YourTour.Models.db
             modelBuilder.Entity<Hoadon>().ToTable("Hoadon");
             modelBuilder.Entity<CTHoadon>().ToTable("CTHoadon");
             modelBuilder.Entity<Tour>().ToTable("Tour");
-            modelBuilder.Entity<Diadiemtour>().ToTable("Diadiemtour");
         }
     }
 }

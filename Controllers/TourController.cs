@@ -23,20 +23,6 @@ namespace YourTour.Controllers
             var model = this._tourService.TourTrongNuoc();
             return View(model);
         }
-        public IActionResult ChiTietTour(int ?id)
-        {
-            if(id == null)
-            {
-                return View("/Views/Shared/Error.cshtml");
-            }
-            var model = this._tourService.ChiTietTour(id);
-            if (model == null)
-            {
-                return null;
-            }
-
-            return View(model);
-        }
         public IActionResult ThongTinChiTietTour(int? id)
         {
             if(id == null)
@@ -49,6 +35,10 @@ namespace YourTour.Controllers
                 return null;
             }
             return View(model);
+        }
+        public IActionResult TourNgoaiNuoc()
+        {
+            return View();
         }
     }
 }

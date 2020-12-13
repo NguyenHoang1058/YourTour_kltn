@@ -13,6 +13,7 @@ namespace YourTour.Models.db
         public int ID { get; set; }
         public DateTime Ngaylaphd { get; set; }
         public int Tongtien { get; set; }
+        public byte Tinhtrang { get; set; }
         public int KhachHangID { get; set; }
         public Khachhang Khachhang { get; set; }
         public ICollection<CTHoadon> CTHoadons { get; set; }
@@ -23,6 +24,7 @@ namespace YourTour.Models.db
             this.ID = hoadonViewModel.ID;
             this.Ngaylaphd = hoadonViewModel.Ngaylaphd;
             this.Tongtien = hoadonViewModel.Tongtien;
+            this.Tinhtrang = hoadonViewModel.Tinhtrang;
             this.KhachHangID = hoadonViewModel.KhachhangID;
         }
     }

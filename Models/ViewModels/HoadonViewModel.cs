@@ -10,6 +10,7 @@ namespace YourTour.Models.ViewModels
         public int ID { get; set; }
         public DateTime Ngaylaphd { get; set; }
         public int Tongtien { get; set; }
+        public byte Tinhtrang { get; set; }
         public int KhachhangID { get; set; }
     }
 }

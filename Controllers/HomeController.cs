@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using YourTour.Models;
+using YourTour.Models.db;
+using YourTour.Service;
 
 namespace YourTour.Controllers
 {
@@ -27,7 +29,6 @@ namespace YourTour.Controllers
         {
             return View();
         }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

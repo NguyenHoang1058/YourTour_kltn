@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Thông tin booking tour</title>
+    <!--bs4 link-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!--bs4 js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--custom css-->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+            body h1 {
+                text-align: center;
+            }
+        /*xác nhận booking*/
+/*        .xacnhanbooking {
+            height: 300px;
+        }*/
+        /*thông tin booking*/
+        .thongtinbooking {
+            background-color: lightgray;
+        }
+
+        .xacnhanbooking h2 {
+            color: red;
+        }
+        /*chi tiết booking*/
+/*        .chitietbooking {
+            height: 320px;
+        }*/
+
+            .chitietbooking h2 {
+                color: red;
+            }
+
+        .table-chitietbooking {
+            background-color: lightgray;
+        }
+        /*thông tin liên lạc*/
+/*        .thongtinlienlac {
+            height: 320px;
+        }*/
+
+            .thongtinlienlac h2 {
+                color: red;
+            }
+
+        .table-thongtinlienlac {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>BOOKING CỦA QUÝ KHÁCH</h1>
+    <section class="xacnhanbooking">
+        <div>
+            <h2>I. PHIẾU XÁC NHẬN BOOKING</h2>
+            <div class="thongtinbooking">
+                <h3>{{TourName}}</h3>
+                <table class="table table-borderless" id="table-thongtinbooking">
+                    <tr>
+                        <td><b>Mã tour:</b></td>
+                        <td>{{Code}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><b>Hành trình:</b></td>
+                        <td>{{Noixuatphat}}-{{Diemden}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><b>Ngày đi:</b></td>
+                        <td>{{Ngaydi}}</td>
+                        <td><b>Ngày về:</b></td>
+                        <td>{{Ngayve}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Nơi tập trung:</b></td>
+                        <td>12 Nguyễn Văn Bảo, P4, Q.Gò Vấp</td>
+                        <td><b>Nơi khởi hành</b></td>
+                        <td>TP.Hồ Chí Minh</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="chitietbooking">
+        <h2>II. CHI TIẾT BOOKING</h2>
+        <div class="table-chitietbooking">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Số booking:</td>
+                    <td>{{Sobooking}}</td>
+                </tr>
+                <tr>
+                    <td>Trị giá booking:</td>
+                    <td>{{Tongtien}}</td>
+                </tr>
+                <tr>
+                    <td>Ngày đăng kí:</td>
+                    <td>{{Ngaydangky}}</td>
+                </tr>
+                <tr>
+                    <td>Hình thức thanh toán:</td>
+                    <td>{{Hinhthucthanhtoan}}</td>
+                </tr>
+                <tr>
+                    <td>Thời hạn thanh toán:</td>
+                    <td>{{Thoihanthanhtoan}}</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section class="thongtinlienlac">
+        <h2>III. THÔNG TIN LIÊN LẠC</h2>
+        <div class="table-thongtinlienlac">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Họ và tên:</td>
+                    <td>{{Hoten}}</td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ:</td>
+                    <td>{{Diachi}}</td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại:</td>
+                    <td>{{Sdt}}</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>{{Email}}</td>
+                </tr>
+                <tr>
+                    <td>Lưu ý:</td>
+                    <td>
+                        <b>
+                            Số ghế trên xe được hệ thống tự động sắp xếp
+                            dựa trên thứ tự Quý khách đăng ký
+                            và thanh toán tour.
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tổng số khách</td>
+                    <td>{{Songuoidi}}</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section class="footer">
+        <b>Chúc quý khách 1 chuyến du lịch thật vui vẻ và bổ ích!</b>
+    </section>
+</body>
+</html>

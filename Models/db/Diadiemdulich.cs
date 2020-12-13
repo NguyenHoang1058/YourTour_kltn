@@ -14,6 +14,6 @@ namespace YourTour.Models.db
         public string Mota { get; set; }
         public int TinhID { get; set; }
         public Tinh Tinh { get; set; }
-        public ICollection<Diadiemtour> Diadiemtours { get; set; }
+        public ICollection<Tour> Tours{ get; set; }
     }
 }

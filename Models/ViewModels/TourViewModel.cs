@@ -14,7 +14,7 @@ namespace YourTour.Models.ViewModels
         [DisplayName("Mã Tour")]
         public string Code { get; set; }
         [DisplayName("Tên Tour")]
-        public string Tentour { get; set; }
+        public string Tentour { get; set; } 
         [DisplayName("Địa điểm khởi hành")]
         public string Diadiemkhoihanh { get; set; }
         [DisplayName("Điểm đến")]
@@ -37,9 +37,12 @@ namespace YourTour.Models.ViewModels
         public int Giatreem { get; set; }
         public string Mota { get; set; }
         public string Loaitour { get; set; }
+        [DisplayName("Tên hướng dẫn viên")]
         public string TenHDV { get; set; }
         [DisplayName("Số chỗ")]
         public int Songuoi { get; set; }
         public string Trangthai { get; set; }
+        [DisplayName("Tour nổi bật")]
+        public byte Tournoibat { get; set; }
     }
 }

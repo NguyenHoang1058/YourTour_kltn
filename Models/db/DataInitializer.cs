@@ -119,16 +119,19 @@ namespace YourTour.Models.db
             {
                 new Tour{Code="T001", Tentour="Tour Tây An Cổ Tự - Miếu Bà Chúa Xứ", Diadiemkhoihanh="TP Hồ Chí Minh",
                     Diemden="Miếu Bà Chúa Xứ", Ngaydi=DateTime.Parse("2020-11-10"), Ngayve=DateTime.Parse("2020-11-15"), Thoigiandi=5,
-                    Hinhanh="mieu_ba_chua_xu.jpg", Gianguoilon=1200000, Giatreem=1000000,
-                    Lichtrinh="<table border=1 cellpadding=1 cellspacing=1>< tbody >< tr >< td >ngay 1 </ td >< td >dia diem </ td ></ tr >< tr >< td >a </ td >< td >c </ td ></ tr ></ tbody ></ table >< p >&nbsp;</ p >", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Trongnuoc=1, Songuoi=9},
+                    Hinhanh="mieu_ba_chua_xu.jpg", Gianguoilon=1100000, Giatreem=1000000,
+                    Lichtrinh="<table border=1 cellpadding=1 cellspacing=1>< tbody >< tr >< td >ngay 1 </ td >< td >dia diem </ td ></ tr >< tr >< td >a </ td >< td >c </ td ></ tr ></ tbody ></ table >< p >&nbsp;</ p >", 
+                    Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Loaitour="Trong nước", Songuoi=9, Tournoibat=1},
                 new Tour{Code="T002", Tentour="Tour Đầm Ô Loan", Diadiemkhoihanh="TP Hồ Chí Minh",
                     Diemden="Đầm Ô Loan", Ngaydi=DateTime.Parse("2020-11-10"), Ngayve=DateTime.Parse("2020-11-15"), Thoigiandi=5,
-                    Hinhanh="phu-yen-dam-o-loan.jpg", Gianguoilon=1200000, Giatreem=1000000,
-                    Lichtrinh="Xuất phát từ tp Hồ Chí Minh đi đến đầm Ô Loan", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Trongnuoc=1, Songuoi=9},
-                new Tour{Code="T001", Tentour="Tour Đầm Ô Loan", Diadiemkhoihanh="TP Hồ Chí Minh",
+                    Hinhanh="phu-yen-dam-o-loan.jpg", Gianguoilon=1250000, Giatreem=1000000,
+                    Lichtrinh="Xuất phát từ tp Hồ Chí Minh đi đến đầm Ô Loan", 
+                    Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Loaitour="Trong nước", Songuoi=9, Tournoibat=0},
+                new Tour{Code="T003", Tentour="Tour Đầm Ô Loan", Diadiemkhoihanh="TP Hồ Chí Minh",
                     Diemden="Đầm Ô Loan", Ngaydi=DateTime.Parse("2020-11-10"), Ngayve=DateTime.Parse("2020-11-15"), Thoigiandi=5,
                     Hinhanh="phu-yen-dam-o-loan.jpg", Gianguoilon=1200000, Giatreem=1000000,
-                    Lichtrinh="Xuất phát từ tp Hồ Chí Minh đi đến đầm Ô Loan", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Trongnuoc=1, Songuoi=9}
+                    Lichtrinh="/docs/lichtrinh/template_ctrinhtour_bluesky.pdf", 
+                    Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Loaitour="Trong nước", Songuoi=9, Tournoibat=1}
 
             };
             foreach (Tour tr in tour)
@@ -138,30 +141,14 @@ namespace YourTour.Models.db
             context.SaveChanges();
 
             //
-            // init data table Diadiemtour
-            //
-
-            var diadiemtour = new Diadiemtour[]
-            {
-                new Diadiemtour{TourID=1,DiadiemdulichID=1},
-                new Diadiemtour{TourID=1,DiadiemdulichID=2},
-                new Diadiemtour{TourID=2,DiadiemdulichID=4}
-            };
-            foreach (Diadiemtour ddt in diadiemtour)
-            {
-                context.Diadiemtours.Add(ddt);
-            }
-            context.SaveChanges();
-
-            //
             //  init data table Hoadon
             //
 
             var hoadon = new Hoadon[]
             {
-                new Hoadon{KhachHangID=1, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000},
-                new Hoadon{KhachHangID=1, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000},
-                new Hoadon{KhachHangID=2, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000}
+                new Hoadon{KhachHangID=1, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1200000, Tinhtrang = 1},
+                new Hoadon{KhachHangID=1, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1100000, Tinhtrang = 0},
+                new Hoadon{KhachHangID=2, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000, Tinhtrang = 1}
             };
             foreach (Hoadon hd in hoadon)
             {
@@ -175,9 +162,9 @@ namespace YourTour.Models.db
 
             var cthd = new CTHoadon[]
             {
-                new CTHoadon{Hotenkhachhang="Hoàng Sĩ Nguyên", Sdt="0369052254", Email="onegtheprober1058@gmail.com",
+                new CTHoadon{Hotenkhachhang="Hoàng Sĩ Nguyên", Sdt="0369052254", Email="onegtheprober1058@gmail.com", Hoadoncode = "ABCND134",
                     Songuoidi=1, Ptthanhtoan="tien mat", HoadonID=2, TourID=1},
-                new CTHoadon{Hotenkhachhang="Lê Tuấn Kiệt", Sdt="0369052253", Email="kietle@gmail.com",
+                new CTHoadon{Hotenkhachhang="Lê Tuấn Kiệt", Sdt="0369052253", Email="kietle@gmail.com",Hoadoncode = "ABCND135",
                     Songuoidi=1, Ptthanhtoan="online", HoadonID=1, TourID=2}
             };
             foreach (CTHoadon cthoadon in cthd)

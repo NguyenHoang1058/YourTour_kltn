@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = "PageNotFound";
+    Layout = "~/Views/Shared/_LayoutTour.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="/css/error.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="face">
+        <div class="band">
+            <div class="red"></div>
+            <div class="white"></div>
+            <div class="blue"></div>
+        </div>
+        <div class="eyes"></div>
+        <div class="dimples"></div>
+        <div class="mouth"></div>
+    </div>
+
+    <h1>Oops! Something went wrong!</h1>
+    <div class="btn"><a href="@Url.Action("Index","Home")">Back to home</a></div>
+</body>
+</html>
