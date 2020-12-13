@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using YourTour.Models.db;
 
 namespace YourTour.Models.ViewModels
 {
@@ -11,5 +12,6 @@ namespace YourTour.Models.ViewModels
         public string Tendiadiem { get; set; }
         public string Mota { get; set; }
         public int TinhID { get; set; }
+        //public Tinh Tinh { get; set; }
     }
 }
