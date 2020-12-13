@@ -119,12 +119,21 @@ namespace YourTour.Models.db
             {
                 new Tour{Code="T001", Tentour="Tour Tây An Cổ Tự - Miếu Bà Chúa Xứ", Diadiemkhoihanh="TP Hồ Chí Minh",
                     Diemden="Miếu Bà Chúa Xứ", Ngaydi=DateTime.Parse("2020-11-10"), Ngayve=DateTime.Parse("2020-11-15"), Thoigiandi=5,
-                    Hinhanh="chua co", Gianguoilon=1200000, Giatreem=1000000,
-                    Lichtrinh="Xuất phát từ tp Hồ Chí Minh đi qua Tây An Cổ Tự sau đó đến Miếu Bà Chúa Xứ", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Loaitour="Trong nước", TenHDV="Nguyễn Văn A", Songuoi=9, Trangthai = "còn chỗ"},
+                    Hinhanh="mieu_ba_chua_xu.jpg", Gianguoilon=1100000, Giatreem=1000000,
+                    Lichtrinh="/docs/lichtrinh/template_ctrinhtour_bluesky.pdf", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Loaitour="Trong nước", TenHDV="Nguyễn Văn A", Songuoi=9, Trangthai = "còn chỗ", Tournoibat=1},
                 new Tour{Code="T002", Tentour="Tour Đầm Ô Loan", Diadiemkhoihanh="TP Hồ Chí Minh",
                     Diemden="Đầm Ô Loan", Ngaydi=DateTime.Parse("2020-11-10"), Ngayve=DateTime.Parse("2020-11-15"), Thoigiandi=5,
-                    Hinhanh="chua co", Gianguoilon=1200000, Giatreem=1000000,
+                    Hinhanh="phu-yen-dam-o-loan.jpg", Gianguoilon=1250000, Giatreem=1000000,
+                    Lichtrinh="Xuất phát từ tp Hồ Chí Minh đi đến đầm Ô Loan", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Loaitour="Trong nước", TenHDV="Nguyễn Văn B", Songuoi=9, Trangthai = "còn chỗ", Tournoibat=1},
+                new Tour{Code="T003", Tentour="Tour Tây An Cổ Tự", Diadiemkhoihanh="TP Hồ Chí Minh",
+                    Diemden="Miếu Bà Chúa Xứ", Ngaydi=DateTime.Parse("2020-11-10"), Ngayve=DateTime.Parse("2020-11-15"), Thoigiandi=5,
+                    Hinhanh="mieu_ba_chua_xu.jpg", Gianguoilon=1400000, Giatreem=1000000,
+                    Lichtrinh="Xuất phát từ tp Hồ Chí Minh đi qua Tây An Cổ Tự sau đó đến Miếu Bà Chúa Xứ", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Loaitour="Trong nước", TenHDV="Nguyễn Văn A", Songuoi=9, Trangthai = "còn chỗ"},
+                new Tour{Code="T004", Tentour="Miếu Bà Chúa Xứ", Diadiemkhoihanh="TP Hồ Chí Minh",
+                    Diemden="Đầm Ô Loan", Ngaydi=DateTime.Parse("2020-11-10"), Ngayve=DateTime.Parse("2020-11-15"), Thoigiandi=5,
+                    Hinhanh="phu-yen-dam-o-loan.jpg", Gianguoilon=1150000, Giatreem=1000000,
                     Lichtrinh="Xuất phát từ tp Hồ Chí Minh đi đến đầm Ô Loan", Mota="Một tour du lịch tuyệt vời đi qua các điểm đến nổi tiếng", Loaitour="Trong nước", TenHDV="Nguyễn Văn B", Songuoi=9, Trangthai = "còn chỗ"}
+
             };
             foreach (Tour tr in tour)
             {

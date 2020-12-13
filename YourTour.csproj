@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\lichtrinh\**" />
+    <Content Remove="wwwroot\lichtrinh\**" />
+    <EmbeddedResource Remove="wwwroot\lichtrinh\**" />
+    <None Remove="wwwroot\lichtrinh\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.35" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
@@ -16,13 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\lichtrinh\" />
     <PackageReference Include="MimeKit" Version="2.10.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Views\HoaDon\" />
-    <Folder Include="wwwroot\docs\dieukhoan\" />
   </ItemGroup>
 
 

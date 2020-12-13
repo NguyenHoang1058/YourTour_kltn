@@ -186,9 +186,13 @@ namespace YourTour.Controllers
         {
             //ViewBag.Tinh = new SelectList(_db.Tinhs.Where(row => row.ID).ToList());
             //List<Tinh> lsTinh = new List<Tinh>();
-           var lsTinh = from t in _db.Tinhs
-                       select t.Tentinh.ToList();
-            ViewBag.msg = lsTinh;
+            //var lsTinh = (from t in _db.Tinhs
+            //              select t).ToList();
+            //var model = _db.Tinhs.Select(t => new SelectListItem
+            //{
+            //    Text = t.Tentinh,
+            //    Value = t.ID.ToString()
+            //});
             return View();
         }
         [HttpPost]
