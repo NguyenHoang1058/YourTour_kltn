@@ -1,0 +1,57 @@
+﻿@model YourTour.Models.ViewModels.NhanvienViewModel
+
+@{
+    ViewData["Title"] = "EditStaff";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 style="text-align:center;color:brown">Chỉnh sửa thông tin @Model.Hoten</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("EditStaff", "Admin", FormMethod.Post))
+        {
+            <input type="hidden" name="@Model.ID" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label name="Hoten" class="control-label">Tên nhân viên</label>
+                <input name="Hoten" class="form-control" value="@Model.Hoten"/>
+                <span asp-validation-for="Hoten" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label name="Sdt" class="control-label">Số điện thoại</label>
+                <input name="Sdt" class="form-control" value="@Model.Sdt"/>
+                <span asp-validation-for="Sdt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label name="Gioitinh" class="control-label">Giới tính</label>
+                <select class="form-control" name="Gioitinh">
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label name="Email" class="control-label">Email</label>
+                <input name="Email" class="form-control" value="@Model.Email"/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label name="Matkhau" class="control-label">Mật khẩu</label>
+                <input name="Matkhau" class="form-control" value="@Model.Matkhau"/>
+                <span asp-validation-for="Matkhau" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label name="Vaitro" class="control-label">Vai trò</label>
+                <input name="Vaitro" class="form-control" value="@Model.Vaitro"/>
+                <span asp-validation-for="Vaitro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        }
+    </div>
+</div>
+
+
+

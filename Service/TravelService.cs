@@ -75,6 +75,15 @@ namespace YourTour.Service
             {
                 viewModel.ID = listTour.ID;
                 viewModel.Tentour = listTour.Tentour;
+                viewModel.Code = listTour.Code;
+                viewModel.Ngaydi = listTour.Ngaydi;
+                viewModel.Ngayve = listTour.Ngayve;
+                viewModel.Thoigiandi = listTour.Thoigiandi;
+                viewModel.Gianguoilon = listTour.Gianguoilon;
+                viewModel.Giatreem = listTour.Giatreem;
+                viewModel.Mota = listTour.Mota;
+                viewModel.TenHDV = listTour.TenHDV;
+                viewModel.Trangthai = listTour.Trangthai;
             }
             return viewModel;
         }

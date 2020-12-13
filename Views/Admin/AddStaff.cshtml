@@ -1,0 +1,51 @@
+﻿@model YourTour.Models.Commands.StaffCommand
+@{
+    ViewData["Title"] = "AddStaff";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 style="text-align:center;color:brown;text-transform:uppercase">Thêm nhân viên mới</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("AddStaff", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Hoten" class="control-label">Tên nhân viên</label>
+                <input name="Hoten" class="form-control" />
+                <span asp-validation-for="Hoten" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sdt" class="control-label">Số điện thoại</label>
+                <input name="Sdt" class="form-control" />
+                <span asp-validation-for="Sdt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gioitinh" class="control-label">Giới tính</label>
+                <select class="form-control" name="Gioitinh">
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email</label>
+                <input name="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Matkhau" class="control-label">Mật khẩu</label>
+                <input type="password" name="Matkhau" class="form-control" />
+                <span asp-validation-for="Matkhau" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vaitro" class="control-label">Vai trò</label>
+                <input name="Vaitro" class="form-control" />
+                <span asp-validation-for="Vaitro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Thêm nhân viên mới" class="btn btn-primary" />
+            </div>
+        }
+    </div>
+</div>

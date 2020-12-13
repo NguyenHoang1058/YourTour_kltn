@@ -11,6 +11,7 @@ using YourTour.Models.db;
 using YourTour.Models.ViewModels;
 using YourTour.Service;
 using X.PagedList;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace YourTour.Controllers
 {
@@ -19,12 +20,16 @@ namespace YourTour.Controllers
         private readonly YourTourContext _db;
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly TravelService _travelService;
+        private readonly StaffService _staffService;
+        private readonly LocationService _locationService;
 
-        public AdminController(YourTourContext db, IHostingEnvironment hostingEnvironment, TravelService travelService)
+        public AdminController(YourTourContext db, IHostingEnvironment hostingEnvironment, TravelService travelService, StaffService staffService, LocationService locationService)
         {
             this._db = db;
             this._hostingEnvironment = hostingEnvironment;
             this._travelService = travelService;
+            this._staffService = staffService;
+            this._locationService = locationService;
         }
         public IActionResult Index()
         {
@@ -144,5 +149,75 @@ namespace YourTour.Controllers
             this._travelService.EditTour(command);
             return RedirectToAction("ShowAllTour", "Admin");
         }
+
+        [HttpGet]
+        public IActionResult AddStaff()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddStaff(StaffCommand command, Taikhoan taikhoan)
+        {
+            if (ModelState.IsValid)
+            {
+                this._staffService.AddStaff(command, taikhoan);
+                return RedirectToAction("AllStaff", "Admin");
+            }
+            return View();
+        }
+        public IActionResult AllStaff()
+        {
+            var model = this._staffService.AllStaff();
+            return View(model);
+        }
+        public IActionResult EditStaff(int id)
+        {
+            var model = this._staffService.SeeStaff(id);
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult EditStaff(StaffCommand command)
+        {
+            this._staffService.EditStaff(command);
+            return RedirectToAction("AllStaff", "Admin");
+        }
+        [HttpGet]
+        public IActionResult AddLocation()
+        {
+            //ViewBag.Tinh = new SelectList(_db.Tinhs.Where(row => row.ID).ToList());
+            //List<Tinh> lsTinh = new List<Tinh>();
+           var lsTinh = from t in _db.Tinhs
+                       select t.Tentinh.ToList();
+            ViewBag.msg = lsTinh;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddLocation(LocationCommand command)
+        {
+            ViewBag.Tinh = new SelectList(_db.Tinhs.ToList());
+            if (ModelState.IsValid)
+            {
+                this._locationService.AddLocation(command);
+                return RedirectToAction("AllLocation", "Admin");
+            }
+            return View();
+        }
+        public IActionResult AllLocation()
+        {
+            var model = this._locationService.AllLocation();
+            return View(model);
+        }
+        public IActionResult EditLocation(int id)
+        {
+            var model = this._locationService.SeeLocation(id);
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult EditLocation(LocationCommand command)
+        {
+            this._locationService.EditLocation(command);
+            return RedirectToAction("AllLocation", "Admin");
+        }
+
     }
 }

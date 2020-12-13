@@ -15,6 +15,5 @@ namespace YourTour.Models.db
         public string Gioitinh { get; set; }
         public string Sdt { get; set; }
         public string Email { get; set; }
-        public Taikhoan Taikhoan { get; set; }
     }
 }
