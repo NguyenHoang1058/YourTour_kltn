@@ -33,7 +33,10 @@ namespace YourTour
             //services.AddControllersWithViews();
             services.AddSession();
             services.AddScoped<TourService>();
+            services.AddScoped<TravelService>();
             services.AddScoped<DattourService>();
+            services.AddScoped<StaffService>();
+            services.AddScoped<LocationService>();
             services.AddScoped<HoaDonService>();
             services.AddScoped<CommonService>();
             services.AddMvc();

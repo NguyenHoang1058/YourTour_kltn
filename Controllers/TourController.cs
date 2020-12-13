@@ -23,7 +23,7 @@ namespace YourTour.Controllers
             var model = this._tourService.TourTrongNuoc();
             return View(model);
         }
-        public IActionResult ThongTinChiTietTour(int? id)
+        public IActionResult ThongTinChiTietTour(int ?id)
         {
             if(id == null)
             {
