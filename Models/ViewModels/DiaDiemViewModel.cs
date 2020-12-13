@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace YourTour.Models.ViewModels
 {
-    public class DiaDiemViewModel
+    public class DiadiemViewModel
     {
         public int ID { get; set; }
         public string Tendiadiem { get; set; }

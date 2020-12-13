@@ -17,14 +17,14 @@ namespace YourTour.Service
         {
             this._db = db;
         }
-        public List<DiaDiemViewModel> Diadiem()
+        public List<DiadiemViewModel> Diadiem()
         {
-            var diaDiem = new List<DiaDiemViewModel>();
+            var diaDiem = new List<DiadiemViewModel>();
 
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                diaDiem = conn.Query<DiaDiemViewModel>(@"select top 4 * from Diadiemdulich").ToList();
+                diaDiem = conn.Query<DiadiemViewModel>(@"select top 4 * from Diadiemdulich").ToList();
             }
             return diaDiem;
         }
