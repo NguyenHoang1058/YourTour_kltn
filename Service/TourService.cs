@@ -32,6 +32,20 @@ namespace YourTour.Service
 
             return tourTrongNuoc;
         }
+        public List<TourViewModel> TourNoiBat()
+        {
+            var tourNoiBat = new List<TourViewModel>();
+
+            // using Dapper
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                tourNoiBat = conn.Query<TourViewModel>(@"select top 4 * from Tour where Loaitour=N'Trong nước' and Tournoibat=1").ToList();
+            }
+
+            return tourNoiBat;
+        }
         public TourViewModel ChiTietTour(int? id)
         {
             var tourId = new List<TourViewModel>();
@@ -39,7 +53,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourId = conn.Query<TourViewModel>(@"select * from Tour where ID="+id).ToList();
+                tourId = conn.Query<TourViewModel>(@"select * from Tour where ID=" + id).ToList();
                 conn.Close();
             }
 

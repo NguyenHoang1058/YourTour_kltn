@@ -1,0 +1,115 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model YourTour.Models.ViewModels.CommonViewModel;
+@{
+    ViewData["Title"] = "Chi Tiet Booking";
+    Layout = "~/Views/Shared/_LayoutTour.cshtml";
+}
+<div class="contact-grids">
+    <div class="row">
+        <div class="col-lg-6">
+            <h3 style="color:red">PHIẾU XÁC NHẬN BOOKING</h3>
+            <div style="background-color:lightgray">
+                <table class="table table-hover">
+                    <tr>
+                        <td>Mã tour:</td>
+                        <td><b>@Model.Tourcode</b></td>
+                    </tr>
+                    <tr>
+                        <td>Tên tour:</td>
+                        <td><b>@Model.Tentour</b></td>
+                    </tr>
+                    <tr>
+                        <td>Ngày đi:</td>
+                        <td><b>@Model.Ngaydi.ToShortDateString()</b></td>
+                    </tr>
+                    <tr>
+                        <td>Ngày về:</td>
+                        <td><b>@Model.Ngayve.ToShortDateString()</b></td>
+                    </tr>
+                    <tr>
+                        <td>Nơi khởi hành:</td>
+                        <td><b>@Model.Diadiemkhoihanh</b></td>
+                    </tr>
+                    <tr>
+                        <td>Hành trình:</td>
+                        <td><b>N/A</b></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <h3 style="color:red">THÔNG TIN LIÊN LẠC</h3>
+            <div style="background-color:lightgray">
+                <table class="table table-hover">
+                    <tr>
+                        <td>Họ tên:</td>
+                        <td><b>@Model.Hoten</b></td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ:</td>
+                        <td><b>@Model.Diachi</b></td>
+                    </tr>
+                    <tr>
+                        <td>Di động:</td>
+                        <td><b>@Model.Sdt</b></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><b>@Model.Email</b></td>
+                    </tr>
+                    <tr>
+                        <td>Số khách:</td>
+                        <td><b>@Model.Songuoidi</b></td>
+                    </tr>
+                    <tr>
+                        <td>Ghi chú:</td>
+                        <td><b>N/A</b></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <h3 style="color:red">CHI TIẾT BOOKING</h3>
+        <div style="background-color:lightgray">
+            <table class="table table-hover">
+                <tr>
+                    <td>Số booking:</td>
+                    <td><b>@Model.Hoadoncode</b></td>
+                </tr>
+                <tr>
+                    <td>Trị giá booking:</td>
+                    <td><b>@Model.Tongtien</b></td>
+                </tr>
+                <tr>
+                    <td>Ngày đăng ký:</td>
+                    <td><b>@Model.Ngaylaphd</b></td>
+                </tr>
+                <tr>
+                    <td>Hình thức thanh toán:</td>
+                    <td><b>@Model.Ptthanhtoan</b></td>
+                </tr>
+                <tr>
+                    <td>Tình trạng:</td>
+                    <td><b>Chưa thanh toán</b></td>
+                </tr>
+                <tr>
+                    <td>Thời hạn thanh toán</td>
+                    <td><b>N/A</b></td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <div style="background-color:lightgray; text-align:center">
+            <p>Chúc quý khách có 1 chuyến đi thú vị và tuyệt vời</p>
+            <p>Quý khách vui lòng kiểm tra email để nhận phiếu xác nhận đặt dịch vụ thành công từ YourTour</p>
+        </div>
+    </div>
+</div>
+<div>
+    <a href="@Url.Action("ThanhToan","DatTour")"><button class="btn btn-primary">Thanh toán</button></a>
+</div>

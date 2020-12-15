@@ -26,6 +26,7 @@ namespace YourTour.Models.db
         public string Loaitour { get; set; }
         public string TenHDV { get; set; }
         public int Songuoi { get; set; }
+        public byte Tournoibat { get; set; }
         public string Trangthai { get; set; }
 
         public ICollection<Diadiemdulich> Diadiemduliches { get; set; }
@@ -49,6 +50,7 @@ namespace YourTour.Models.db
             this.TenHDV = tourViewModel.TenHDV;
             this.Songuoi = tourViewModel.Songuoi;
             this.Trangthai = tourViewModel.Trangthai;
+            this.Tournoibat = tourViewModel.Tournoibat;
         }
         public Tour()
         {

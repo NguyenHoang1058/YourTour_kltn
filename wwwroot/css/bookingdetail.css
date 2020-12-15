@@ -1,0 +1,44 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+}
+
+    body h1 {
+        text-align: center;
+    }
+/*xác nhận booking*/
+.xacnhanbooking {
+    height: 300px;
+}
+/*thông tin booking*/
+.thongtinbooking {
+    background-color: lightgray;
+}
+
+.xacnhanbooking h2 {
+    color: red;
+}
+/*chi tiết booking*/
+.chitietbooking {
+    height: 320px;
+}
+
+    .chitietbooking h2 {
+        color: red;
+    }
+
+.table-chitietbooking {
+    background-color: lightgray;
+}
+/*thông tin liên lạc*/
+.thongtinlienlac {
+    height: 320px;
+}
+
+    .thongtinlienlac h2 {
+        color: red;
+    }
+
+.table-thongtinlienlac {
+    background-color: lightgray;
+}

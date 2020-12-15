@@ -30,12 +30,15 @@ namespace YourTour.Controllers
                 return View("/Views/Shared/Error.cshtml");
             }
             var model = this._tourService.ChiTietTour(id);
-            if (model == null)
+            if(model == null)
             {
                 return null;
             }
-
             return View(model);
+        }
+        public IActionResult TourNgoaiNuoc()
+        {
+            return View();
         }
     }
 }
