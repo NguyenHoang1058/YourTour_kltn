@@ -16,7 +16,6 @@ namespace YourTour.Models.db
         public DbSet<Nguoidung> Nguoidungs { get; set; }
         public DbSet<Taikhoan> Taikhoans { get; set; }
         public DbSet<Mien> Miens { get; set; }
-        public DbSet<Tinh> Tinhs { get; set; }
         public DbSet<Diadiemdulich> Diadiemduliches { get; set; }
         public DbSet<Khachhang> Khachhangs { get; set; }
         public DbSet<Hoadon> Hoadons { get; set; }
@@ -28,7 +27,6 @@ namespace YourTour.Models.db
             modelBuilder.Entity<Nguoidung>().ToTable("Nguoidung");
             modelBuilder.Entity<Taikhoan>().ToTable("Taikhoan");
             modelBuilder.Entity<Mien>().ToTable("Mien");
-            modelBuilder.Entity<Tinh>().ToTable("Tinh");
             modelBuilder.Entity<Diadiemdulich>().ToTable("Diadiemdulich");
             modelBuilder.Entity<Khachhang>().ToTable("Khachhang");
             modelBuilder.Entity<Hoadon>().ToTable("Hoadon");

@@ -33,7 +33,7 @@ namespace YourTour.Service
             foreach (var item in lsResult)
             {
                 common.Tentour = item.Tentour;
-                common.Tourcode = item.Code;
+                common.Code = item.Code;
                 common.Diadiemkhoihanh = item.Diadiemkhoihanh;
                 common.Diemden = item.Diemden;
                 common.Ngaydi = item.Ngaydi;
@@ -51,6 +51,50 @@ namespace YourTour.Service
                 common.Tinhtrang = item.Tinhtrang;
             }
             return common;
+        }
+        public List<CommonViewModel> GetAllThongTinBooking()
+        {
+            var lsResult = new List<CommonViewModel>();
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                lsResult = conn.Query<CommonViewModel>(@"select * from CTHoadon join Tour on CTHoadon.TourID = Tour.ID
+                                                        join Hoadon on CTHoadon.HoadonID = Hoadon.ID
+                                                        join KhachHang on Hoadon.KhachhangID = Khachhang.ID").ToList();
+                conn.Close();
+            }
+            return lsResult;
+        }
+        public CommonViewModel GetChiTietThongTinBooking(int id)
+        {
+            var result = new CommonViewModel();
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                result = conn.Query<CommonViewModel>(@"select * from CTHoadon join Tour on CTHoadon.TourID = Tour.ID
+                                                        join Hoadon on CTHoadon.HoadonID = Hoadon.ID
+                                                        join KhachHang on Hoadon.KhachhangID = Khachhang.ID
+                                                        where CTHoadon.ID= " + id).FirstOrDefault();
+                conn.Close();
+            }
+            return result;
+        }
+        public CommonViewModel DeleteThongTinBooking(int id)
+        {
+            var result = new CommonViewModel();
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                result = conn.Query<CommonViewModel>(@"delete from CTHoadon join Tour on CTHoadon.TourID = Tour.ID
+                                                        join Hoadon on CTHoadon.HoadonID = Hoadon.ID
+                                                        join KhachHang on Hoadon.KhachhangID = Khachhang.ID
+                                                        where CTHoadon.ID= " + id).FirstOrDefault();
+                conn.Close();
+            }
+            return result;
         }
     }
 }

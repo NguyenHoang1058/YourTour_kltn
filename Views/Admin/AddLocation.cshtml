@@ -22,8 +22,8 @@
                 <span asp-validation-for="Mota" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TinhID" class="control-label">Tên tỉnh</label>
-                <select asp-for="TinhID" class="form-control" name="TinhID" asp-items="new SelectList(@Model.Tendiadiem, @Model.ID.ToString())">
+                <label asp-for="MienID" class="control-label">Tên miền</label>
+                <select asp-for="MienID" class="form-control" name="MienID" asp-items="new SelectList(@Model.Tendiadiem, @Model.ID.ToString())">
                 </select>
             </div>
             <div class="form-group">

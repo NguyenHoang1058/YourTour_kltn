@@ -25,7 +25,7 @@ namespace YourTour.Service
             {
                 newLocation.Tendiadiem = locationCommand.Tendiadiem;
                 newLocation.Mota = locationCommand.Mota;
-                newLocation.TinhID = locationCommand.TinhID;
+                newLocation.MienID = locationCommand.MienID;
             }
             _db.Diadiemduliches.Add(newLocation);
             _db.SaveChanges();
@@ -50,7 +50,7 @@ namespace YourTour.Service
                 viewModel.ID = listLocation.ID;
                 viewModel.Tendiadiem = listLocation.Tendiadiem;
                 viewModel.Mota = listLocation.Mota;
-                viewModel.TinhID = listLocation.TinhID;
+                //viewModel.TinhID = listLocation.TinhID;
                 //viewModel.Email = listStaff.Email;
                 //viewModel.Matkhau = listStaff2.Matkhau;
                 //viewModel.Vaitro = listStaff2.Vaitro;
@@ -64,7 +64,7 @@ namespace YourTour.Service
             {
                 checkLocation.Tendiadiem = command.Tendiadiem;
                 checkLocation.Mota = command.Mota;
-                checkLocation.TinhID = command.TinhID;
+                //checkLocation.TinhID = command.TinhID;
                 //checkStaff.Email = command.Email;
                 //checkAccount.Matkhau = command.Matkhau;
                 //checkAccount.Vaitro = command.Vaitro;

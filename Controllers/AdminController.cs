@@ -22,14 +22,18 @@ namespace YourTour.Controllers
         private readonly TravelService _travelService;
         private readonly StaffService _staffService;
         private readonly LocationService _locationService;
+        private readonly CommonService _commonService;
 
-        public AdminController(YourTourContext db, IHostingEnvironment hostingEnvironment, TravelService travelService, StaffService staffService, LocationService locationService)
+        public AdminController(YourTourContext db, IHostingEnvironment hostingEnvironment, 
+            TravelService travelService, StaffService staffService, LocationService locationService,
+            CommonService commonService)
         {
             this._db = db;
             this._hostingEnvironment = hostingEnvironment;
             this._travelService = travelService;
             this._staffService = staffService;
             this._locationService = locationService;
+            this._commonService = commonService;
         }
         public IActionResult Index()
         {
@@ -198,7 +202,7 @@ namespace YourTour.Controllers
         [HttpPost]
         public IActionResult AddLocation(LocationCommand command)
         {
-            ViewBag.Tinh = new SelectList(_db.Tinhs.ToList());
+            ViewBag.Tinh = new SelectList(_db.Miens.ToList());
             if (ModelState.IsValid)
             {
                 this._locationService.AddLocation(command);
@@ -222,6 +226,28 @@ namespace YourTour.Controllers
             this._locationService.EditLocation(command);
             return RedirectToAction("AllLocation", "Admin");
         }
-
+        public IActionResult ShowAllBookingTour()
+        {
+            var model = this._commonService.GetAllThongTinBooking();
+            if(model == null)
+            {
+                return null;
+            }
+            return View(model);
+        }
+        public IActionResult ShowChiTietThongTinBooking(int id)
+        {
+            var model = this._commonService.GetChiTietThongTinBooking(id);
+            if(model == null)
+            {
+                return null;
+            }
+            return View(model);
+        }
+        public IActionResult DeleteThongTinBooking(int id)
+        {
+            var model = this._commonService.DeleteThongTinBooking(id);
+            return RedirectToAction("ShowAllBookingTour","Admin");
+        }
     }
 }
