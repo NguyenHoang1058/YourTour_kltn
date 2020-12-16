@@ -16,7 +16,9 @@ namespace YourTour.Models.db
         public byte Tinhtrang { get; set; }
         public int KhachHangID { get; set; }
         public Khachhang Khachhang { get; set; }
-        public ICollection<CTHoadon> CTHoadons { get; set; }
+        public CTHoadonNam CTHoadon { get; set; }
+        public CTHoadonBac CTHoadonBac { get; set; }
+        public CTHoadonTrung CTHoadonTrung { get; set; }
 
         public Hoadon() { }
         public Hoadon(HoadonViewModel hoadonViewModel)

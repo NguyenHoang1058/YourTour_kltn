@@ -7,7 +7,7 @@ using YourTour.Models.ViewModels;
 
 namespace YourTour.Models.db
 {
-    public class CTHoadon
+    public class CTHoadonNam
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
@@ -21,8 +21,8 @@ namespace YourTour.Models.db
         public int TourID { get; set; }
         public Hoadon Hoadon { get; set; }
         public Tour Tour { get; set; }
-        public CTHoadon() { }
-        public CTHoadon(CTHoadonViewModel cTHoadonViewModel)
+        public CTHoadonNam() { }
+        public CTHoadonNam(CTHoadonViewModel cTHoadonViewModel)
         {
             this.ID = cTHoadonViewModel.ID;
             this.Hotenkhachhang = cTHoadonViewModel.Hotenkhachhang;

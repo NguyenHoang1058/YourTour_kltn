@@ -19,8 +19,10 @@ namespace YourTour.Models.db
         public DbSet<Diadiemdulich> Diadiemduliches { get; set; }
         public DbSet<Khachhang> Khachhangs { get; set; }
         public DbSet<Hoadon> Hoadons { get; set; }
-        public DbSet<CTHoadon> CTHoadons { get; set; }
+        public DbSet<CTHoadonNam> CTHoadonNams { get; set; }
         public DbSet<Tour> Tours { get; set; }
+        public DbSet<CTHoadonBac> CTHoadonBacs { get; set; }
+        public DbSet<CTHoadonTrung> CTHoadonTrungs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,8 +32,10 @@ namespace YourTour.Models.db
             modelBuilder.Entity<Diadiemdulich>().ToTable("Diadiemdulich");
             modelBuilder.Entity<Khachhang>().ToTable("Khachhang");
             modelBuilder.Entity<Hoadon>().ToTable("Hoadon");
-            modelBuilder.Entity<CTHoadon>().ToTable("CTHoadon");
+            modelBuilder.Entity<CTHoadonNam>().ToTable("CTHoadonNam");
             modelBuilder.Entity<Tour>().ToTable("Tour");
+            modelBuilder.Entity<CTHoadonBac>().ToTable("CTHoadonBac");
+            modelBuilder.Entity<CTHoadonTrung>().ToTable("CTHoadonTrung");
         }
     }
 }
