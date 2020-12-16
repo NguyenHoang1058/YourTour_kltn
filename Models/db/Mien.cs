@@ -11,7 +11,8 @@ namespace YourTour.Models.db
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public string Tenmien { get; set; }
-
-        public ICollection<Tinh> Tinhs{ get; set; }
+        public ICollection<Tour> Tours { get; set; }
+        public ICollection<Diadiemdulich> Diadiemduliches{ get; set; }
+        
     }
 }

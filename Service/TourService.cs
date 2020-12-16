@@ -42,8 +42,8 @@ namespace YourTour.Service
             {
                 conn.Open();
                 tourNoiBat = conn.Query<TourViewModel>(@"select top 4 * from Tour where Loaitour=N'Trong nước' and Tournoibat=1").ToList();
+                conn.Close();
             }
-
             return tourNoiBat;
         }
         public TourViewModel ChiTietTour(int? id)

@@ -1,0 +1,66 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<YourTour.Models.ViewModels.CommonViewModel>;
+@{
+    ViewData["Title"] = "ShowAllBookingTour";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h1 style="color:brown;text-align:center">Danh sách tour đã đặt</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hoadoncode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ngaylaphd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tongtien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hoten)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hoadoncode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ngaylaphd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tongtien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hoten)
+                </td>
+                <td>
+                    @Html.ActionLink("Chi tiết", "ShowChiTietThongTinBooking", "Admin", new { id = item.ID }) |
+                    @Html.ActionLink("Xóa", "DeleteThongTinBooking", "Admin", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

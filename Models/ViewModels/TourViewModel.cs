@@ -44,5 +44,6 @@ namespace YourTour.Models.ViewModels
         public string Trangthai { get; set; }
         [DisplayName("Tour nổi bật")]
         public byte Tournoibat { get; set; }
+        public int MienID { get; set; }
     }
 }
