@@ -48,9 +48,13 @@ namespace YourTour.Models.db
             var khachhang = new Khachhang[]
             {
                 new Khachhang{Hoten="Hoàng Sĩ Nguyên", Cmnd = 251139125, Diachi="12 Nguyễn Văn Bảo", Email="test@gmail.com", Sdt="0123456789"},
-                new Khachhang{Hoten="Lê Tuấn Kiệt", Cmnd = 251133132, Diachi="13 Nguyễn Văn Bảo", Email="test@gmail.com", Sdt="0987465133"},
-                new Khachhang{Hoten="Hoàng Bá Bửu", Cmnd = 251139125, Diachi="14 Nguyễn Văn Bảo", Email="test@gmail.com", Sdt="0123456789"},
-                new Khachhang{Hoten="Lê Tuấn Anh", Cmnd = 251133132, Diachi="15 Nguyễn Văn Bảo", Email="test@gmail.com", Sdt="0987465133"}
+                new Khachhang{Hoten="Lê Tuấn Kiệt", Cmnd = 251133122, Diachi="13 Nguyễn Văn Bảo", Email="test@gmail.com", Sdt="0987465133"},
+                new Khachhang{Hoten="Hoàng Bá Bửu", Cmnd = 251139115, Diachi="14 Nguyễn Văn Bảo", Email="test@gmail.com", Sdt="0123456789"},
+                new Khachhang{Hoten="Lê Tuấn Anh", Cmnd = 251133112, Diachi="15 Nguyễn Văn Bảo", Email="test@gmail.com", Sdt="0987465133"},
+                new Khachhang{Hoten="Đoàn Lê Huy", Cmnd = 251139126, Diachi="16 Nguyễn Văn Bảo", Email="test@gmail.com", Sdt="0123456789"},
+                new Khachhang{Hoten="Nguyễn Hữu Tình", Cmnd = 251133162, Diachi="17 Nguyễn Văn Bảo", Email="test@gmail.com", Sdt="0987465133"},
+                new Khachhang{Hoten="Hoàng Văn Dương", Cmnd = 251139185, Diachi="18 Nguyễn Văn Bảo", Email="test@gmail.com", Sdt="0123456789"},
+                new Khachhang{Hoten="Lê Tuấn Vũ", Cmnd = 251133190, Diachi="19 Nguyễn Văn Bảo", Email="test@gmail.com", Sdt="0987465133"}
             };
             foreach (Khachhang kh in khachhang)
             {
@@ -142,6 +146,14 @@ namespace YourTour.Models.db
                 new Hoadon{KhachHangID=1, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1200000, Tinhtrang = 1},
                 new Hoadon{KhachHangID=2, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1100000, Tinhtrang = 0},
                 new Hoadon{KhachHangID=3, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000, Tinhtrang = 1},
+                new Hoadon{KhachHangID=4, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000, Tinhtrang = 1},
+                new Hoadon{KhachHangID=1, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1200000, Tinhtrang = 1},
+                new Hoadon{KhachHangID=2, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1100000, Tinhtrang = 0},
+                new Hoadon{KhachHangID=3, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000, Tinhtrang = 1},
+                new Hoadon{KhachHangID=4, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000, Tinhtrang = 1},
+                new Hoadon{KhachHangID=1, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1200000, Tinhtrang = 1},
+                new Hoadon{KhachHangID=2, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1100000, Tinhtrang = 0},
+                new Hoadon{KhachHangID=3, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000, Tinhtrang = 1},
                 new Hoadon{KhachHangID=4, Ngaylaphd=DateTime.Parse("2020-12-09"), Tongtien=1250000, Tinhtrang = 1}
             };
             foreach (Hoadon hd in hoadon)
@@ -151,23 +163,65 @@ namespace YourTour.Models.db
             context.SaveChanges();
 
             //
-            //  init data table CTHoadon
+            //  init data table CTHoadonNam
             //
 
-            var cthd = new CTHoadon[]
+            var cthd = new CTHoadonNam[]
             {
-                new CTHoadon{Hotenkhachhang="Hoàng Sĩ Nguyên", Sdt="0369052254", Email="onegtheprober1058@gmail.com", Hoadoncode = "ABCND134",
+                new CTHoadonNam{Hotenkhachhang="Hoàng Sĩ Nguyên", Sdt="0369052254", Email="onegtheprober1058@gmail.com", Hoadoncode = "ABCND134",
                     Songuoidi=1, Ptthanhtoan="tiền mặt", HoadonID=1, TourID=1},
-                new CTHoadon{Hotenkhachhang="Lê Tuấn Kiệt", Sdt="0369052253", Email="kietle@gmail.com",Hoadoncode = "ABCND135",
+                new CTHoadonNam{Hotenkhachhang="Lê Tuấn Kiệt", Sdt="0369052253", Email="kietle@gmail.com",Hoadoncode = "ABCND135",
                     Songuoidi=2, Ptthanhtoan="thanh toán online", HoadonID=2, TourID=2},
-                new CTHoadon{Hotenkhachhang="Hoàng Bá Bửu", Sdt="0369052254", Email="onegtheprober1058@gmail.com", Hoadoncode = "ABCND136",
+                new CTHoadonNam{Hotenkhachhang="Hoàng Bá Bửu", Sdt="0369052254", Email="onegtheprober1058@gmail.com", Hoadoncode = "ABCND136",
                     Songuoidi=3, Ptthanhtoan="tiền mặt", HoadonID=3, TourID=3},
-                new CTHoadon{Hotenkhachhang="Lê Tuấn Anh", Sdt="0369052253", Email="kietle@gmail.com",Hoadoncode = "ABCND137",
+                new CTHoadonNam{Hotenkhachhang="Lê Tuấn Anh", Sdt="0369052253", Email="kietle@gmail.com",Hoadoncode = "ABCND137",
                     Songuoidi=4, Ptthanhtoan="chuyển khoản", HoadonID=4, TourID=4}
             };
-            foreach (CTHoadon cthoadon in cthd)
+            foreach (CTHoadonNam cthoadon in cthd)
             {
-                context.CTHoadons.Add(cthoadon);
+                context.CTHoadonNams.Add(cthoadon);
+            }
+            context.SaveChanges();
+
+            //
+            // init data table CTHoadonTrung
+            //
+
+            var cthdt = new CTHoadonTrung[]
+            {
+                new CTHoadonTrung{Hotenkhachhang="Hoàng Sĩ Nguyên", Sdt="0369052254", Email="onegtheprober1058@gmail.com", Hoadoncode = "ABCND134",
+                    Songuoidi=1, Ptthanhtoan="tiền mặt", HoadonID=1, TourID=1},
+                new CTHoadonTrung{Hotenkhachhang="Lê Tuấn Kiệt", Sdt="0369052253", Email="kietle@gmail.com",Hoadoncode = "ABCND135",
+                    Songuoidi=2, Ptthanhtoan="thanh toán online", HoadonID=2, TourID=2},
+                new CTHoadonTrung{Hotenkhachhang="Hoàng Bá Bửu", Sdt="0369052254", Email="onegtheprober1058@gmail.com", Hoadoncode = "ABCND136",
+                    Songuoidi=3, Ptthanhtoan="tiền mặt", HoadonID=3, TourID=3},
+                new CTHoadonTrung{Hotenkhachhang="Lê Tuấn Anh", Sdt="0369052253", Email="kietle@gmail.com",Hoadoncode = "ABCND137",
+                    Songuoidi=4, Ptthanhtoan="chuyển khoản", HoadonID=4, TourID=4}
+            };
+            foreach (CTHoadonTrung cTHoadonTrung in cthdt)
+            {
+                context.CTHoadonTrungs.Add(cTHoadonTrung);
+            }
+            context.SaveChanges();
+
+            //
+            // init data table CTHoadonBac
+            //
+
+            var cthdb = new CTHoadonBac[]
+            {
+                new CTHoadonBac{Hotenkhachhang="Hoàng Sĩ Nguyên", Sdt="0369052254", Email="onegtheprober1058@gmail.com", Hoadoncode = "ABCND134",
+                    Songuoidi=1, Ptthanhtoan="tiền mặt", HoadonID=1, TourID=1},
+                new CTHoadonBac{Hotenkhachhang="Lê Tuấn Kiệt", Sdt="0369052253", Email="kietle@gmail.com",Hoadoncode = "ABCND135",
+                    Songuoidi=2, Ptthanhtoan="thanh toán online", HoadonID=2, TourID=2},
+                new CTHoadonBac{Hotenkhachhang="Hoàng Bá Bửu", Sdt="0369052254", Email="onegtheprober1058@gmail.com", Hoadoncode = "ABCND136",
+                    Songuoidi=3, Ptthanhtoan="tiền mặt", HoadonID=3, TourID=3},
+                new CTHoadonBac{Hotenkhachhang="Lê Tuấn Anh", Sdt="0369052253", Email="kietle@gmail.com",Hoadoncode = "ABCND137",
+                    Songuoidi=4, Ptthanhtoan="chuyển khoản", HoadonID=4, TourID=4}
+            };
+            foreach (CTHoadonBac cTHoadonBac in cthdb)
+            {
+                context.CTHoadonBacs.Add(cTHoadonBac);
             }
             context.SaveChanges();
         }
