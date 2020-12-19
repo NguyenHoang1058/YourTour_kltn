@@ -1,5 +1,46 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model YourTour.Models.ViewModels.DiadiemViewModel
+
 @{
+    ViewData["Title"] = "EditLocation";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+
+<h1 style="text-align:center;color:brown">Chỉnh sửa thông tin @Model.Tendiadiem</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("EditLocation", "Admin", FormMethod.Post))
+        {
+            <input type="hidden" name="@Model.ID" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label name="Tendiadiem" class="control-label">Tên địa điểm</label>
+                <input name="Tendiadiem" class="form-control" value="@Model.Tendiadiem" />
+                <span asp-validation-for="Tendiadiem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label name="Mota" class="control-label">Mô tả</label>
+                <input name="Mota" class="form-control" value="@Model.Mota" />
+                <span asp-validation-for="Mota" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label name="MienID" class="control-label">Tên miền</label>
+                <select class="form-control" name="MienID" asp-items="@(new SelectList(@ViewBag.ListMien, "ID", "Tenmien"))" value="@Model.MienID">
+                </select>
+            </div>
+            @*<div class="form-group">
+                <label name="Gioitinh" class="control-label">Giới tính</label>
+                <select class="form-control" name="Gioitinh">
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        }
+    </div>
+</div>
+
+
+

@@ -63,8 +63,8 @@ namespace YourTour.Service
                 cthd.Ptthanhtoan = validation.Ptthanhtoan;
                 cthd.HoadonID = newHD.ID;
                 cthd.TourID = tour.ID;
-                var newCTHD = new CTHoadon(cthd);
-                _db.CTHoadons.Add(newCTHD);
+                var newCTHD = new CTHoadonNam(cthd);
+                _db.CTHoadonNams.Add(newCTHD);
                 _db.SaveChanges();
                 
                 //send mail
@@ -131,8 +131,8 @@ namespace YourTour.Service
                 cthd.Ptthanhtoan = validation.Ptthanhtoan;
                 cthd.HoadonID = newHD.ID;
                 cthd.TourID = tour.ID;
-                var newCTHD = new CTHoadon(cthd);
-                _db.CTHoadons.Add(newCTHD);
+                var newCTHD = new CTHoadonNam(cthd);
+                _db.CTHoadonNams.Add(newCTHD);
                 _db.SaveChanges();
 
                 //send mail

@@ -13,6 +13,7 @@ namespace YourTour.Models.db
         public int ID { get; set; }
         public string Code { get; set; }
         public string Tentour { get; set; }
+        //public string Diadiemdulich { get; set; }
         public string Diadiemkhoihanh { get; set; }
         public string Diemden { get; set; }
         public DateTime Ngaydi { get; set; }
@@ -28,10 +29,11 @@ namespace YourTour.Models.db
         public int Songuoi { get; set; }
         public byte Tournoibat { get; set; }
         public string Trangthai { get; set; }
+        //public List<String> Diadiem { get; set; }
         public int Thuocmien { get; set; }
         public Mien Mien { get; set; }
-
-        public ICollection<Diadiemdulich> Diadiemduliches { get; set; }
+        public DiadiemTour DiadiemTour { get; set; }
+        //public ICollection<Diadiemdulich> Diadiemduliches { get; set; }
 
         public Tour(TourViewModel tourViewModel)
         {
@@ -39,7 +41,7 @@ namespace YourTour.Models.db
             this.Code = tourViewModel.Code;
             this.Tentour = tourViewModel.Tentour;
             this.Diadiemkhoihanh = tourViewModel.Diadiemkhoihanh;
-            this.Diadiemduliches = tourViewModel.diadiemduliches;
+           // this.Diadiemduliches = tourViewModel.diadiemduliches;
             this.Diemden = tourViewModel.Diemden;
             this.Ngaydi = tourViewModel.Ngaydi;
             this.Ngayve = tourViewModel.Ngayve;

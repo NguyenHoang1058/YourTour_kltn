@@ -18,7 +18,7 @@
                 @Html.DisplayNameFor(model => model.Mota)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tentinh)
+                @Html.DisplayNameFor(model => model.MienID)
             </th>
             @*<th>
                 @Html.DisplayNameFor(model => model.Email)
@@ -37,14 +37,14 @@
                     @Html.DisplayFor(modelItem => item.Mota)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Tentinh)
+                    @Html.DisplayFor(modelItem => item.MienID)
                 </td>
                 @*<td>
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>*@
                 <td>
                     @Html.ActionLink("Edit", "EditLocation", "Admin", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "ChiTietNhanVien", "NhanVien", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "DetailLocation", "DiaDiem", new { id = item.ID }) |
                     @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
                 </td>
             </tr>

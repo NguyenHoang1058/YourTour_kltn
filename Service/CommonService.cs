@@ -20,7 +20,7 @@ namespace YourTour.Service
         }
         public CommonViewModel GetThongTinBooking(string bookingCode)
         {
-            var lsResult = from cthd in _db.CTHoadons
+            var lsResult = from cthd in _db.CTHoadonNams
                            join t in _db.Tours on cthd.TourID equals t.ID
                            join hd in _db.Hoadons on cthd.HoadonID equals hd.ID
                            join kh in _db.Khachhangs on hd.KhachHangID equals kh.ID

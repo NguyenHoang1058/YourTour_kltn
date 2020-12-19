@@ -38,6 +38,7 @@ namespace YourTour
             services.AddScoped<StaffService>();
             services.AddScoped<LocationService>();
             services.AddScoped<HoaDonService>();
+            services.AddScoped<StatisticService>();
             services.AddScoped<CommonService>();
             services.AddMvc();
         }

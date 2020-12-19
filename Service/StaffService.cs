@@ -18,15 +18,15 @@ namespace YourTour.Service
         {
             this._db = db;
         }
-        public void AddStaff(StaffCommand staffCommand, Taikhoan taikhoan)
+        public void AddStaff(NhanvienViewModel nhanvien, Taikhoan taikhoan)
         {
             var newStaff = new Nguoidung();
             var newaccount = new Taikhoan();
             {
-                newStaff.Hoten = staffCommand.Hoten;
-                newStaff.Sdt = staffCommand.Sdt;
-                newStaff.Email = staffCommand.Email;
-                newStaff.Gioitinh = staffCommand.Gioitinh;
+                newStaff.Hoten = nhanvien.Hoten;
+                newStaff.Sdt = nhanvien.Sdt;
+                newStaff.Email = nhanvien.Email;
+                newStaff.Gioitinh = nhanvien.Gioitinh;
                 newaccount.Email = newStaff.Email;
                 newaccount.Matkhau = taikhoan.Matkhau;
                 newaccount.Vaitro = taikhoan.Vaitro;
@@ -35,13 +35,13 @@ namespace YourTour.Service
             _db.Nguoidungs.Add(newStaff);
             _db.SaveChanges();
         }
-        public List<StaffCommand> AllStaff()
+        public List<NhanvienViewModel> AllStaff()
         {
-            var listStaff = new List<StaffCommand>();
+            var listStaff = new List<NhanvienViewModel>();
             using (var connection = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 connection.Open();
-                listStaff = connection.Query<StaffCommand>(@"Select * From Nguoidung").ToList();
+                listStaff = connection.Query<NhanvienViewModel>(@"Select * From Nguoidung").ToList();
                 connection.Close();
             }
             return listStaff;
@@ -62,7 +62,7 @@ namespace YourTour.Service
             }
             return viewModel;
         }
-        public void EditStaff(StaffCommand command)
+        public void EditStaff(NhanvienViewModel command)
         {
             var checkStaff = _db.Nguoidungs.FirstOrDefault(n => n.ID == command.ID);
             var checkAccount = _db.Taikhoans.FirstOrDefault(a => a.Email == checkStaff.Email);

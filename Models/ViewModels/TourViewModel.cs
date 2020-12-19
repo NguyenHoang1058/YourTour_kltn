@@ -45,5 +45,6 @@ namespace YourTour.Models.ViewModels
         [DisplayName("Tour nổi bật")]
         public byte Tournoibat { get; set; }
         public int MienID { get; set; }
+        public List<String> MultiDiaDiem { get; set; }
     }
 }

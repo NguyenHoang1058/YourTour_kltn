@@ -48,13 +48,13 @@ namespace YourTour.Service
             }
             return total;
         }
-        public CTHoadon GetHoaDonCode()
+        public CTHoadonNam GetHoaDonCode()
         {
-            var cthd = new CTHoadon();
-            using(var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            var cthd = new CTHoadonNam();
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                cthd = conn.Query<CTHoadon>(@"select top 1 * from CTHoadon order by ID desc").FirstOrDefault();
+                cthd = conn.Query<CTHoadonNam>(@"select top 1 * from CTHoadon order by ID desc").FirstOrDefault();
                 conn.Close();
             }
             return cthd;
