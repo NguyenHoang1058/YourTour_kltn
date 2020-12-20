@@ -16,13 +16,13 @@ namespace YourTour.Models.db
         public string Email { get; set; }
         public string Hoadoncode { get; set; }
         public int Songuoidi { get; set; }
-        public string Ptthanhtoan { get; set; }
+        public byte Dahuy { get; set; }
         public int HoadonID { get; set; }
         public int TourID { get; set; }
         public Hoadon Hoadon { get; set; }
         public Tour Tour { get; set; }
         public CTHoadonNam() { }
-        public CTHoadonNam(CTHoadonViewModel cTHoadonViewModel)
+        public CTHoadonNam(CTHoadonNamViewModel cTHoadonViewModel)
         {
             this.ID = cTHoadonViewModel.ID;
             this.Hotenkhachhang = cTHoadonViewModel.Hotenkhachhang;
@@ -30,7 +30,7 @@ namespace YourTour.Models.db
             this.Email = cTHoadonViewModel.Email;
             this.Hoadoncode = cTHoadonViewModel.Hoadoncode;
             this.Songuoidi = cTHoadonViewModel.Songuoidi;
-            this.Ptthanhtoan = cTHoadonViewModel.Ptthanhtoan;
+            this.Dahuy = cTHoadonViewModel.Dahuy;
             this.HoadonID = cTHoadonViewModel.HoadonID;
             this.TourID = cTHoadonViewModel.TourID;
         }

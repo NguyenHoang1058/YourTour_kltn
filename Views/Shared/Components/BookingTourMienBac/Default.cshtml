@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<YourTour.Models.ViewModels.CommonViewModel>;
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Code)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Hoadoncode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ngaylaphd)
+    </td>
+    @if (@item.Thuocmien == 1)
+    {
+        <td>Miền Bắc</td>
+    }
+    <td>
+        @Html.DisplayFor(modelItem => item.Tongtien)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Hoten)
+    </td>
+    <td>
+        @Html.ActionLink("Chi tiết", "ShowChiTietThongTinBooking", "Admin", new { id = item.ID }) |
+        @Html.ActionLink("Hủy tour", "HuyBookingTour", "Admin", new { id = item.ID })
+    </td>
+</tr>
+    }

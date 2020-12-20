@@ -27,7 +27,7 @@ namespace YourTour.Controllers
         }
         public IActionResult OnePay()
         {
-            var hd = _hoaDonService.GetTotal();
+            var hd = _hoaDonService.GetHoaDon();
             string total = (hd.Tongtien* 100).ToString();
             string url = RedirectToOnpay("Thanh toán đặt tour", total, "190.168.0.1");
             return Redirect(url);
@@ -60,7 +60,7 @@ namespace YourTour.Controllers
             string message = conn.GetResponseData("vpc_Message");
             if(hashValidateResult == "CORRECTED" && txnResponseCode.Trim() == "0")
             {
-                var hd = _hoaDonService.GetTotal();
+                var hd = _hoaDonService.GetHoaDon();
                 hd.Tinhtrang = 1;
                 _db.Hoadons.Update(hd);
                 _db.SaveChanges();

@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<YourTour.Models.ViewModels.TourViewModel>
+<div>
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-8 col-sm-12 mb-5">
+            <div class="image-tour position-relative">
+                <a href="@Url.Action("TourMienBac","Tour", new { @id = item.ID})">
+                    <img src="@Url.Content("/images/tour_images/"+item.Hinhanh)" alt="" class="img-fluid">
+                    <p><span class="fa fa-tags"></span> <span>@item.Gianguoilon.ToString("#,##") đ</span></p>
+                </a>
+            </div>
+            <div class="package-info">
+                <h6 class="mt-1" style="text-overflow:ellipsis;white-space:nowrap; overflow:hidden" title="@item.Tentour"><span class="fa fa-map-marker mr-2"></span>@item.Tentour</h6>
+                <h5 class="my-2">@item.Code</h5>
+                <p class="">@item.Mota</p>
+                <ul class="listing mt-3">
+                    <li><span class="fa fa-clock-o mr-2"></span><span>@item.Ngaydi.ToShortDateString()| @item.Thoigiandi ngày | @item.Songuoi chỗ</span></li>
+                </ul>
+            </div>
+        </div>
+    }
+</div>

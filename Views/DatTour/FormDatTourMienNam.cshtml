@@ -5,7 +5,7 @@
 }
 @model YourTour.Models.ViewModels.TourViewModel;
 <h4 class="text-uppercase" style="color:red" ; text-align:center>thông tin liên lạc</h4>
-@using (Html.BeginForm("DatTour", "DatTour", FormMethod.Post, new { @class = "row" }))
+@using (Html.BeginForm("DatTourMienNam", "DatTour", FormMethod.Post, new { @class = "row" }))
 {
     <div class="col-sm-6 form-group contact-forms">
         @Html.TextBox("Hoten", "", new { @class = "form-control", @placeholder = "Họ và tên" })

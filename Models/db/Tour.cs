@@ -39,7 +39,6 @@ namespace YourTour.Models.db
             this.Code = tourViewModel.Code;
             this.Tentour = tourViewModel.Tentour;
             this.Diadiemkhoihanh = tourViewModel.Diadiemkhoihanh;
-            this.Diadiemduliches = tourViewModel.diadiemduliches;
             this.Diemden = tourViewModel.Diemden;
             this.Ngaydi = tourViewModel.Ngaydi;
             this.Ngayve = tourViewModel.Ngayve;

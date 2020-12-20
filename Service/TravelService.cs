@@ -43,7 +43,7 @@ namespace YourTour.Service
         public IQueryable<TourViewModel> ShowAllTour()
         {
             var tours = from t in _db.Tours
-                        select new { t.ID, t.Code, t.Tentour, t.Diadiemduliches, t.Diadiemkhoihanh, t.Ngaydi, t.Ngayve, t.Lichtrinh, t.Hinhanh, t.Gianguoilon, t.Giatreem, t.TenHDV, t.Mota, t.Trangthai, t.Songuoi };
+                        select new { t.ID, t.Code, t.Tentour, t.Diadiemkhoihanh, t.Ngaydi, t.Ngayve, t.Lichtrinh, t.Hinhanh, t.Gianguoilon, t.Giatreem, t.TenHDV, t.Mota, t.Trangthai, t.Songuoi };
 
             var tourView = new List<TourViewModel>();
             foreach (var item in tours)
@@ -52,7 +52,6 @@ namespace YourTour.Service
                 tourViewModel.ID = item.ID;
                 tourViewModel.Code = item.Code;
                 tourViewModel.Tentour = item.Tentour;
-                tourViewModel.diadiemduliches = item.Diadiemduliches;
                 tourViewModel.Diadiemkhoihanh = item.Diadiemkhoihanh;
                 tourViewModel.Ngaydi = item.Ngaydi;
                 tourViewModel.Ngayve = item.Ngayve;

@@ -8,6 +8,7 @@ using YourTour.Models.Validate;
 using Microsoft.AspNetCore.Hosting;
 using YourTour.Helpers;
 using Microsoft.Extensions.Configuration;
+using YourTour.Models.ViewModels;
 
 namespace YourTour.Controllers
 {
@@ -32,13 +33,41 @@ namespace YourTour.Controllers
         {
             return View();
         }
-        public IActionResult BookTour(int? id)
+        public IActionResult DatTourMienNam(int? id)
         {
             if (id == null)
             {
                 return View("/Views/Shared/Error.cshtml");
             }
-            var model = this._tourService.ChiTietTour(id);
+            var model = this._tourService.ChiTietTourMienNam(id);
+            if (model == null)
+            {
+                return null;
+            }
+
+            return View(model);
+        }
+        public IActionResult DatTourMienBac(int? id)
+        {
+            if (id == null)
+            {
+                return View("/Views/Shared/Error.cshtml");
+            }
+            var model = this._tourService.ChiTietTourMienBac(id);
+            if (model == null)
+            {
+                return null;
+            }
+
+            return View(model);
+        }
+        public IActionResult DatTourMienTrung(int? id)
+        {
+            if (id == null)
+            {
+                return View("/Views/Shared/Error.cshtml");
+            }
+            var model = this._tourService.ChiTietTourMienTrung(id);
             if (model == null)
             {
                 return null;
@@ -47,40 +76,82 @@ namespace YourTour.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult DatTour(DatTourValidation validation)
+        public IActionResult DatTourMienNam(DatTourValidation validation)
         {
             if (ModelState.IsValid)
             {
-                this._dattourService.DatTour(validation);
-                return RedirectToAction("ChiTietBooking", "DatTour");
+                this._dattourService.DatTourMienNam(validation);
+                return RedirectToAction("ChiTietBookingTourMienNam", "DatTour");
                 
             }
             ModelState.Clear();
-            var model = _tourService.ChiTietTour(validation.TourID);
+            var model = _tourService.ChiTietTourMienNam(validation.TourID);
             return View("/Views/Tour/ChiTietTour.cshtml", model);
         }
-        public IActionResult ChiTietBooking()
+        [HttpPost]
+        public IActionResult DatTourMienBac(DatTourValidation validation)
         {
-            var cthd = this._hoaDonService.GetHoaDonCode();
-            var model = this._commonService.GetThongTinBooking(cthd.Hoadoncode);
+            if (ModelState.IsValid)
+            {
+                this._dattourService.DatTourMienBac(validation);
+                return RedirectToAction("ChiTietBookingTourMienBac", "DatTour");
+
+            }
+            ModelState.Clear();
+            var model = _tourService.ChiTietTourMienBac(validation.TourID);
+            return View("/Views/Tour/ChiTietTour.cshtml", model);
+        }
+        [HttpPost]
+        public IActionResult DatTourMienTrung(DatTourValidation validation)
+        {
+            if (ModelState.IsValid)
+            {
+                this._dattourService.DatTourMienTrung(validation);
+                return RedirectToAction("ChiTietBookingTourMienTrung", "DatTour");
+
+            }
+            ModelState.Clear();
+            var model = _tourService.ChiTietTourMienTrung(validation.TourID);
+            return View("/Views/Tour/ChiTietTour.cshtml", model);
+        }
+        public IActionResult DatTourTuyChon()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult DatTourTuyChon(TourTuyChonViewModel tourTC)
+        {
+            if (ModelState.IsValid)
+            {
+                this._dattourService.DatTourTuyChon(tourTC);
+                ModelState.Clear();
+                return View("/Views/Home/Index.cshtml");
+            }
+            return View();
+        }
+
+        // lấy chi tiết thông tin đặt tour miền Nam
+        public IActionResult ChiTietBookingTourMienNam()
+        {
+            var cthd = this._hoaDonService.GetCTHoaDonTourMienNam();
+            var model = this._commonService.GetThongTinBookingTourMienNam(cthd.Hoadoncode);
             return View(model);
         }
-        public IActionResult ThanhToan()
-        {
-            var ptthanhtoan = this._hoaDonService.GetPTThanhToan();
-            if (ptthanhtoan.Ptthanhtoan.Equals("Tiền mặt"))
-            {
-                return RedirectToAction("ThanhToanTienMat", "ThanhToan");
-            }
-            else if(ptthanhtoan.Ptthanhtoan.Equals("Thanh toán online"))
-                    {
 
-                return RedirectToAction("ThanhToanOnline", "ThanhToan");
-            }
-            else
-            {
-                return RedirectToAction("ThanhToanChuyenKhoan", "ThanhToan");
-            }
+        // lấy thông tin đặt tour miền Bắc
+        public IActionResult ChiTietBookingTourMienBac()
+        {
+            var cthd = this._hoaDonService.GetCTHoaDonTourMienBac();
+            var model = this._commonService.GetThongTinBookingTourMienBac(cthd.Hoadoncode);
+            return View(model);
+        }
+
+        //lấy thông tin đặt tour miền Trung
+        public IActionResult ChiTietBookingTourMienTrung()
+        {
+            var cthd = this._hoaDonService.GetCTHoaDonTourMienTrung();
+            var model = this._commonService.GetThongTinBookingTourMienTrung(cthd.Hoadoncode);
+            return View(model);
         }
     }
 }

@@ -10,33 +10,43 @@ namespace YourTour.Controllers
     public class ThanhToanController : Controller
     {
         private readonly HoaDonService _hoaDonService;
-        private readonly CommonService _commonService;
-        public ThanhToanController (HoaDonService hoaDonService, CommonService commonService)
+        public ThanhToanController (HoaDonService hoaDonService)
         {
             this._hoaDonService = hoaDonService;
-            this._commonService = commonService;
         }
         public IActionResult Index()
         {
             return View();
         }
+        // lấy phương thức thanh toán trong hóa đơn để hiển thị trang tương ứng
+        public IActionResult ThanhToan()
+        {
+            var ptthanhtoan = this._hoaDonService.GetPTThanhToan();
+            if (ptthanhtoan.Ptthanhtoan.Equals("Tiền mặt"))
+            {
+                return RedirectToAction("ThanhToanTienMat", "ThanhToan");
+            }
+            else if (ptthanhtoan.Ptthanhtoan.Equals("Thanh toán online"))
+            {
+
+                return RedirectToAction("ThanhToanOnline", "ThanhToan");
+            }
+            else
+            {
+                return RedirectToAction("ThanhToanChuyenKhoan", "ThanhToan");
+            }
+        }
         public IActionResult ThanhToanTienMat()
         {
-            var cthd = this._hoaDonService.GetHoaDonCode();
-            var model = this._commonService.GetThongTinBooking(cthd.Hoadoncode);
-            return View(model);
+            return View();
         }
         public IActionResult ThanhToanChuyenKhoan()
         {
-            var cthd = this._hoaDonService.GetHoaDonCode();
-            var model = this._commonService.GetThongTinBooking(cthd.Hoadoncode);
-            return View(model);
+            return View();
         }
         public IActionResult ThanhToanOnline()
         {
-            var cthd = this._hoaDonService.GetHoaDonCode();
-            var model = this._commonService.GetThongTinBooking(cthd.Hoadoncode);
-            return View(model);
+            return View();
         }
     }
 }

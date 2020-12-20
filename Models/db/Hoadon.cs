@@ -12,6 +12,7 @@ namespace YourTour.Models.db
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public DateTime Ngaylaphd { get; set; }
+        public string Ptthanhtoan { get; set; }
         public int Tongtien { get; set; }
         public byte Tinhtrang { get; set; }
         public int KhachHangID { get; set; }
@@ -26,6 +27,7 @@ namespace YourTour.Models.db
             this.ID = hoadonViewModel.ID;
             this.Ngaylaphd = hoadonViewModel.Ngaylaphd;
             this.Tongtien = hoadonViewModel.Tongtien;
+            this.Ptthanhtoan = hoadonViewModel.Ptthanhtoan;
             this.Tinhtrang = hoadonViewModel.Tinhtrang;
             this.KhachHangID = hoadonViewModel.KhachhangID;
         }

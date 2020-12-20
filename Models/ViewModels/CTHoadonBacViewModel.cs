@@ -13,7 +13,7 @@ namespace YourTour.Models.ViewModels
         public string Email { get; set; }
         public string Hoadoncode { get; set; }
         public int Songuoidi { get; set; }
-        public string Ptthanhtoan { get; set; }
+        public byte Dahuy { get; set; }
         public int HoadonID { get; set; }
         public int TourID { get; set; }
     }

@@ -19,15 +19,15 @@ namespace YourTour.Service
             this._db = db;
         }
 
-        public CTHoadonViewModel GetPTThanhToan()
+        public HoadonViewModel GetPTThanhToan()
         {
-            var pttt = new CTHoadonViewModel();
+            var pttt = new HoadonViewModel();
 
             //using Dapper
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                pttt = conn.Query<CTHoadonViewModel>(@"select top 1 * from CTHoaDon where Ptthanhtoan = N'Tiền mặt' 
+                pttt = conn.Query<HoadonViewModel>(@"select top 1 * from HoaDon where Ptthanhtoan = N'Tiền mặt' 
                                                         or Ptthanhtoan = N'Thanh toán online' 
                                                         or Ptthanhtoan = N'Chuyển khoản'
                                                         order by ID desc").FirstOrDefault();
@@ -35,7 +35,7 @@ namespace YourTour.Service
             }
             return pttt;
         }
-        public Hoadon GetTotal()
+        public Hoadon GetHoaDon()
         {
             var total = new Hoadon();
             
@@ -48,13 +48,41 @@ namespace YourTour.Service
             }
             return total;
         }
-        public CTHoadon GetHoaDonCode()
+
+        //lấy thông tin hóa đơn đặt tour miền Nam
+        public CTHoadonNam GetCTHoaDonTourMienNam()
         {
-            var cthd = new CTHoadon();
+            var cthd = new CTHoadonNam();
             using(var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                cthd = conn.Query<CTHoadon>(@"select top 1 * from CTHoadon order by ID desc").FirstOrDefault();
+                cthd = conn.Query<CTHoadonNam>(@"select top 1 * from CTHoadonNam order by ID desc").FirstOrDefault();
+                conn.Close();
+            }
+            return cthd;
+        }
+
+        //lấy thông tin hóa đơn đặt tour miền Bắc
+        public CTHoadonBac GetCTHoaDonTourMienBac()
+        {
+            var cthd = new CTHoadonBac();
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                cthd = conn.Query<CTHoadonBac>(@"select top 1 * from CTHoadonBac order by ID desc").FirstOrDefault();
+                conn.Close();
+            }
+            return cthd;
+        }
+
+        //lấy thông tin hóa đơn đặt tour miền Trung
+        public CTHoadonTrung GetCTHoaDonTourMienTrung()
+        {
+            var cthd = new CTHoadonTrung();
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                cthd = conn.Query<CTHoadonTrung>(@"select top 1 * from CTHoadonTrung order by ID desc").FirstOrDefault();
                 conn.Close();
             }
             return cthd;

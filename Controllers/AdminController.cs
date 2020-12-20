@@ -23,10 +23,12 @@ namespace YourTour.Controllers
         private readonly StaffService _staffService;
         private readonly LocationService _locationService;
         private readonly CommonService _commonService;
+        private readonly AdminService _adminService;
+        private readonly TourService _tourService;
 
         public AdminController(YourTourContext db, IHostingEnvironment hostingEnvironment, 
             TravelService travelService, StaffService staffService, LocationService locationService,
-            CommonService commonService)
+            CommonService commonService, AdminService adminService, TourService tourService)
         {
             this._db = db;
             this._hostingEnvironment = hostingEnvironment;
@@ -34,6 +36,8 @@ namespace YourTour.Controllers
             this._staffService = staffService;
             this._locationService = locationService;
             this._commonService = commonService;
+            this._adminService = adminService;
+            this._tourService = tourService;
         }
         public IActionResult Index()
         {
@@ -99,7 +103,6 @@ namespace YourTour.Controllers
                         newTour.Tentour = tourCommand.Tentour;
                         newTour.Code = tourCommand.Code;
                         newTour.Diadiemkhoihanh = tourCommand.Diadiemkhoihanh;
-                        newTour.Diadiemduliches = null;
                         newTour.Diemden = tourCommand.Diemden;
                         newTour.Ngaydi = tourCommand.Ngaydi;
                         newTour.Ngayve = tourCommand.Ngayve;
@@ -228,7 +231,7 @@ namespace YourTour.Controllers
         }
         public IActionResult ShowAllBookingTour()
         {
-            var model = this._commonService.GetAllThongTinBooking();
+            var model = this._commonService.GetAllThongTinBookingTourMienNam();
             if(model == null)
             {
                 return null;
@@ -237,17 +240,39 @@ namespace YourTour.Controllers
         }
         public IActionResult ShowChiTietThongTinBooking(int id)
         {
-            var model = this._commonService.GetChiTietThongTinBooking(id);
+            var model = this._commonService.GetChiTietThongTinBookingTourMienBac(id);
             if(model == null)
             {
                 return null;
             }
             return View(model);
         }
-        public IActionResult DeleteThongTinBooking(int id)
+        public IActionResult HuyBookingTour(int id)
         {
-            var model = this._commonService.DeleteThongTinBooking(id);
+            var model = this._commonService.HuyBookingTour(id);
             return RedirectToAction("ShowAllBookingTour","Admin");
+        }
+
+        //hiển thị danh sách khách đặt tour tùy chọn
+        public IActionResult DanhSachTourTuyChon()
+        {
+            var model = this._adminService.GetTourTuyChon();
+            return View(model);
+        }
+        //xác nhận đặt tour tùy chọn
+
+        public IActionResult XacNhanDatTourTuyChon(int id)
+        {
+            var tour = this._tourService.GetTourTuyChon(id);
+            tour.Xacnhan = 1;
+            _db.TourTuyChons.Update(tour);
+            _db.SaveChanges();
+            return RedirectToAction("DanhSachTourTuyChon","Admin");
+        }
+        public IActionResult DanhSachTourTuyChonDaXacNhan()
+        {
+            var model = this._adminService.GetTourTuyChonDaXacNhan();
+            return View(model);
         }
     }
 }

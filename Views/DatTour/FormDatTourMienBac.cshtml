@@ -1,0 +1,87 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model YourTour.Models.ViewModels.TourViewModel;
+<h4 class="text-uppercase" style="color:red" ; text-align:center>thông tin liên lạc</h4>
+@using (Html.BeginForm("DatTourMienBac", "DatTour", FormMethod.Post, new { @class = "row" }))
+{
+    <div class="col-sm-6 form-group contact-forms">
+        @Html.TextBox("Hoten", "", new { @class = "form-control", @placeholder = "Họ và tên" })
+        @Html.ValidationMessage("Hoten", "", new { @style = "color:red;" })
+    </div>
+    <div class="col-sm-6 form-group contact-forms">
+        @Html.TextBox("Cmnd", "", new { @class = "form-control", @placeholder = "Số chứng minh nhân dân" })
+        @Html.ValidationMessage("Cmnd", "", new { @style = "color:red;" })
+    </div>
+    <div class="col-sm-6 form-group contact-forms">
+        @Html.TextBox("Email", "", new { @class = "form-control", @placeholder = "Email" })
+        @Html.ValidationMessage("Email", "", new { @style = "color:red;" })
+    </div>
+    <div class="col-sm-6 form-group contact-forms">
+        @Html.TextBox("Sdt", "", new { @class = "form-control", @placeholder = "Số điện thoại" })
+        @Html.ValidationMessage("Sdt", "", new { @style = "color:red;" })
+    </div>
+    <div class="col-sm-6 form-group contact-forms">
+        @Html.TextBox("Diachi", "", new { @class = "form-control", @placeholder = "Địa chỉ" })
+        @Html.ValidationMessage("Diachi", "", new { @style = "color:red;" })
+    </div>
+    <div class="col-sm-6 form-group contact-forms">
+        @Html.TextBox("Songuoidi", "", new { @class = "form-control", @placeholder = "Số người đi", id = "b", @onchange = "CalTotal()" })
+        @Html.ValidationMessage("Songuoidi", "", new { @style = "color:red;" })
+
+    </div>
+    <div class="col-sm-6 form-group contact-forms">
+        <input type="text" name="Tongtien" class="form-control" value="@Model.Gianguoilon" id="total" readonly />
+    </div>
+    <input type="hidden" name="TourID" value="@Model.ID" />
+    @*<h4 class="col-md-12 text-uppercase" style="color:red; clear:both" ; text-align:center>giá tour cơ bản</h4>
+        <table class="col-lg-12 table table-bordered">
+            <thead>
+                <tr>
+                    <td>Người lớn (Từ 12 tuổi trở lên)</td>
+                    <td>Trẻ em (Từ 5 tuổi đến 12 tuổi)</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Gianguoilon đ</td>
+                    <td>@Model.Giatreem đ</td>
+                </tr>
+            </tbody>
+
+        </table>*@
+    <br />
+    <div class="col-md-12">
+        <h4 class="text-uppercase" style="color:red; text-align:center">hình thức thanh toán</h4>
+    </div>
+    <br />
+    <div class="col-md-12 form-group">
+        Tiền mặt: @Html.RadioButton("Ptthanhtoan", "Tiền mặt", isChecked: true)
+        @Html.ValidationMessage("Ptthanhtoan", "", new { @style = "color:red" })
+        <p>
+            Quý khách vui lòng thanh toán tại bất kỳ văn phòng Vietravel trên toàn quốc và các chi nhánh ngoài nước. Chi tiết
+            Xin lưu ý, Quý khách nên liên lạc trước khi đến để biết rõ hơn về giờ làm việc và các hồ sơ cần chuẩn bị khi thanh toán.
+        </p>
+
+    </div>
+    <div class="col-md-12 form-group">
+        Thanh toán online: @Html.RadioButton("Ptthanhtoan", "Thanh toán online")
+        @Html.ValidationMessage("Ptthanhtoan", "", new { @style = "color:red" })
+    </div>
+    <div class="col-md-12 form-group">
+        Chuyển khoản: @Html.RadioButton("Ptthanhtoan", "Chuyển khoản")
+        @Html.ValidationMessage("Ptthanhtoan", "", new { @style = "color:red" })
+    </div>
+    <div class="col-md-12 booking-button">
+        <button type="submit" class="btn btn-block sent-butnn" id="btnSubmit">Đặt Tour</button>
+    </div>
+}
+<script>
+    function CalTotal() {
+        var gianguoilon = @Model.Gianguoilon;
+        var songuoi = document.getElementById("b").value;
+        document.getElementById("total").value = gianguoilon * songuoi;
+    }
+</script>

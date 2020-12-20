@@ -11,12 +11,10 @@ namespace YourTour.Controllers
     public class NhanVienController : Controller
     {
         private readonly StaffService _staffService;
-        private readonly YourTourContext _db;
 
-        public NhanVienController(StaffService staffService, YourTourContext db)
+        public NhanVienController(StaffService staffService)
         {
             this._staffService = staffService;
-            this._db = db;
         }
         public IActionResult ChiTietNhanvien(int? id)
         {

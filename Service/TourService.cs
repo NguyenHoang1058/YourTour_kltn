@@ -27,7 +27,91 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour where Loaitour=N'Trong nước'").ToList();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour").ToList();
+            }
+
+            return tourTrongNuoc;
+        }
+        public List<TourViewModel> TourMienBac()
+        {
+            var tourTrongNuoc = new List<TourViewModel>();
+
+            // using Dapper
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 6 * from Tour where Thuocmien = 1").ToList();
+            }
+
+            return tourTrongNuoc;
+        }
+        public List<TourViewModel> ShowAllTourMienBac()
+        {
+            var tourTrongNuoc = new List<TourViewModel>();
+
+            // using Dapper
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 1").ToList();
+            }
+
+            return tourTrongNuoc;
+        }
+        public List<TourViewModel> TourMienTrung()
+        {
+            var tourTrongNuoc = new List<TourViewModel>();
+
+            // using Dapper
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 3 * from Tour where Thuocmien = 2").ToList();
+            }
+
+            return tourTrongNuoc;
+        }
+        public List<TourViewModel> ShowAllTourMienTrung()
+        {
+            var tourTrongNuoc = new List<TourViewModel>();
+
+            // using Dapper
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 2").ToList();
+            }
+
+            return tourTrongNuoc;
+        }
+        public List<TourViewModel> TourMienNam()
+        {
+            var tourTrongNuoc = new List<TourViewModel>();
+
+            // using Dapper
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 3 * from Tour where Thuocmien = 3").ToList();
+            }
+
+            return tourTrongNuoc;
+        }
+        public List<TourViewModel> ShowAllTourMienNam()
+        {
+            var tourTrongNuoc = new List<TourViewModel>();
+
+            // using Dapper
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 3").ToList();
             }
 
             return tourTrongNuoc;
@@ -46,18 +130,56 @@ namespace YourTour.Service
             }
             return tourNoiBat;
         }
-        public TourViewModel ChiTietTour(int? id)
+        public TourViewModel ChiTietTourMienNam(int? id)
         {
-            var tourId = new List<TourViewModel>();
+            var tour = new List<TourViewModel>();
 
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourId = conn.Query<TourViewModel>(@"select * from Tour where ID=" + id).ToList();
+                tour = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 3 and ID = " + id).ToList();
                 conn.Close();
             }
 
-            return tourId.SingleOrDefault(n => n.ID == id);
+            return tour.SingleOrDefault(n => n.ID == id);
+        }
+        public TourViewModel ChiTietTourMienBac(int? id)
+        {
+            var tour = new List<TourViewModel>();
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                tour = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 1 and ID = " + id).ToList();
+                conn.Close();
+            }
+
+            return tour.SingleOrDefault(n => n.ID == id);
+        }
+        public TourViewModel ChiTietTourMienTrung(int? id)
+        {
+            var tour = new List<TourViewModel>();
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                tour = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 2 and ID = " + id).ToList();
+                conn.Close();
+            }
+
+            return tour.SingleOrDefault(n => n.ID == id);
+        }
+
+        public TourTuyChon GetTourTuyChon(int id)
+        {
+            var tour = new TourTuyChon();
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                tour = conn.Query<TourTuyChon>(@"select * from TourTuyChon where ID = " + id).FirstOrDefault();
+                conn.Close();
+            }
+            return tour;
         }
     }
 }

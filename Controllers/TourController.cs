@@ -23,14 +23,67 @@ namespace YourTour.Controllers
             var model = this._tourService.TourTrongNuoc();
             return View(model);
         }
-        public IActionResult ThongTinChiTietTour(int ?id)
+        public IActionResult TourMienNam(int? id)
         {
             if(id == null)
             {
                 return View("/Views/Shared/Error.cshtml");
             }
-            var model = this._tourService.ChiTietTour(id);
+            var model = this._tourService.ChiTietTourMienNam(id);
             if(model == null)
+            {
+                return null;
+            }
+            return View(model);
+        }
+        public IActionResult TourMienBac(int? id)
+        {
+            if (id == null)
+            {
+                return View("/Views/Shared/Error.cshtml");
+            }
+            var model = this._tourService.ChiTietTourMienBac(id);
+            if (model == null)
+            {
+                return null;
+            }
+            return View(model);
+        }
+        public IActionResult TourMienTrung(int? id)
+        {
+            if (id == null)
+            {
+                return View("/Views/Shared/Error.cshtml");
+            }
+            var model = this._tourService.ChiTietTourMienTrung(id);
+            if (model == null)
+            {
+                return null;
+            }
+            return View(model);
+        }
+        public IActionResult ShowAllTourMienBac()
+        {
+            var model = this._tourService.ShowAllTourMienBac();
+            if(model == null)
+            {
+                return null;
+            }
+            return View(model);
+        }
+        public IActionResult ShowAllTourMienTrung()
+        {
+            var model = this._tourService.ShowAllTourMienTrung();
+            if (model == null)
+            {
+                return null;
+            }
+            return View(model);
+        }
+        public IActionResult ShowAllTourMienNam()
+        {
+            var model = this._tourService.ShowAllTourMienNam();
+            if (model == null)
             {
                 return null;
             }
