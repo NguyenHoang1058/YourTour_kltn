@@ -27,5 +27,6 @@ namespace YourTour.Models.Commands
         public string TenHDV { get; set; }
         public int Songuoi { get; set; }
         public string Trangthai { get; set; }
+        public List<String> MultiDiaDiem { get; set; }
     }
 }

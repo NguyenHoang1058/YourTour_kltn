@@ -64,7 +64,7 @@ namespace YourTour.Service
             {
                 checkLocation.Tendiadiem = command.Tendiadiem;
                 checkLocation.Mota = command.Mota;
-                //checkLocation.TinhID = command.TinhID;
+                checkLocation.MienID = command.MienID;
                 //checkStaff.Email = command.Email;
                 //checkAccount.Matkhau = command.Matkhau;
                 //checkAccount.Vaitro = command.Vaitro;

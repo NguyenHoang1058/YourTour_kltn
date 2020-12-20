@@ -52,6 +52,7 @@ namespace YourTour.Service
                 tourViewModel.ID = item.ID;
                 tourViewModel.Code = item.Code;
                 tourViewModel.Tentour = item.Tentour;
+                tourViewModel.diadiemduliches = item.Diadiemduliches;
                 tourViewModel.Diadiemkhoihanh = item.Diadiemkhoihanh;
                 tourViewModel.Ngaydi = item.Ngaydi;
                 tourViewModel.Ngayve = item.Ngayve;

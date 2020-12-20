@@ -434,18 +434,17 @@ namespace YourTour.Service
 
                 //thêm chi tiết hóa đơn
 
-                CTHoadonTrungViewModel cthd = new CTHoadonTrungViewModel
-                {
-                    Hotenkhachhang = kh.Hoten,
-                    Sdt = kh.Sdt,
-                    Email = kh.Email,
-                    Hoadoncode = RandomString(),
-                    Songuoidi = validation.Songuoidi,
-                    HoadonID = newHD.ID,
-                    TourID = tour.ID
-                };
-                var newCTHD = new CTHoadonTrung(cthd);
-                _db.CTHoadonTrungs.Add(newCTHD);
+                CTHoadonViewModel cthd = new CTHoadonViewModel();
+                cthd.Hotenkhachhang = kh.Hoten;
+                cthd.Sdt = kh.Sdt;
+                cthd.Email = kh.Email;
+                cthd.Hoadoncode = RandomString();
+                cthd.Songuoidi = validation.Songuoidi;
+                cthd.Ptthanhtoan = validation.Ptthanhtoan;
+                cthd.HoadonID = newHD.ID;
+                cthd.TourID = tour.ID;
+                var newCTHD = new CTHoadon(cthd);
+                _db.CTHoadons.Add(newCTHD);
                 _db.SaveChanges();
 
                 //send mail
