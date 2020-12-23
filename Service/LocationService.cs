@@ -60,14 +60,10 @@ namespace YourTour.Service
         public void EditLocation(LocationCommand command)
         {
             var checkLocation = _db.Diadiemduliches.FirstOrDefault(n => n.ID == command.ID);
-            //var checkAccount = _db.Taikhoans.FirstOrDefault(a => a.Email == checkStaff.Email);
             {
                 checkLocation.Tendiadiem = command.Tendiadiem;
                 checkLocation.Mota = command.Mota;
                 checkLocation.MienID = command.MienID;
-                //checkStaff.Email = command.Email;
-                //checkAccount.Matkhau = command.Matkhau;
-                //checkAccount.Vaitro = command.Vaitro;
             }
             _db.SaveChanges();
         }

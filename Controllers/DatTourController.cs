@@ -84,9 +84,8 @@ namespace YourTour.Controllers
                 return RedirectToAction("ChiTietBookingTourMienNam", "DatTour");
                 
             }
-            ModelState.Clear();
             var model = _tourService.ChiTietTourMienNam(validation.TourID);
-            return View("/Views/Tour/ChiTietTour.cshtml", model);
+            return View( model);
         }
         [HttpPost]
         public IActionResult DatTourMienBac(DatTourValidation validation)
@@ -97,9 +96,8 @@ namespace YourTour.Controllers
                 return RedirectToAction("ChiTietBookingTourMienBac", "DatTour");
 
             }
-            ModelState.Clear();
             var model = _tourService.ChiTietTourMienBac(validation.TourID);
-            return View("/Views/Tour/ChiTietTour.cshtml", model);
+            return View( model);
         }
         [HttpPost]
         public IActionResult DatTourMienTrung(DatTourValidation validation)
@@ -110,9 +108,8 @@ namespace YourTour.Controllers
                 return RedirectToAction("ChiTietBookingTourMienTrung", "DatTour");
 
             }
-            ModelState.Clear();
             var model = _tourService.ChiTietTourMienTrung(validation.TourID);
-            return View("/Views/Tour/ChiTietTour.cshtml", model);
+            return View(model);
         }
         public IActionResult DatTourTuyChon()
         {
