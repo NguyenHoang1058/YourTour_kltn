@@ -10,8 +10,8 @@ using YourTour.Helpers;
 using Microsoft.Extensions.Configuration;
 using YourTour.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
-using Aspose.Pdf;
-using Aspose.Pdf.Text;
+//using Aspose.Pdf;
+//using Aspose.Pdf.Text;
 using System.Data;
 using System.IO;
 

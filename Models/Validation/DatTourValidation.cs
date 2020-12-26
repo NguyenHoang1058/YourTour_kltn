@@ -13,7 +13,7 @@ namespace YourTour.Models.Validate
         [Required(ErrorMessage = "Tên khách hàng không được để trống")]
         public string Hoten { get; set; }
         [Required(ErrorMessage = "Số cmnd không được để trống")]
-        [RegularExpression(@"^[0-9]{9}$", ErrorMessage = "Số chứng minh nhân dân không hợp lệ")]
+        [RegularExpression(@"^[0-9]{8}$", ErrorMessage = "Số chứng minh nhân dân không hợp lệ")]
         public int Cmnd { get; set; }
 
         [Required(ErrorMessage = "Địa chỉ không được để trống")]
