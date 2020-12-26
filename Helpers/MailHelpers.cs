@@ -13,7 +13,7 @@ namespace YourTour.Helpers
        public void SendMail(string to, string subject, string body)
         {
             using(MailMessage mail  = new MailMessage()){
-                mail.From = new MailAddress("yourtour.travel.agent@gmail.com");
+                mail.From = new MailAddress("tenluatravel.services@gmail.com");
                 mail.To.Add(to);
                 mail.Subject = subject;
                 mail.Body = body;
@@ -21,7 +21,7 @@ namespace YourTour.Helpers
                 using (SmtpClient client = new SmtpClient("smtp.gmail.com",587))
                 {
                     client.UseDefaultCredentials = false;
-                    client.Credentials = new NetworkCredential("yourtour.travel.agent@gmail.com", "Shiroe1058");
+                    client.Credentials = new NetworkCredential("tenluatravel.services@gmail.com", "shiroe1058");
                     client.EnableSsl = true;
                     client.Send(mail);
                 }

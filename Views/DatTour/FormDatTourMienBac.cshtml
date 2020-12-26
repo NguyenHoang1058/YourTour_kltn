@@ -35,6 +35,10 @@
     <div class="col-sm-6 form-group contact-forms">
         <input type="text" name="Tongtien" class="form-control" value="@Model.Gianguoilon" id="total" readonly />
     </div>
+    <div class="col-sm-6 form-group contact-forms">
+        @Html.TextArea("Ghichu", "", new { @class = "form-control", @placeholder = "Ghi chú" })
+        @Html.ValidationMessage("Ghichu", "", new { @style = "color:red;" })
+    </div>
     <input type="hidden" name="TourID" value="@Model.ID" />
     @*<h4 class="col-md-12 text-uppercase" style="color:red; clear:both" ; text-align:center>giá tour cơ bản</h4>
         <table class="col-lg-12 table table-bordered">
@@ -60,11 +64,6 @@
     <div class="col-md-12 form-group">
         Tiền mặt: @Html.RadioButton("Ptthanhtoan", "Tiền mặt", isChecked: true)
         @Html.ValidationMessage("Ptthanhtoan", "", new { @style = "color:red" })
-        <p>
-            Quý khách vui lòng thanh toán tại bất kỳ văn phòng Vietravel trên toàn quốc và các chi nhánh ngoài nước. Chi tiết
-            Xin lưu ý, Quý khách nên liên lạc trước khi đến để biết rõ hơn về giờ làm việc và các hồ sơ cần chuẩn bị khi thanh toán.
-        </p>
-
     </div>
     <div class="col-md-12 form-group">
         Thanh toán online: @Html.RadioButton("Ptthanhtoan", "Thanh toán online")

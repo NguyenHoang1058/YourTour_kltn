@@ -15,6 +15,7 @@ namespace YourTour.Models.db
         public string Ptthanhtoan { get; set; }
         public int Tongtien { get; set; }
         public byte Tinhtrang { get; set; }
+        public string Ghichu { get; set; }
         public int KhachHangID { get; set; }
         public Khachhang Khachhang { get; set; }
         public CTHoadonNam CTHoadon { get; set; }
@@ -29,6 +30,7 @@ namespace YourTour.Models.db
             this.Tongtien = hoadonViewModel.Tongtien;
             this.Ptthanhtoan = hoadonViewModel.Ptthanhtoan;
             this.Tinhtrang = hoadonViewModel.Tinhtrang;
+            this.Ghichu = hoadonViewModel.Ghichu;
             this.KhachHangID = hoadonViewModel.KhachhangID;
         }
     }

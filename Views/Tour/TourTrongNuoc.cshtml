@@ -12,20 +12,23 @@
     <h2 class="heading text-capitalize text-center"> Khám phá các Tour du lịch của chúng tôi</h2>
     <br />
     @*@await Html.PartialAsync("/Views/Tour/FindTourPartial.cshtml")*@
+    <div class="col-lg-12">
+        @await Html.PartialAsync("/Views/Tour/TimKiemTourPartial.cshtml")
+    </div>
     <br />
     <br />
     <br />
     <br />
-    <div class="clearfix">
-        <div class="col-lg-6 float-left">
-            <a href="@Url.Action("ShowAllTourMienBac","Tour")" class="text-capitalize" style="color:orange">du lịch miền bắc</a>
-            @await Component.InvokeAsync("TourMienBac")
-        </div>
-        <div class="col-lg-6 float-right">
-            <a href="@Url.Action("ShowAllTourMienTrung","Tour")" class="text-capitalize" style="color:orange">du lịch miền trung</a>
-            @await Component.InvokeAsync("TourMienTrung")
-            <a href="@Url.Action("ShowAllTourMienNam","Tour")" class="text-capitalize" style="color:orange">du lịch miền nam</a>
-            @await Component.InvokeAsync("TourMienNam")
-        </div>
+    <div class="col-lg-12">
+        <a href="@Url.Action("ShowAllTourMienBac","Tour")" class="text-capitalize" style="color:orange">du lịch miền bắc</a>
+        @await Component.InvokeAsync("TourMienBac")
+    </div>
+    <div class="col-lg-12">
+        <a href="@Url.Action("ShowAllTourMienTrung","Tour")" class="text-capitalize" style="color:orange">du lịch miền trung</a>
+        @await Component.InvokeAsync("TourMienTrung")
+    </div>
+    <div class="col-lg-12">
+        <a href="@Url.Action("ShowAllTourMienNam","Tour")" class="text-capitalize" style="color:orange">du lịch miền nam</a>
+        @await Component.InvokeAsync("TourMienNam")
     </div>
 </div>

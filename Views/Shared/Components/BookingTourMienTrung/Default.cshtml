@@ -6,30 +6,41 @@
 @model IEnumerable<YourTour.Models.ViewModels.CommonViewModel>;
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Code)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hoadoncode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ngaylaphd)
-        </td>
-        @if (@item.Thuocmien == 2)
-        {
-            <td>Miền Trung</td>
-        }
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Code)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Hoadoncode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ngaylaphd)
+    </td>
+    @if (@item.Thuocmien == 2)
+    {
+        <td>Miền Trung</td>
+    }
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Tongtien)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hoten)
-        </td>
-        <td>
-            @Html.ActionLink("Chi tiết", "ShowChiTietThongTinBooking", "Admin", new { id = item.ID }) |
-            @Html.ActionLink("Hủy tour", "HuyBookingTour", "Admin", new { id = item.ID })
-        </td>
-    </tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Tongtien)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ptthanhtoan)
+    </td>
+    @if (item.Tinhtrang == 1)
+    {
+        <td>Đã thanh toán</td>
+    }
+    else
+    {
+        <td>Chưa thanh toán</td>
+    }
+    <td>
+        @Html.DisplayFor(modelItem => item.Hoten)
+    </td>
+    <td>
+        @Html.ActionLink("Chi tiết", "ShowChiTietThongTinBooking", "Admin", new { id = item.ID }) |
+        @Html.ActionLink("Hủy tour", "HuyBookingTourMienTrung", "Admin", new { id = item.ID })
+    </td>
+</tr>
     }

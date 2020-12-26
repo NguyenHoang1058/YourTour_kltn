@@ -28,30 +28,33 @@
         @Html.ValidationMessage("Diachi", "", new { @style = "color:red;" })
     </div>
     <div class="col-sm-6 form-group contact-forms">
-        @Html.TextBox("Songuoidi", "", new { @class = "form-control", @placeholder = "Số người đi", id = "b", @onchange="CalTotal()"})
+        @Html.TextBox("Songuoidi", "", new { @class = "form-control", @placeholder = "Số người đi", id = "b", @onchange = "CalTotal()" })
         @Html.ValidationMessage("Songuoidi", "", new { @style = "color:red;" })
-
     </div>
     <div class="col-sm-6 form-group contact-forms">
-        <input type="text" name="Tongtien" class="form-control" value="@Model.Gianguoilon" id="total" readonly/>
+        <input type="text" name="Tongtien" class="form-control" value="@Model.Gianguoilon" id="total" readonly />
+    </div>
+    <div class="col-sm-6 form-group contact-forms">
+        @Html.TextArea("Ghichu", "", new { @class = "form-control", @placeholder = "Ghi chú" })
+        @Html.ValidationMessage("Ghichu", "", new { @style = "color:red;" })
     </div>
     <input type="hidden" name="TourID" value="@Model.ID" />
     @*<h4 class="col-md-12 text-uppercase" style="color:red; clear:both" ; text-align:center>giá tour cơ bản</h4>
-    <table class="col-lg-12 table table-bordered">
-        <thead>
-            <tr>
-                <td>Người lớn (Từ 12 tuổi trở lên)</td>
-                <td>Trẻ em (Từ 5 tuổi đến 12 tuổi)</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@Model.Gianguoilon đ</td>
-                <td>@Model.Giatreem đ</td>
-            </tr>
-        </tbody>
+        <table class="col-lg-12 table table-bordered">
+            <thead>
+                <tr>
+                    <td>Người lớn (Từ 12 tuổi trở lên)</td>
+                    <td>Trẻ em (Từ 5 tuổi đến 12 tuổi)</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Gianguoilon đ</td>
+                    <td>@Model.Giatreem đ</td>
+                </tr>
+            </tbody>
 
-    </table>*@
+        </table>*@
     <br />
     <div class="col-md-12">
         <h4 class="text-uppercase" style="color:red; text-align:center">hình thức thanh toán</h4>

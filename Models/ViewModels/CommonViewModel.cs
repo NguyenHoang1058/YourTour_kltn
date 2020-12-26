@@ -39,6 +39,7 @@ namespace YourTour.Models.ViewModels
         public string Ptthanhtoan { get; set; }
         [DisplayName("Số người đi")]
         public int Songuoidi { get; set; }
+        [DisplayName("Tình trạng")]
         public byte Tinhtrang { get; set; }
         [DisplayName("Miền")]
         public int Thuocmien { get; set; }

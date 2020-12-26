@@ -12,6 +12,7 @@ namespace YourTour.Models.ViewModels
         public int Tongtien { get; set; }
         public string Ptthanhtoan { get; set; }
         public byte Tinhtrang { get; set; }
+        public string Ghichu { get; set; }
         public int KhachhangID { get; set; }
     }
 }

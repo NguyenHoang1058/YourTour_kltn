@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-lg-7 contact-left">
                 <div class="image-tour position-relative">
-                    <img src="@Url.Content("/images/tour_images/"+Model.Hinhanh)" alt="" class="img-fluid" style="width:auto;height:auto" />
+                    <img src="@Url.Content("/images/tour_images/"+Model.Hinhanh)" alt=""  width="800" height="400" />
                 </div>
             </div>
             <div class="col-lg-5 contact-right">
@@ -23,12 +23,14 @@
                 <p>Thời gian: @Model.Thoigiandi ngày</p>
                 <p>Nơi khởi hành: @Model.Diadiemkhoihanh</p>
                 <hr />
+                <p>@Model.Mota</p>
+                <hr />
                 <h5 style="color:red">@Model.Gianguoilon.ToString("#,##") đ</h5>
                 <p>Số chỗ còn nhận: @Model.Songuoi</p>
                 <a href="@Url.Action("DatTourMienNam","DatTour", new { @id = Model.ID})"><button class="btn btn-outline-primary">Đặt ngay</button></a>
                 <br />
                 <a href="@Model.Lichtrinh" target="_top">Chương trình tour</a> |
-                <a href="~/docs/dieukhoan/ĐIỀU KIỆN BÁN VÉ CÁC CHƯƠNG TRÌNH DU LỊCH TRONG NƯỚC.pdf" target="_top">Điều khoản đăng ký online</a>
+                <a href="~/docs/dieukhoan/ĐIỀU KHOẢN CÁC CHƯƠNG TRÌNH DU LỊCH TRONG NƯỚC.pdf" target="_top">Điều khoản đăng ký online</a>
             </div>
             <br />
         </div>

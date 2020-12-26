@@ -9,6 +9,11 @@ using Microsoft.AspNetCore.Hosting;
 using YourTour.Helpers;
 using Microsoft.Extensions.Configuration;
 using YourTour.Models.ViewModels;
+using Microsoft.AspNetCore.Http;
+using Aspose.Pdf;
+using Aspose.Pdf.Text;
+using System.Data;
+using System.IO;
 
 namespace YourTour.Controllers
 {
@@ -35,42 +40,30 @@ namespace YourTour.Controllers
         }
         public IActionResult DatTourMienNam(int? id)
         {
-            if (id == null)
-            {
-                return View("/Views/Shared/Error.cshtml");
-            }
             var model = this._tourService.ChiTietTourMienNam(id);
             if (model == null)
             {
-                return null;
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
 
             return View(model);
         }
         public IActionResult DatTourMienBac(int? id)
         {
-            if (id == null)
-            {
-                return View("/Views/Shared/Error.cshtml");
-            }
             var model = this._tourService.ChiTietTourMienBac(id);
             if (model == null)
             {
-                return null;
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
 
             return View(model);
         }
         public IActionResult DatTourMienTrung(int? id)
         {
-            if (id == null)
-            {
-                return View("/Views/Shared/Error.cshtml");
-            }
             var model = this._tourService.ChiTietTourMienTrung(id);
             if (model == null)
             {
-                return null;
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
 
             return View(model);
@@ -85,7 +78,7 @@ namespace YourTour.Controllers
                 
             }
             var model = _tourService.ChiTietTourMienNam(validation.TourID);
-            return View( model);
+            return View(model);
         }
         [HttpPost]
         public IActionResult DatTourMienBac(DatTourValidation validation)
@@ -97,7 +90,7 @@ namespace YourTour.Controllers
 
             }
             var model = _tourService.ChiTietTourMienBac(validation.TourID);
-            return View( model);
+            return View(model);
         }
         [HttpPost]
         public IActionResult DatTourMienTrung(DatTourValidation validation)
@@ -121,7 +114,6 @@ namespace YourTour.Controllers
             if (ModelState.IsValid)
             {
                 this._dattourService.DatTourTuyChon(tourTC);
-                ModelState.Clear();
                 return View("/Views/Home/Index.cshtml");
             }
             return View();
@@ -150,5 +142,7 @@ namespace YourTour.Controllers
             var model = this._commonService.GetThongTinBookingTourMienTrung(cthd.Hoadoncode);
             return View(model);
         }
+
+        //export hóa đơn
     }
 }

@@ -1,0 +1,12 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+    @using (Html.BeginForm("TimTour", "Tour", FormMethod.Post, new { @style = "text-align:center", @class = "row" }))
+    {
+        <input type="text" placeholder="Địa điểm bạn muốn tới" name="diemDen" class="col-sm-5 form-group contact-forms"/>
+        <input type="date" name="ngayDi" class="col-sm-5 form-group contact-forms"/>
+        <input type="submit" value="Tìm kiếm" class="col-sm-2 btn btn-primary" style="height:30px"/>
+    }
+

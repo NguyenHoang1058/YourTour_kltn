@@ -24,11 +24,22 @@
         @Html.DisplayFor(modelItem => item.Tongtien)
     </td>
     <td>
+        @Html.DisplayFor(modelItem => item.Ptthanhtoan)
+    </td>
+    @if(item.Tinhtrang == 1)
+    {
+        <td>Đã thanh toán</td>
+    }
+    else
+    {
+        <td>Chưa thanh toán</td>
+    }
+    <td>
         @Html.DisplayFor(modelItem => item.Hoten)
     </td>
     <td>
-        @Html.ActionLink("Chi tiết", "ShowChiTietThongTinBooking", "Admin", new { id = item.ID }) |
-        @Html.ActionLink("Hủy tour", "HuyBookingTour", "Admin", new { id = item.ID })
+        @Html.ActionLink("Chi tiết", "ShowChiTietThongTinBookingTourMienBac", "Admin", new { id = item.ID }) |
+        @Html.ActionLink("Hủy tour", "HuyBookingTourMienBac", "Admin", new { id = item.ID })
     </td>
 </tr>
     }

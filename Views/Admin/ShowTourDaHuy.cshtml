@@ -8,7 +8,7 @@
     ViewData["Title"] = "ShowAllBookingTour";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<h1 style="color:brown;text-align:center">Danh sách tour đã đặt</h1>
+<h1 style="color:brown;text-align:center">Danh sách tour đã hủy</h1>
 
 <input id="myInput" type="text" placeholder="Search..">
 <table class="table">
@@ -30,20 +30,14 @@
                 @Html.DisplayNameFor(model => model.Tongtien)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Ptthanhtoan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tinhtrang)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Hoten)
             </th>
         </tr>
     </thead>
-    <tbody id="myTable">
-        @await Component.InvokeAsync("BookingTourMienNam")
-        @await Component.InvokeAsync("BookingTourMienBac")
-        @await Component.InvokeAsync("BookingTourMienTrung")
+    <tbody>
+        @await Component.InvokeAsync("TourDaHuyMienNam")
+        @await Component.InvokeAsync("TourDaHuyMienBac")
+        @await Component.InvokeAsync("TourDaHuyMienTrung")
     </tbody>
 </table>
 <script>
