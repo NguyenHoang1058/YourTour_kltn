@@ -1,0 +1,36 @@
+﻿@model YourTour.Models.ViewModels.TourViewModel
+@{
+    ViewData["Title"] = "ChiTietTour";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h1 style="color:brown;text-align:center">Chi tiết tour du lịch</h1>
+<div class="container py-lg-5 py-sm-4">
+    <h4 class="heading text-capitalize text-left mb-lg-5 mb-4" style="color:saddlebrown">@Model.Tentour</h4>
+    <div class="contact-grids">
+        <div class="row">
+            @*<div class="col-lg-7 contact-left">
+                    <div class="image-tour position-relative">
+                        <img src="@Url.Content("/images/tour_images/"+Model.Hinhanh)" alt="" class="img-fluid" style="width:auto;height:auto" />
+                    </div>
+                </div>*@
+            <div class="col-lg-5 contact-right">
+                <p>Mã tour: @Model.Code</p>
+                <p>Điểm đến: @Model.Diemden</p>
+                <p>Địa điểm khởi hành: @Model.Diadiemkhoihanh</p>
+                <p>Ngày khởi hành: @Model.Ngaydi.ToString()</p>
+                <p>Số ngày đi: @Model.Thoigiandi</p>
+                <p><img src="@Url.Content("/images/tour_images/" + @Model.Hinhanh)" style="width:150px;height:200px;" /> </p>
+                <p>Chương trình tour: <link src="@Url.Content("/docs/lichtrinh/" + @Model.Lichtrinh)" /> </p>
+                <p>Giá tour: @Model.Gianguoilon</p>
+                <p>Mô tả: @Model.Mota</p>
+                <p>Loại tour: @Model.Loaitour</p>
+                <p>Hướng dẫn viên: @Model.TenHDV</p>
+                <p>Số chỗ: @Model.Songuoi</p>
+                <p>Trạng thái: @Model.Trangthai</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+    </div>
+</div>

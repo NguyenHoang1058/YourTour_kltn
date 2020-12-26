@@ -114,12 +114,12 @@ namespace YourTour.Service
             }
             _db.SaveChanges();
         }
-        public void DeleteTour(InsertTourCommand command)
-        {
-            var checkTour = _db.Tours.FirstOrDefault(n => n.ID == command.ID);
-            _db.Remove(checkTour);
-            _db.SaveChanges();
-        }
+        //public void DeleteTour(InsertTourCommand command)
+        //{
+        //    var checkTour = _db.Tours.FirstOrDefault(n => n.ID == command.ID);
+        //    _db.Remove(checkTour);
+        //    _db.SaveChanges();
+        //}
         //public ContractDetailViewModel SeeContractDeTail(int? id)
         //{
         //    var listTravelDb = from c in _db.ContractDetails

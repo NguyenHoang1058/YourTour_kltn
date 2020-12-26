@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using YourTour.Models.db;
+using YourTour.Models.Validation;
 
 namespace YourTour.Models.ViewModels
 {
@@ -21,8 +22,7 @@ namespace YourTour.Models.ViewModels
         public string Diemden { get; set; }
         [Required(ErrorMessage = "Ngày khởi hành không được để trống")]
         [Display(Name = "Ngày đi")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [CustomDate("Ngày khởi hành phải lớn hơn ngày hiện tại ít nhất 15 ngày")]
         public DateTime Ngaydi { get; set; }
         //[DisplayName("Thời gian trở về")]
         //public DateTime Ngayve { get; set; }

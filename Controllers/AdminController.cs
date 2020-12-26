@@ -93,7 +93,7 @@ namespace YourTour.Controllers
         {
             List<Diadiemdulich> listDiadiem = new List<Models.db.Diadiemdulich>();
             listDiadiem = (from t in _db.Diadiemduliches
-                           //where t.MienID == SelectedValue2
+                               //where t.MienID == SelectedValue2
                            select t).ToList();
             ViewBag.ListDiaDiem = listDiadiem;
             List<Mien> listMien = new List<Models.db.Mien>();
@@ -111,58 +111,57 @@ namespace YourTour.Controllers
                     getNamePicture = Path.GetFileName(tourCommand.Hinhanh.FileName);
                     var uploadFolder = Path.Combine(this._hostingEnvironment.WebRootPath, "images/tour_images");
                     var getPictureToFolder = Path.Combine(uploadFolder, getNamePicture);
-                    //if (System.IO.File.Exists(getPictureToFolder))
-                    //{
-                    //    ViewBag.Picture = "Hinh anh da ton tai";
-                    //    return View();
-                    //}
-                    //else
-                    //{
-                    var filestream2 = new FileStream(getLichtrinhToFolder, FileMode.Create);
-                    tourCommand.Lichtrinh.CopyTo(filestream2);
-                    var filestream = new FileStream(getPictureToFolder, FileMode.Create);
-                    tourCommand.Hinhanh.CopyTo(filestream);
-                    var newTour = new Tour();
+                    if (System.IO.File.Exists(getPictureToFolder))
                     {
-                        //newTour.ID = _db.Tours.Count() + 1;
-                        newTour.Tentour = tourCommand.Tentour;
-                        newTour.Code = tourCommand.Code;
-                        newTour.Diadiemkhoihanh = tourCommand.Diadiemkhoihanh;
-                        newTour.Diemden = tourCommand.Diemden;
-                        newTour.Ngaydi = tourCommand.Ngaydi;
-                        newTour.Thuocmien = tourCommand.Thuocmien;
-                        if (tourCommand.Loaitour == "Trong nước")
-                        {
-                            newTour.Loaitour = "Trong nước";
-                        }
-                        else
-                        {
-                            newTour.Loaitour = "Nước ngoài";
-                        }
-                        newTour.Thoigiandi = tourCommand.Thoigiandi;
-                        newTour.Lichtrinh = getNameLichTrinh;
-                        newTour.Gianguoilon = tourCommand.Gianguoilon;
-                        //newTour.Giatreem = tourCommand.Giatreem;
-                        newTour.Hinhanh = getNamePicture + DateTime.Now.ToString();
-                        newTour.Mota = tourCommand.Mota;
-                        newTour.Songuoi = tourCommand.Songuoi;
-                        //newTour.Loaitour = tourCommand.Loaitour;
-                        newTour.TenHDV = tourCommand.TenHDV;
-                        newTour.Trangthai = "Còn chỗ";
-                        //foreach (var selectedId in tourCommand.MultiDiaDiem)
-                        //{
-                        //    _db.DiadiemTours.Add(new DiadiemTour
-                        //    {
-                        //        TourID = newTour.ID,
-                        //        DiadiemdulichID = selectedId,
-                        //    });
-                        //}
-                        //_db.SaveChanges();
+                        ViewBag.Picture = "Hinh anh da ton tai";
+                        return View();
                     }
-                    _db.Tours.Add(newTour);
-                    _db.SaveChanges();
-                    RedirectToAction("Index", "Admin");
-                    //}
+                    else
+                    {
+                        var filestream2 = new FileStream(getLichtrinhToFolder, FileMode.Create);
+                        tourCommand.Lichtrinh.CopyTo(filestream2);
+                        var filestream = new FileStream(getPictureToFolder, FileMode.Create);
+                        tourCommand.Hinhanh.CopyTo(filestream);
+                        var newTour = new Tour();
+                        {
+                            //newTour.ID = _db.Tours.Count() + 1;
+                            newTour.Tentour = tourCommand.Tentour;
+                            newTour.Code = tourCommand.Code;
+                            newTour.Diadiemkhoihanh = tourCommand.Diadiemkhoihanh;
+                            newTour.Diemden = tourCommand.Diemden;
+                            newTour.Ngaydi = tourCommand.Ngaydi;
+                            newTour.Thuocmien = tourCommand.Thuocmien;
+                            if (tourCommand.Loaitour == "Trong nước")
+                            {
+                                newTour.Loaitour = "Trong nước";
+                            }
+                            else
+                            {
+                                newTour.Loaitour = "Nước ngoài";
+                            }
+                            newTour.Thoigiandi = tourCommand.Thoigiandi;
+                            newTour.Lichtrinh = getNameLichTrinh;
+                            newTour.Gianguoilon = tourCommand.Gianguoilon;
+                            newTour.Hinhanh = getNamePicture /*+ DateTime.Now.ToString()*/;
+                            newTour.Mota = tourCommand.Mota;
+                            newTour.Songuoi = tourCommand.Songuoi;
+                            //newTour.Loaitour = tourCommand.Loaitour;
+                            newTour.TenHDV = tourCommand.TenHDV;
+                            newTour.Trangthai = "Còn chỗ";
+                            //foreach (var selectedId in tourCommand.MultiDiaDiem)
+                            //{
+                            //    _db.DiadiemTours.Add(new DiadiemTour
+                            //    {
+                            //        TourID = newTour.ID,
+                            //        DiadiemdulichID = selectedId,
+                            //    });
+                            //}
+                            //_db.SaveChanges();
+                        }
+                        _db.Tours.Add(newTour);
+                        _db.SaveChanges();
+                        RedirectToAction("Index", "Admin");
+                    }
                 }
             }
             return View();

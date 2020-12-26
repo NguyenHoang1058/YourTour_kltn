@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using YourTour.Models.Commands;
 using YourTour.Models.db;
+using YourTour.Models.ViewModels;
 using YourTour.Service;
 
 namespace YourTour.Controllers
@@ -11,11 +13,13 @@ namespace YourTour.Controllers
     public class TourController : Controller
     {
         private readonly TourService _tourService;
+        private readonly TravelService _travelService;
         private readonly YourTourContext _db;
 
-        public TourController(TourService tourService, YourTourContext db)
+        public TourController(TourService tourService, YourTourContext db, TravelService travelService)
         {
             this._tourService = tourService;
+            this._travelService = travelService;
             this._db = db;
         }
         public IActionResult TourTrongNuoc()
@@ -92,6 +96,36 @@ namespace YourTour.Controllers
         public IActionResult TourNgoaiNuoc()
         {
             return View();
+        }
+        public IActionResult ChiTietTour(int? id)
+        {
+            if (id == null)
+            {
+                return View("/Views/Shared/Error.cshtml");
+            }
+            var model = this._tourService.ChiTietTour(id);
+            if (model == null)
+            {
+                return null;
+            }
+
+            return View(model);
+        }
+        [HttpGet]
+        public IActionResult XoaTour(int id)
+        {
+            var model = this._travelService.SeeTour(id);
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult XoaTour(InsertTourCommand viewModel)
+        {
+            if (viewModel.ID == null)
+            {
+                return View("/Views/Shared/Error.cshtml");
+            }
+            this._tourService.XoaTour(viewModel);
+            return RedirectToAction("ShowAllTour", "Admin");
         }
     }
 }
