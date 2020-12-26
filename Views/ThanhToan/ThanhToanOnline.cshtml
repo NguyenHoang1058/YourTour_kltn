@@ -8,7 +8,7 @@
     ViewData["Title"] = "OnlinePayment";
     Layout = "~/Views/Shared/_LayoutTour.cshtml";
 }
-<div class="col-lg-12">
+<div class="container py-lg-5 py-sm-4">
     HÌNH THỨC THANH TOÁN BẰNG THẺ ATM/ INTERNET BANKING
 
     Vietravel chấp nhận thanh toán bằng thẻ ATM qua cổng thanh toán One pay.
@@ -17,7 +17,7 @@
 
     Hướng dẫn thanh toán thẻ qua cổng Onepay : https://mtf.onepay.vn/developer/?page=doc_guide
 </div>
-<div>
+<div class="col-lg-5 col-sm-6 mt-lg-0 mt-4">
     <a href="@Url.Action("OnePay","OnePay")"><button class="btn btn-outline-primary">Thanh toán</button></a>
     <a href="@Url.Action("TourTrongNuoc","Tour")"><button class="btn btn-outline-primary">Trở về</button></a>
 </div>

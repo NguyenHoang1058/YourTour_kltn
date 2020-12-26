@@ -93,5 +93,11 @@ namespace YourTour.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult TimTour(string diemDen, DateTime ngayDi)
+        {
+            var model = this._tourService.TimTour(diemDen, ngayDi);
+            return View(model);
+        }
     }
 }

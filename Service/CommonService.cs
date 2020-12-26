@@ -176,7 +176,8 @@ namespace YourTour.Service
                 conn.Open();
                 lsResult = conn.Query<CommonViewModel>(@"select * from CTHoadonNam join Tour on CTHoadonNam.TourID = Tour.ID
                                                         join Hoadon on CTHoadonNam.HoadonID = Hoadon.ID
-                                                        join KhachHang on Hoadon.KhachhangID = Khachhang.ID").ToList();
+                                                        join KhachHang on Hoadon.KhachhangID = Khachhang.ID
+                                                        where CTHoadonNam.Dahuy = 0").ToList();
                 conn.Close();
             }
             return lsResult;
@@ -209,7 +210,8 @@ namespace YourTour.Service
                 conn.Open();
                 dstour = conn.Query<CommonViewModel>(@"select * from CTHoadonTrung join Tour on CTHoadonTrung.TourID = Tour.ID
                                                         join Hoadon on CTHoadonTrung.HoadonID = Hoadon.ID
-                                                        join KhachHang on Hoadon.KhachhangID = Khachhang.ID").ToList();
+                                                        join KhachHang on Hoadon.KhachhangID = Khachhang.ID
+                                                        where CTHoadonTrung.Dahuy = 0").ToList();
                 conn.Close();
             }
             return dstour;
@@ -242,7 +244,8 @@ namespace YourTour.Service
                 conn.Open();
                 dstour = conn.Query<CommonViewModel>(@"select * from CTHoadonBac join Tour on CTHoadonBac.TourID = Tour.ID
                                                         join Hoadon on CTHoadonBac.HoadonID = Hoadon.ID
-                                                        join KhachHang on Hoadon.KhachhangID = Khachhang.ID").ToList();
+                                                        join KhachHang on Hoadon.KhachhangID = Khachhang.ID
+                                                        where CTHoadonBac.Dahuy = 0").ToList();
                 conn.Close();
             }
             return dstour;
@@ -260,23 +263,6 @@ namespace YourTour.Service
                                                         join Hoadon on CTHoadonBac.HoadonID = Hoadon.ID
                                                         join KhachHang on Hoadon.KhachhangID = Khachhang.ID
                                                         where CTHoadonBac.ID= " + id).FirstOrDefault();
-                conn.Close();
-            }
-            return result;
-        }
-
-        // hủy tour miền Nam
-        public CommonViewModel HuyBookingTour(int id)
-        {
-            var result = new CommonViewModel();
-
-            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
-            {
-                conn.Open();
-                result = conn.Query<CommonViewModel>(@"delete from CTHoadon join Tour on CTHoadon.TourID = Tour.ID
-                                                        join Hoadon on CTHoadon.HoadonID = Hoadon.ID
-                                                        join KhachHang on Hoadon.KhachhangID = Khachhang.ID
-                                                        where CTHoadon.ID= " + id).FirstOrDefault();
                 conn.Close();
             }
             return result;

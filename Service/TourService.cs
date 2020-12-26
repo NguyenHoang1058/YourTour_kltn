@@ -27,7 +27,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour").ToList();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour where Trangthai=N'còn chỗ'").ToList();
             }
 
             return tourTrongNuoc;
@@ -41,7 +41,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 6 * from Tour where Thuocmien = 1").ToList();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 6 * from Tour where Thuocmien = 3 and Trangthai=N'còn chỗ'").ToList();
             }
 
             return tourTrongNuoc;
@@ -55,7 +55,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 1").ToList();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 3 and Trangthai=N'còn chỗ'").ToList();
             }
 
             return tourTrongNuoc;
@@ -69,7 +69,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 3 * from Tour where Thuocmien = 2").ToList();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 3 * from Tour where Thuocmien = 2 and Trangthai=N'còn chỗ'").ToList();
             }
 
             return tourTrongNuoc;
@@ -83,7 +83,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 2").ToList();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 2 and Trangthai=N'còn chỗ'").ToList();
             }
 
             return tourTrongNuoc;
@@ -97,7 +97,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 3 * from Tour where Thuocmien = 3").ToList();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 3 * from Tour where Thuocmien = 1 and Trangthai=N'còn chỗ'").ToList();
             }
 
             return tourTrongNuoc;
@@ -111,7 +111,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 3").ToList();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 1 and Trangthai=N'còn chỗ'").ToList();
             }
 
             return tourTrongNuoc;
@@ -125,7 +125,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourNoiBat = conn.Query<TourViewModel>(@"select top 4 * from Tour where Loaitour=N'Trong nước' and Tournoibat=1").ToList();
+                tourNoiBat = conn.Query<TourViewModel>(@"select top 4 * from Tour where Loaitour=N'Trong nước' and Tournoibat=1 and Trangthai=N'còn chỗ'").ToList();
                 conn.Close();
             }
             return tourNoiBat;
@@ -180,6 +180,18 @@ namespace YourTour.Service
                 conn.Close();
             }
             return tour;
+        }
+        public List<TourViewModel> TimTour(string diemDen, DateTime ngayDi)
+        {
+            var result = new List<TourViewModel>();
+            using(var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                result = conn.Query<TourViewModel>(@"select * from Tour")
+                                                    .Where(d => d.Diemden.Equals(diemDen) || d.Ngaydi.Equals(ngayDi)).ToList();
+                conn.Close();
+            }
+            return result;
         }
     }
 }

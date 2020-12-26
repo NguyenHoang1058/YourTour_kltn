@@ -29,156 +29,174 @@ namespace YourTour.Service
         {
             var tour = _db.Tours.FirstOrDefault(n => n.ID == validation.TourID);
             var kh = _db.Khachhangs.FirstOrDefault(n => n.Cmnd == validation.Cmnd);
-            if (kh == null)
-            {
-                var newKH = new Khachhang(validation);
-                _db.Khachhangs.Add(newKH);
-                _db.SaveChanges();
-
-                //thêm thông tin tour miền Nam
-                //thêm hóa đơn
-
-                HoadonViewModel hd = new HoadonViewModel
+                if (kh == null)
                 {
-                    KhachhangID = newKH.ID,
-                    Ngaylaphd = DateTime.Now,
-                    Ptthanhtoan = validation.Ptthanhtoan,
-                    Tongtien = validation.Tongtien
-                };
-                var newHD = new Hoadon(hd);
-                _db.Hoadons.Add(newHD);
-                _db.SaveChanges();
+                    var newKH = new Khachhang(validation);
+                    _db.Khachhangs.Add(newKH);
+                    _db.SaveChanges();
 
-                // tìm tourID
+                    //thêm thông tin tour miền Nam
+                    //thêm hóa đơn
 
-                tour.Songuoi = tour.Songuoi - validation.Songuoidi;
-                _db.SaveChanges();
+                    HoadonViewModel hd = new HoadonViewModel
+                    {
+                        KhachhangID = newKH.ID,
+                        Ngaylaphd = DateTime.Now,
+                        Ptthanhtoan = validation.Ptthanhtoan,
+                        Tongtien = validation.Tongtien,
+                        Ghichu = validation.Ghichu
+                    };
+                    var newHD = new Hoadon(hd);
+                    _db.Hoadons.Add(newHD);
+                    _db.SaveChanges();
+
+                //update số chỗ của tour
+
+                var cho = tour.Songuoi - validation.Songuoidi;
+                    if(cho == 0)
+                {
+                    tour.Trangthai = "hết chỗ";
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    tour.Songuoi = cho;
+                    _db.SaveChanges();
+                }
+
+                    //thêm chi tiết hóa đơn
+
+                    CTHoadonNamViewModel cthd = new CTHoadonNamViewModel
+                    {
+                        Hotenkhachhang = newKH.Hoten,
+                        Sdt = newKH.Sdt,
+                        Email = newKH.Email,
+                        Hoadoncode = RandomString(),
+                        Songuoidi = validation.Songuoidi,
+                        HoadonID = newHD.ID,
+                        TourID = tour.ID
+                    };
+                    var newCTHD = new CTHoadonNam(cthd);
+                    _db.CTHoadonNams.Add(newCTHD);
+                    _db.SaveChanges();
+
+                    //send mail
+
+                    var webRoot = _hostingEnvironment.WebRootPath;
+                    var body = string.Empty;
+                    var pathToFile = _hostingEnvironment.WebRootPath
+                        + Path.DirectorySeparatorChar.ToString()
+                        + "templates"
+                        + Path.DirectorySeparatorChar.ToString()
+                        + "email"
+                        + Path.DirectorySeparatorChar.ToString()
+                        + "bookingdetail.html";
+                    using (StreamReader reader = new StreamReader(pathToFile))
+                    {
+                        body = reader.ReadToEnd();
+                    }
+                    body = body.Replace("{{TourName}}", tour.Tentour);
+                    body = body.Replace("{{Code}}", tour.Code);
+                    body = body.Replace("{{Noixuatphat}}", tour.Diadiemkhoihanh);
+                    body = body.Replace("{{Diemden}}", tour.Diemden);
+                    body = body.Replace("{{Ngaydi}}", tour.Ngaydi.ToString());
+                    body = body.Replace("{{Ngayve}}", tour.Ngayve.ToString());
+                    body = body.Replace("{{Sobooking}}", cthd.Hoadoncode);
+                    body = body.Replace("{{Tongtien}}", hd.Tongtien.ToString());
+                    body = body.Replace("{{Ngaydangky}}", hd.Ngaylaphd.ToString());
+                    body = body.Replace("{{Hinhthucthanhtoan}}", hd.Ptthanhtoan);
+                    //int day = hd.Ngaylaphd.Date + 7;
+                    body = body.Replace("{{Thoihanthanhtoan}}", "Vui lòng thanh toán trước khi tour khởi hành 3 ngày");
+                    body = body.Replace("{{Hoten}}", validation.Hoten);
+                    body = body.Replace("{{Diachi}}", validation.Diachi);
+                    body = body.Replace("{{Sdt}}", validation.Sdt);
+                    body = body.Replace("{{Email}}", validation.Email);
+                    body = body.Replace("{{Songuoidi}}", validation.Songuoidi.ToString());
+                    var mailHelper = new MailHelpers();
+                    mailHelper.SendMail(validation.Email, "Thông tin booking tour", body);
+                }
+                else
+                {
+
+                    //thêm thông tin tour miền Nam
+                    //thêm hóa đơn 
+
+                    HoadonViewModel hd = new HoadonViewModel
+                    {
+                        KhachhangID = kh.ID,
+                        Ngaylaphd = DateTime.Now,
+                        Ptthanhtoan = validation.Ptthanhtoan,
+                        Tongtien = validation.Tongtien,
+                        Ghichu = validation.Ghichu
+                    };
+                    var newHD = new Hoadon(hd);
+                    _db.Hoadons.Add(newHD);
+                    _db.SaveChanges();
+
+                if (tour.Songuoi > 1)
+                {
+                    tour.Songuoi = tour.Songuoi - validation.Songuoidi;
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    tour.Songuoi = tour.Songuoi - validation.Songuoidi;
+                    tour.Trangthai = "hết chỗ";
+                    _db.SaveChanges();
+                }
 
                 //thêm chi tiết hóa đơn
 
                 CTHoadonNamViewModel cthd = new CTHoadonNamViewModel
-                {
-                    Hotenkhachhang = newKH.Hoten,
-                    Sdt = newKH.Sdt,
-                    Email = newKH.Email,
-                    Hoadoncode = RandomString(),
-                    Songuoidi = validation.Songuoidi,
-                    HoadonID = newHD.ID,
-                    TourID = tour.ID
-                };
-                var newCTHD = new CTHoadonNam(cthd);
-                _db.CTHoadonNams.Add(newCTHD);
-                _db.SaveChanges();
+                    {
+                        Hotenkhachhang = kh.Hoten,
+                        Sdt = kh.Sdt,
+                        Email = kh.Email,
+                        Hoadoncode = RandomString(),
+                        Songuoidi = validation.Songuoidi,
+                        HoadonID = newHD.ID,
+                        TourID = tour.ID
+                    };
+                    var newCTHD = new CTHoadonNam(cthd);
+                    _db.CTHoadonNams.Add(newCTHD);
+                    _db.SaveChanges();
 
-                //send mail
+                    //send mail
 
-                var webRoot = _hostingEnvironment.WebRootPath;
-                var body = string.Empty;
-                var pathToFile = _hostingEnvironment.WebRootPath
-                    + Path.DirectorySeparatorChar.ToString()
-                    + "templates"
-                    + Path.DirectorySeparatorChar.ToString()
-                    + "email"
-                    + Path.DirectorySeparatorChar.ToString()
-                    + "bookingdetail.html";
-                using (StreamReader reader = new StreamReader(pathToFile))
-                {
-                    body = reader.ReadToEnd();
+                    var webRoot = _hostingEnvironment.WebRootPath;
+                    var body = string.Empty;
+                    var pathToFile = _hostingEnvironment.WebRootPath
+                        + Path.DirectorySeparatorChar.ToString()
+                        + "templates"
+                        + Path.DirectorySeparatorChar.ToString()
+                        + "email"
+                        + Path.DirectorySeparatorChar.ToString()
+                        + "bookingdetail.html";
+                    using (StreamReader reader = new StreamReader(pathToFile))
+                    {
+                        body = reader.ReadToEnd();
+                    }
+                    body = body.Replace("{{TourName}}", tour.Tentour);
+                    body = body.Replace("{{Code}}", tour.Code);
+                    body = body.Replace("{{Noixuatphat}}", tour.Diadiemkhoihanh);
+                    body = body.Replace("{{Diemden}}", tour.Diemden);
+                    body = body.Replace("{{Ngaydi}}", tour.Ngaydi.ToString());
+                    body = body.Replace("{{Ngayve}}", tour.Ngayve.ToString());
+                    body = body.Replace("{{Sobooking}}", cthd.Hoadoncode);
+                    body = body.Replace("{{Tongtien}}", hd.Tongtien.ToString());
+                    body = body.Replace("{{Ngaydangky}}", hd.Ngaylaphd.ToString());
+                    body = body.Replace("{{Hinhthucthanhtoan}}", hd.Ptthanhtoan);
+                    //int day = hd.Ngaylaphd.Date + 7;
+                    body = body.Replace("{{Thoihanthanhtoan}}", "Vui lòng thanh toán trước khi tour khởi hành 3 ngày");
+                    body = body.Replace("{{Hoten}}", validation.Hoten);
+                    body = body.Replace("{{Diachi}}", validation.Diachi);
+                    body = body.Replace("{{Sdt}}", validation.Sdt);
+                    body = body.Replace("{{Email}}", validation.Email);
+                    body = body.Replace("{{Songuoidi}}", validation.Songuoidi.ToString());
+                    var mailHelper = new MailHelpers();
+                    mailHelper.SendMail(validation.Email, "Thông tin booking tour", body);
                 }
-                body = body.Replace("{{TourName}}", tour.Tentour);
-                body = body.Replace("{{Code}}", tour.Code);
-                body = body.Replace("{{Noixuatphat}}", tour.Diadiemkhoihanh);
-                body = body.Replace("{{Diemden}}", tour.Diemden);
-                body = body.Replace("{{Ngaydi}}", tour.Ngaydi.ToString());
-                body = body.Replace("{{Ngayve}}", tour.Ngayve.ToString());
-                body = body.Replace("{{Sobooking}}", cthd.Hoadoncode);
-                body = body.Replace("{{Tongtien}}", hd.Tongtien.ToString());
-                body = body.Replace("{{Ngaydangky}}", hd.Ngaylaphd.ToString());
-                body = body.Replace("{{Hinhthucthanhtoan}}", hd.Ptthanhtoan);
-                //int day = hd.Ngaylaphd.Date + 7;
-                body = body.Replace("{{Thoihanthanhtoan}}", "N/A");
-                body = body.Replace("{{Hoten}}", validation.Hoten);
-                body = body.Replace("{{Diachi}}", validation.Diachi);
-                body = body.Replace("{{Sdt}}", validation.Sdt);
-                body = body.Replace("{{Email}}", validation.Email);
-                body = body.Replace("{{Songuoidi}}", validation.Songuoidi.ToString());
-                var mailHelper = new MailHelpers();
-                mailHelper.SendMail(validation.Email, "Thông tin booking", body);
-            }
-            else
-            {
-
-                //thêm thông tin tour miền Nam
-                //thêm hóa đơn 
-
-                HoadonViewModel hd = new HoadonViewModel
-                {
-                    KhachhangID = kh.ID,
-                    Ngaylaphd = DateTime.Now,
-                    Ptthanhtoan = validation.Ptthanhtoan,
-                    Tongtien = validation.Tongtien
-                };
-                var newHD = new Hoadon(hd);
-                _db.Hoadons.Add(newHD);
-                _db.SaveChanges();
-
-                // tìm tourID
-
-                tour.Songuoi = tour.Songuoi - validation.Songuoidi;
-                _db.SaveChanges();
-
-                //thêm chi tiết hóa đơn
-
-                CTHoadonNamViewModel cthd = new CTHoadonNamViewModel
-                {
-                    Hotenkhachhang = kh.Hoten,
-                    Sdt = kh.Sdt,
-                    Email = kh.Email,
-                    Hoadoncode = RandomString(),
-                    Songuoidi = validation.Songuoidi,
-                    HoadonID = newHD.ID,
-                    TourID = tour.ID
-                };
-                var newCTHD = new CTHoadonNam(cthd);
-                _db.CTHoadonNams.Add(newCTHD);
-                _db.SaveChanges();
-
-                //send mail
-
-                var webRoot = _hostingEnvironment.WebRootPath;
-                var body = string.Empty;
-                var pathToFile = _hostingEnvironment.WebRootPath
-                    + Path.DirectorySeparatorChar.ToString()
-                    + "templates"
-                    + Path.DirectorySeparatorChar.ToString()
-                    + "email"
-                    + Path.DirectorySeparatorChar.ToString()
-                    + "bookingdetail.html";
-                using (StreamReader reader = new StreamReader(pathToFile))
-                {
-                    body = reader.ReadToEnd();
-                }
-                body = body.Replace("{{TourName}}", tour.Tentour);
-                body = body.Replace("{{Code}}", tour.Code);
-                body = body.Replace("{{Noixuatphat}}", tour.Diadiemkhoihanh);
-                body = body.Replace("{{Diemden}}", tour.Diemden);
-                body = body.Replace("{{Ngaydi}}", tour.Ngaydi.ToString());
-                body = body.Replace("{{Ngayve}}", tour.Ngayve.ToString());
-                body = body.Replace("{{Sobooking}}", cthd.Hoadoncode);
-                body = body.Replace("{{Tongtien}}", hd.Tongtien.ToString());
-                body = body.Replace("{{Ngaydangky}}", hd.Ngaylaphd.ToString());
-                body = body.Replace("{{Hinhthucthanhtoan}}", hd.Ptthanhtoan);
-                //int day = hd.Ngaylaphd.Date + 7;
-                body = body.Replace("{{Thoihanthanhtoan}}", "N/A");
-                body = body.Replace("{{Hoten}}", validation.Hoten);
-                body = body.Replace("{{Diachi}}", validation.Diachi);
-                body = body.Replace("{{Sdt}}", validation.Sdt);
-                body = body.Replace("{{Email}}", validation.Email);
-                body = body.Replace("{{Songuoidi}}", validation.Songuoidi.ToString());
-                var mailHelper = new MailHelpers();
-                mailHelper.SendMail(validation.Email, "Thông tin booking", body);
-            }
-            }
+        }
         public void DatTourMienBac(DatTourValidation validation)
         {
             var tour = _db.Tours.FirstOrDefault(n => n.ID == validation.TourID);
@@ -196,16 +214,24 @@ namespace YourTour.Service
                     KhachhangID = newKH.ID,
                     Ngaylaphd = DateTime.Now,
                     Ptthanhtoan = validation.Ptthanhtoan,
-                    Tongtien = validation.Tongtien
+                    Tongtien = validation.Tongtien,
+                    Ghichu = validation.Ghichu
                 };
                 var newHD = new Hoadon(hd);
                 _db.Hoadons.Add(newHD);
                 _db.SaveChanges();
 
-                // tìm tourID
-
-                tour.Songuoi = tour.Songuoi - validation.Songuoidi;
-                _db.SaveChanges();
+                if (tour.Songuoi > 1)
+                {
+                    tour.Songuoi = tour.Songuoi - validation.Songuoidi;
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    tour.Songuoi = tour.Songuoi - validation.Songuoidi;
+                    tour.Trangthai = "hết chỗ";
+                    _db.SaveChanges();
+                }
 
                 //thêm chi tiết hóa đơn
 
@@ -249,14 +275,14 @@ namespace YourTour.Service
                 body = body.Replace("{{Ngaydangky}}", hd.Ngaylaphd.ToString());
                 body = body.Replace("{{Hinhthucthanhtoan}}", hd.Ptthanhtoan);
                 //int day = hd.Ngaylaphd.Date + 7;
-                body = body.Replace("{{Thoihanthanhtoan}}", "N/A");
+                body = body.Replace("{{Thoihanthanhtoan}}", "Vui lòng thanh toán trước khi tour khởi hành 3 ngày");
                 body = body.Replace("{{Hoten}}", validation.Hoten);
                 body = body.Replace("{{Diachi}}", validation.Diachi);
                 body = body.Replace("{{Sdt}}", validation.Sdt);
                 body = body.Replace("{{Email}}", validation.Email);
                 body = body.Replace("{{Songuoidi}}", validation.Songuoidi.ToString());
                 var mailHelper = new MailHelpers();
-                mailHelper.SendMail(validation.Email, "Thông tin booking", body);
+                mailHelper.SendMail(validation.Email, "Thông tin booking tour", body);
             }
             else
             {
@@ -268,16 +294,24 @@ namespace YourTour.Service
                     KhachhangID = kh.ID,
                     Ngaylaphd = DateTime.Now,
                     Ptthanhtoan = validation.Ptthanhtoan,
-                    Tongtien = validation.Tongtien
+                    Tongtien = validation.Tongtien,
+                    Ghichu = validation.Ghichu
                 };
                 var newHD = new Hoadon(hd);
                 _db.Hoadons.Add(newHD);
                 _db.SaveChanges();
 
-                // tìm tourID
-
-                tour.Songuoi = tour.Songuoi - validation.Songuoidi;
-                _db.SaveChanges();
+                if (tour.Songuoi > 1)
+                {
+                    tour.Songuoi = tour.Songuoi - validation.Songuoidi;
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    tour.Songuoi = tour.Songuoi - validation.Songuoidi;
+                    tour.Trangthai = "hết chỗ";
+                    _db.SaveChanges();
+                }
 
                 //thêm chi tiết hóa đơn
 
@@ -321,14 +355,14 @@ namespace YourTour.Service
                 body = body.Replace("{{Ngaydangky}}", hd.Ngaylaphd.ToString());
                 body = body.Replace("{{Hinhthucthanhtoan}}", hd.Ptthanhtoan);
                 //int day = hd.Ngaylaphd.Date + 7;
-                body = body.Replace("{{Thoihanthanhtoan}}", "N/A");
+                body = body.Replace("{{Thoihanthanhtoan}}", "Vui lòng thanh toán trước khi tour khởi hành 3 ngày");
                 body = body.Replace("{{Hoten}}", validation.Hoten);
                 body = body.Replace("{{Diachi}}", validation.Diachi);
                 body = body.Replace("{{Sdt}}", validation.Sdt);
                 body = body.Replace("{{Email}}", validation.Email);
                 body = body.Replace("{{Songuoidi}}", validation.Songuoidi.ToString());
                 var mailHelper = new MailHelpers();
-                mailHelper.SendMail(validation.Email, "Thông tin booking", body);
+                mailHelper.SendMail(validation.Email, "Thông tin booking tour", body);
             }
         }
         public void DatTourMienTrung(DatTourValidation validation)
@@ -349,16 +383,24 @@ namespace YourTour.Service
                     KhachhangID = newKH.ID,
                     Ngaylaphd = DateTime.Now,
                     Ptthanhtoan = validation.Ptthanhtoan,
-                    Tongtien = validation.Tongtien
+                    Tongtien = validation.Tongtien,
+                    Ghichu = validation.Ghichu
                 };
                 var newHD = new Hoadon(hd);
                 _db.Hoadons.Add(newHD);
                 _db.SaveChanges();
 
-                // tìm tourID
-
-                tour.Songuoi = tour.Songuoi - validation.Songuoidi;
-                _db.SaveChanges();
+                if (tour.Songuoi > 1)
+                {
+                    tour.Songuoi = tour.Songuoi - validation.Songuoidi;
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    tour.Songuoi = tour.Songuoi - validation.Songuoidi;
+                    tour.Trangthai = "hết chỗ";
+                    _db.SaveChanges();
+                }
 
                 //thêm chi tiết hóa đơn
 
@@ -401,15 +443,14 @@ namespace YourTour.Service
                 body = body.Replace("{{Tongtien}}", hd.Tongtien.ToString());
                 body = body.Replace("{{Ngaydangky}}", hd.Ngaylaphd.ToString());
                 body = body.Replace("{{Hinhthucthanhtoan}}", hd.Ptthanhtoan);
-                //int day = hd.Ngaylaphd.Date + 7;
-                body = body.Replace("{{Thoihanthanhtoan}}", "N/A");
+                body = body.Replace("{{Thoihanthanhtoan}}", "Vui lòng thanh toán trước khi tour khởi hành 3 ngày");
                 body = body.Replace("{{Hoten}}", validation.Hoten);
                 body = body.Replace("{{Diachi}}", validation.Diachi);
                 body = body.Replace("{{Sdt}}", validation.Sdt);
                 body = body.Replace("{{Email}}", validation.Email);
                 body = body.Replace("{{Songuoidi}}", validation.Songuoidi.ToString());
                 var mailHelper = new MailHelpers();
-                mailHelper.SendMail(validation.Email, "Thông tin booking", body);
+                mailHelper.SendMail(validation.Email, "Thông tin booking tour", body);
             }
             else
             {
@@ -421,16 +462,24 @@ namespace YourTour.Service
                     KhachhangID = kh.ID,
                     Ngaylaphd = DateTime.Now,
                     Ptthanhtoan = validation.Ptthanhtoan,
-                    Tongtien = validation.Tongtien
+                    Tongtien = validation.Tongtien,
+                    Ghichu = validation.Ghichu
                 };
                 var newHD = new Hoadon(hd);
                 _db.Hoadons.Add(newHD);
                 _db.SaveChanges();
 
-                // tìm tourID
-
-                tour.Songuoi = tour.Songuoi - validation.Songuoidi;
-                _db.SaveChanges();
+                if (tour.Songuoi > 1)
+                {
+                    tour.Songuoi = tour.Songuoi - validation.Songuoidi;
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    tour.Songuoi = tour.Songuoi - validation.Songuoidi;
+                    tour.Trangthai = "hết chỗ";
+                    _db.SaveChanges();
+                }
 
                 //thêm chi tiết hóa đơn
 
@@ -479,7 +528,7 @@ namespace YourTour.Service
                 body = body.Replace("{{Email}}", validation.Email);
                 body = body.Replace("{{Songuoidi}}", validation.Songuoidi.ToString());
                 var mailHelper = new MailHelpers();
-                mailHelper.SendMail(validation.Email, "Thông tin booking", body);
+                mailHelper.SendMail(validation.Email, "Thông tin booking tour", body);
             }
         }
         public void DatTourTuyChon(TourTuyChonViewModel tourTC)

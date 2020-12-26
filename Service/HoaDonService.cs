@@ -8,6 +8,7 @@ using YourTour.Models.ViewModels;
 using System.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Dapper;
+using System.Data;
 
 namespace YourTour.Service
 {
@@ -86,6 +87,57 @@ namespace YourTour.Service
                 conn.Close();
             }
             return cthd;
+        }
+
+        //hủy tour miền Nam
+        public CTHoadonNam HuyBookingTourMienNam(int id)
+        {
+            var result = new CTHoadonNam();
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                result = conn.Query<CTHoadonNam>(@"select * from CTHoadonNam join Tour on CTHoadonNam.TourID = Tour.ID
+                                                        join Hoadon on CTHoadonNam.HoadonID = Hoadon.ID
+                                                        join KhachHang on Hoadon.KhachhangID = Khachhang.ID
+                                                        where CTHoadonNam.ID= " + id).FirstOrDefault();
+                conn.Close();
+            }
+            return result;
+        }
+
+        //hủy tour miền Trung
+        public CTHoadonTrung HuyBookingTourMienTrung(int id)
+        {
+            var result = new CTHoadonTrung();
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                result = conn.Query<CTHoadonTrung>(@"select * from CTHoadonTrung join Tour on CTHoadonTrung.TourID = Tour.ID
+                                                        join Hoadon on CTHoadonTrung.HoadonID = Hoadon.ID
+                                                        join KhachHang on Hoadon.KhachhangID = Khachhang.ID
+                                                        where CTHoadonTrung.ID= " + id).FirstOrDefault();
+                conn.Close();
+            }
+            return result;
+        }
+
+        //hủy tour miền Bắc
+        public CTHoadonBac HuyBookingTourMienBac(int id)
+        {
+            var result = new CTHoadonBac();
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                result = conn.Query<CTHoadonBac>(@"select * from CTHoadonBac join Tour on CTHoadonBac.TourID = Tour.ID
+                                                        join Hoadon on CTHoadonBac.HoadonID = Hoadon.ID
+                                                        join KhachHang on Hoadon.KhachhangID = Khachhang.ID
+                                                        where CTHoadonBac.ID= " + id).FirstOrDefault();
+                conn.Close();
+            }
+            return result;
         }
     }
 }

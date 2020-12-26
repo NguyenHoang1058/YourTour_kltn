@@ -9,6 +9,11 @@ using Microsoft.AspNetCore.Hosting;
 using YourTour.Helpers;
 using Microsoft.Extensions.Configuration;
 using YourTour.Models.ViewModels;
+using Microsoft.AspNetCore.Http;
+using Aspose.Pdf;
+using Aspose.Pdf.Text;
+using System.Data;
+using System.IO;
 
 namespace YourTour.Controllers
 {
@@ -84,9 +89,8 @@ namespace YourTour.Controllers
                 return RedirectToAction("ChiTietBookingTourMienNam", "DatTour");
                 
             }
-            ModelState.Clear();
             var model = _tourService.ChiTietTourMienNam(validation.TourID);
-            return View("/Views/Tour/ChiTietTour.cshtml", model);
+            return View(model);
         }
         [HttpPost]
         public IActionResult DatTourMienBac(DatTourValidation validation)
@@ -97,9 +101,8 @@ namespace YourTour.Controllers
                 return RedirectToAction("ChiTietBookingTourMienBac", "DatTour");
 
             }
-            ModelState.Clear();
             var model = _tourService.ChiTietTourMienBac(validation.TourID);
-            return View("/Views/Tour/ChiTietTour.cshtml", model);
+            return View(model);
         }
         [HttpPost]
         public IActionResult DatTourMienTrung(DatTourValidation validation)
@@ -110,9 +113,8 @@ namespace YourTour.Controllers
                 return RedirectToAction("ChiTietBookingTourMienTrung", "DatTour");
 
             }
-            ModelState.Clear();
             var model = _tourService.ChiTietTourMienTrung(validation.TourID);
-            return View("/Views/Tour/ChiTietTour.cshtml", model);
+            return View(model);
         }
         public IActionResult DatTourTuyChon()
         {
@@ -124,7 +126,6 @@ namespace YourTour.Controllers
             if (ModelState.IsValid)
             {
                 this._dattourService.DatTourTuyChon(tourTC);
-                ModelState.Clear();
                 return View("/Views/Home/Index.cshtml");
             }
             return View();
@@ -153,5 +154,7 @@ namespace YourTour.Controllers
             var model = this._commonService.GetThongTinBookingTourMienTrung(cthd.Hoadoncode);
             return View(model);
         }
+
+        //export hóa đơn
     }
 }

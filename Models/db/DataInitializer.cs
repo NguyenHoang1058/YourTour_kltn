@@ -45,22 +45,22 @@ namespace YourTour.Models.db
             //  init data table Khachhang 
             //
 
-            var khachhang = new Khachhang[]
-            {
-                new Khachhang{Hoten="Hoàng Sĩ Nguyên", Cmnd = 251139125, Diachi="12 Nguyễn Văn Bảo", Email="hoangsinguyen@gmail.com", Sdt="0123456789"},
-                new Khachhang{Hoten="Lê Tuấn Kiệt", Cmnd = 251133122, Diachi="13 Lê Lợi", Email="letuankiet@gmail.com", Sdt="0987465133"},
-                new Khachhang{Hoten="Hoàng Bá Bửu", Cmnd = 251139115, Diachi="14 Nguyễn Trung Trực", Email="hoangbabuu@gmail.com", Sdt="0323456556"},
-                new Khachhang{Hoten="Lê Tuấn Anh", Cmnd = 251133112, Diachi="15 Hoàng Văn Thụ", Email="letuananh@gmail.com", Sdt="0987465123"},
-                new Khachhang{Hoten="Đoàn Lê Huy", Cmnd = 251139126, Diachi="16 Trần Lê", Email="doanlehuy@gmail.com", Sdt="0423456700"},
-                new Khachhang{Hoten="Nguyễn Hữu Tình", Cmnd = 251133162, Diachi="17 Phan Đình Phùng", Email="nguyenhuutinh@gmail.com", Sdt="0987465100"},
-                new Khachhang{Hoten="Hoàng Văn Dương", Cmnd = 251139185, Diachi="18 Lê Duẩn", Email="hoangvanduong@gmail.com", Sdt="0523456723"},
-                new Khachhang{Hoten="Lê Tuấn Vũ", Cmnd = 251133190, Diachi="19 Lê Văn Tám", Email="letuanvu@gmail.com", Sdt="0987435133"}
-            };
-            foreach (Khachhang kh in khachhang)
-            {
-                context.Khachhangs.Add(kh);
-            }
-            context.SaveChanges();
+            //var khachhang = new Khachhang[]
+            //{
+            //    new Khachhang{Hoten="Hoàng Sĩ Nguyên", Cmnd = 251139125, Diachi="12 Nguyễn Văn Bảo", Email="hoangsinguyen@gmail.com", Sdt="0123456789"},
+            //    new Khachhang{Hoten="Lê Tuấn Kiệt", Cmnd = 251133122, Diachi="13 Lê Lợi", Email="letuankiet@gmail.com", Sdt="0987465133"},
+            //    new Khachhang{Hoten="Hoàng Bá Bửu", Cmnd = 251139115, Diachi="14 Nguyễn Trung Trực", Email="hoangbabuu@gmail.com", Sdt="0323456556"},
+            //    new Khachhang{Hoten="Lê Tuấn Anh", Cmnd = 251133112, Diachi="15 Hoàng Văn Thụ", Email="letuananh@gmail.com", Sdt="0987465123"},
+            //    new Khachhang{Hoten="Đoàn Lê Huy", Cmnd = 251139126, Diachi="16 Trần Lê", Email="doanlehuy@gmail.com", Sdt="0423456700"},
+            //    new Khachhang{Hoten="Nguyễn Hữu Tình", Cmnd = 251133162, Diachi="17 Phan Đình Phùng", Email="nguyenhuutinh@gmail.com", Sdt="0987465100"},
+            //    new Khachhang{Hoten="Hoàng Văn Dương", Cmnd = 251139185, Diachi="18 Lê Duẩn", Email="hoangvanduong@gmail.com", Sdt="0523456723"},
+            //    new Khachhang{Hoten="Lê Tuấn Vũ", Cmnd = 251133190, Diachi="19 Lê Văn Tám", Email="letuanvu@gmail.com", Sdt="0987435133"}
+            //};
+            //foreach (Khachhang kh in khachhang)
+            //{
+            //    context.Khachhangs.Add(kh);
+            //}
+            //context.SaveChanges();
 
             //
             //  init data table Mien
@@ -128,7 +128,7 @@ namespace YourTour.Models.db
                     Mota="Châu Đốc, một địa danh gắn liền với sự linh thiêng với thế phong thủy tiền tam giang, hậu thất sơn và huyền bí cùng nhiều tín ngưỡng tôn giáo tồn tại từ lâu đời. " +
                     "Nhắc tới mảnh đất này, người ta không thể không nhớ tới Miếu Bà Chúa Xứ Núi Sam là điểm du lịch tâm linh nổi tiếng không chỉ ở miền Tây Nam Bộ, mà ngay cả người Việt ở nước " +
                     "ngoài vẫn biết đến.",  Loaitour="Trong nước", TenHDV="Nguyễn Văn A", 
-                    Songuoi=9, Trangthai = "còn chỗ", Tournoibat=1, Thuocmien = 3},
+                    Songuoi=9, Trangthai = "còn chỗ", Tournoibat=1, Thuocmien = 1},
                 new Tour{Code="TMT291220B", Tentour="Tour Đầm Ô Loan", Diadiemkhoihanh="TP Hồ Chí Minh",
                     Diemden="Đầm Ô Loan", Ngaydi=DateTime.Parse("2020-11-10"), Ngayve=DateTime.Parse("2020-11-15"), Thoigiandi=5,
                     Hinhanh="phu-yen-dam-o-loan.jpg", Gianguoilon=1250000,

@@ -25,10 +25,12 @@ namespace YourTour.Controllers
         private readonly CommonService _commonService;
         private readonly AdminService _adminService;
         private readonly TourService _tourService;
+        private readonly HoaDonService _hoaDonService;
 
         public AdminController(YourTourContext db, IHostingEnvironment hostingEnvironment, 
             TravelService travelService, StaffService staffService, LocationService locationService,
-            CommonService commonService, AdminService adminService, TourService tourService)
+            CommonService commonService, AdminService adminService, TourService tourService,
+            HoaDonService hoaDonService)
         {
             this._db = db;
             this._hostingEnvironment = hostingEnvironment;
@@ -38,6 +40,7 @@ namespace YourTour.Controllers
             this._commonService = commonService;
             this._adminService = adminService;
             this._tourService = tourService;
+            this._hoaDonService = hoaDonService;
         }
         public IActionResult Index()
         {
@@ -275,26 +278,41 @@ namespace YourTour.Controllers
         }
         public IActionResult ShowAllBookingTour()
         {
-            var model = this._commonService.GetAllThongTinBookingTourMienNam();
-            if(model == null)
-            {
-                return null;
-            }
-            return View(model);
+            return View();
         }
-        public IActionResult ShowChiTietThongTinBooking(int id)
+        public IActionResult ShowChiTietThongTinBookingTourMienBac(int id)
         {
             var model = this._commonService.GetChiTietThongTinBookingTourMienBac(id);
-            if(model == null)
-            {
-                return null;
-            }
             return View(model);
         }
-        public IActionResult HuyBookingTour(int id)
+
+        //hủy tour miền Nam
+        public IActionResult HuyBookingTourMienNam(int id)
         {
-            var model = this._commonService.HuyBookingTour(id);
+            var model = this._hoaDonService.HuyBookingTourMienNam(id);
+            model.Dahuy = 1;
+            _db.CTHoadonNams.Update(model);
+            _db.SaveChanges();
             return RedirectToAction("ShowAllBookingTour","Admin");
+        }
+
+        //hủy đặt tour miền Bắc
+        public IActionResult HuyBookingTourMienBac(int id)
+        {
+            var model = this._hoaDonService.HuyBookingTourMienBac(id);
+            model.Dahuy = 1;
+            _db.CTHoadonBacs.Update(model);
+            _db.SaveChanges();
+            return RedirectToAction("ShowAllBookingTour", "Admin");
+        }
+        //hủy đặt tour miền Trung
+        public IActionResult HuyBookingTourMienTrung(int id)
+        {
+            var model = this._hoaDonService.HuyBookingTourMienTrung(id);
+            model.Dahuy = 1;
+            _db.CTHoadonTrungs.Update(model);
+            _db.SaveChanges();
+            return RedirectToAction("ShowAllBookingTour", "Admin");
         }
 
         //hiển thị danh sách khách đặt tour tùy chọn
@@ -317,6 +335,10 @@ namespace YourTour.Controllers
         {
             var model = this._adminService.GetTourTuyChonDaXacNhan();
             return View(model);
+        }
+        public IActionResult ShowTourDaHuy()
+        {
+            return View();
         }
     }
 }
