@@ -12,6 +12,8 @@ using YourTour.Models.ViewModels;
 using YourTour.Service;
 using X.PagedList;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace YourTour.Controllers
 {
@@ -27,7 +29,7 @@ namespace YourTour.Controllers
         private readonly TourService _tourService;
         private readonly HoaDonService _hoaDonService;
 
-        public AdminController(YourTourContext db, IHostingEnvironment hostingEnvironment, 
+        public AdminController(YourTourContext db, IHostingEnvironment hostingEnvironment,
             TravelService travelService, StaffService staffService, LocationService locationService,
             CommonService commonService, AdminService adminService, TourService tourService,
             HoaDonService hoaDonService)
@@ -44,7 +46,7 @@ namespace YourTour.Controllers
         }
         public IActionResult Index()
         {
-            if(HttpContext.Session.GetString("Admin") == null)
+            if (HttpContext.Session.GetString("Admin") == null)
             {
                 return RedirectToAction("Login", "Admin");
             }
@@ -70,7 +72,7 @@ namespace YourTour.Controllers
                 HttpContext.Session.SetString("Admin", strEmail);
                 return RedirectToAction("Index", "Admin");
             }
-            else if(check != null && check.Vaitro.Equals("nv"))
+            else if (check != null && check.Vaitro.Equals("nv"))
             {
                 HttpContext.Session.SetString("NV", strEmail);
                 return RedirectToAction("Index", "NhanVien");
@@ -84,40 +86,55 @@ namespace YourTour.Controllers
             List<Diadiemdulich> listDiadiem = new List<Diadiemdulich>();
             listDiadiem = (from t in _db.Diadiemduliches select t).ToList();
             ViewBag.ListDiaDiem = listDiadiem;
+            List<Mien> listMien = new List<Mien>();
+            listMien = (from t in _db.Miens select t).ToList();
+            ViewBag.ListMien = listMien;
             return View();
         }
         [HttpPost]
-        public IActionResult InsertTour(InsertTourCommand tourCommand,Diadiemdulich diadiem)
+        public IActionResult InsertTour(InsertTourCommand tourCommand, Diadiemdulich diadiem, Mien mien)
         {
-            int SelectValue = diadiem.ID;
-            ViewBag.SelectedValue = diadiem.ID;
             List<Diadiemdulich> listDiadiem = new List<Models.db.Diadiemdulich>();
-            listDiadiem = (from t in _db.Diadiemduliches select t).ToList();
+            listDiadiem = (from t in _db.Diadiemduliches
+                           //where t.MienID == SelectedValue2
+                           select t).ToList();
             ViewBag.ListDiaDiem = listDiadiem;
+            List<Mien> listMien = new List<Models.db.Mien>();
+            listMien = (from t in _db.Miens select t).ToList();
+            ViewBag.ListMien = listMien;
+            string getNameLichTrinh = null;
             string getNamePicture = null;
-            if (tourCommand != null)
+            if (ModelState.IsValid)
             {
-                getNamePicture = Path.GetFileName(tourCommand.Hinhanh.FileName);
-                var uploadFolder = Path.Combine(this._hostingEnvironment.WebRootPath, "images/tour_images");
-                var getPictureToFolder = Path.Combine(uploadFolder, getNamePicture);
-                if (System.IO.File.Exists(getPictureToFolder))
+                if (tourCommand != null)
                 {
-                    ViewBag.Picture = "Hinh anh da ton tai";
-                    return View();
-                }
-                else
-                {
+                    getNameLichTrinh = Path.GetFileName(tourCommand.Lichtrinh.FileName);
+                    var uploadFolderLT = Path.Combine(this._hostingEnvironment.WebRootPath, "docs/lichtrinh");
+                    var getLichtrinhToFolder = Path.Combine(uploadFolderLT, getNameLichTrinh);
+                    getNamePicture = Path.GetFileName(tourCommand.Hinhanh.FileName);
+                    var uploadFolder = Path.Combine(this._hostingEnvironment.WebRootPath, "images/tour_images");
+                    var getPictureToFolder = Path.Combine(uploadFolder, getNamePicture);
+                    //if (System.IO.File.Exists(getPictureToFolder))
+                    //{
+                    //    ViewBag.Picture = "Hinh anh da ton tai";
+                    //    return View();
+                    //}
+                    //else
+                    //{
+                    var filestream2 = new FileStream(getLichtrinhToFolder, FileMode.Create);
+                    tourCommand.Lichtrinh.CopyTo(filestream2);
                     var filestream = new FileStream(getPictureToFolder, FileMode.Create);
                     tourCommand.Hinhanh.CopyTo(filestream);
                     var newTour = new Tour();
                     {
+                        //newTour.ID = _db.Tours.Count() + 1;
                         newTour.Tentour = tourCommand.Tentour;
                         newTour.Code = tourCommand.Code;
                         newTour.Diadiemkhoihanh = tourCommand.Diadiemkhoihanh;
                         newTour.Diemden = tourCommand.Diemden;
                         newTour.Ngaydi = tourCommand.Ngaydi;
-                        newTour.Ngayve = tourCommand.Ngayve;
-                        if (tourCommand.Loaitour == "Tour Trong nước")
+                        newTour.Thuocmien = tourCommand.Thuocmien;
+                        if (tourCommand.Loaitour == "Trong nước")
                         {
                             newTour.Loaitour = "Trong nước";
                         }
@@ -126,21 +143,29 @@ namespace YourTour.Controllers
                             newTour.Loaitour = "Nước ngoài";
                         }
                         newTour.Thoigiandi = tourCommand.Thoigiandi;
-                        newTour.Lichtrinh = tourCommand.Lichtrinh;
+                        newTour.Lichtrinh = getNameLichTrinh;
                         newTour.Gianguoilon = tourCommand.Gianguoilon;
-                        newTour.Giatreem = tourCommand.Giatreem;
+                        //newTour.Giatreem = tourCommand.Giatreem;
                         newTour.Hinhanh = getNamePicture + DateTime.Now.ToString();
                         newTour.Mota = tourCommand.Mota;
                         newTour.Songuoi = tourCommand.Songuoi;
                         //newTour.Loaitour = tourCommand.Loaitour;
                         newTour.TenHDV = tourCommand.TenHDV;
-                        newTour.Trangthai = tourCommand.Trangthai;
-                        //newTour.Diadiem = tourCommand.MultiDiaDiem;
+                        newTour.Trangthai = "Còn chỗ";
+                        //foreach (var selectedId in tourCommand.MultiDiaDiem)
+                        //{
+                        //    _db.DiadiemTours.Add(new DiadiemTour
+                        //    {
+                        //        TourID = newTour.ID,
+                        //        DiadiemdulichID = selectedId,
+                        //    });
+                        //}
+                        //_db.SaveChanges();
                     }
                     _db.Tours.Add(newTour);
                     _db.SaveChanges();
-
                     RedirectToAction("Index", "Admin");
+                    //}
                 }
             }
             return View();
@@ -159,14 +184,46 @@ namespace YourTour.Controllers
         [HttpGet]
         public IActionResult EditTour(int id)
         {
+            List<Diadiemdulich> listDiadiem = new List<Diadiemdulich>();
+            listDiadiem = (from t in _db.Diadiemduliches select t).ToList();
+            ViewBag.ListDiaDiem = listDiadiem;
+            List<Mien> listMien = new List<Mien>();
+            listMien = (from t in _db.Miens select t).ToList();
+            ViewBag.ListMien = listMien;
             var model = this._travelService.SeeTour(id);
             return View(model);
         }
         [HttpPost]
-        public IActionResult EditTour(InsertTourCommand command)
+        public IActionResult EditTour(TourViewModel command)
         {
-            this._travelService.EditTour(command);
-            return RedirectToAction("ShowAllTour", "Admin");
+            List<Diadiemdulich> listDiadiem = new List<Models.db.Diadiemdulich>();
+            listDiadiem = (from t in _db.Diadiemduliches
+                               //where t.MienID == SelectedValue2
+                           select t).ToList();
+            ViewBag.ListDiaDiem = listDiadiem;
+            List<Mien> listMien = new List<Models.db.Mien>();
+            listMien = (from t in _db.Miens select t).ToList();
+            ViewBag.ListMien = listMien;
+            var model = this._travelService.SeeTour(command.ID);
+            model.Tentour = command.Tentour;
+            model.Thuocmien = command.Thuocmien;
+            model.Diadiemkhoihanh = command.Diadiemkhoihanh;
+            model.Diemden = command.Diemden;
+            model.Thoigiandi = command.Thoigiandi;
+            //model.Hinhanh = command.Hinhanh;
+            // model.Lichtrinh = command.Lichtrinh;
+            model.Mota = command.Mota;
+            model.Ngaydi = command.Ngaydi;
+            model.Songuoi = command.Songuoi;
+            model.TenHDV = command.TenHDV;
+            model.Gianguoilon = command.Gianguoilon;
+
+            if (ModelState.IsValid)
+            {
+                this._travelService.EditTour(command);
+                return RedirectToAction("ShowAllTour", "Admin");
+            }
+            return View(model);
         }
 
         [HttpGet]
@@ -204,7 +261,8 @@ namespace YourTour.Controllers
             model.Matkhau = command.Matkhau;
             model.Sdt = command.Sdt;
             model.Vaitro = command.Vaitro;
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 this._staffService.EditStaff(command);
                 return RedirectToAction("AllStaff", "Admin");
             }
@@ -329,7 +387,7 @@ namespace YourTour.Controllers
             tour.Xacnhan = 1;
             _db.TourTuyChons.Update(tour);
             _db.SaveChanges();
-            return RedirectToAction("DanhSachTourTuyChon","Admin");
+            return RedirectToAction("DanhSachTourTuyChon", "Admin");
         }
         public IActionResult DanhSachTourTuyChonDaXacNhan()
         {

@@ -11,24 +11,29 @@
 }
 <h4 class="text-capitalize" style="color:orange; text-align:center">Du lịch miền Trung</h4>
 <br />
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-lg-3 col-sm-6 mb-5">
-            <div class="image-tour position-relative">
-                <a href="@Url.Action("TourMienTrung","Tour", new { @id = item.ID})">
-                    <img src="@Url.Content("/images/tour_images/"+item.Hinhanh)" alt="" height="200" width="600">
-                    <p><span class="fa fa-tags"></span> <span>@item.Gianguoilon.ToString("#,##") đ</span></p>
-                </a>
-            </div>
-            <div class="package-info">
-                <h6 class="mt-1" style="text-overflow:ellipsis;white-space:nowrap; overflow:hidden" title="@item.Tentour"><span class="fa fa-map-marker mr-2"></span>@item.Tentour</h6>
-                <h5 class="my-2">@item.Code</h5>
-                <p class=""style="text-overflow:ellipsis;white-space:nowrap; overflow:hidden">@item.Mota</p>
-                <ul class="listing mt-3">
-                    <li><span class="fa fa-clock-o mr-2"></span><span>@item.Ngaydi.ToShortDateString()| @item.Thoigiandi ngày | @item.Songuoi chỗ</span></li>
-                </ul>
-            </div>
+<div class="container pt-lg-4 py-sm-3">
+    <div class="col-lg-12">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-sm-6 mb-5">
+                    <div class="image-tour position-relative">
+                        <a href="@Url.Action("TourMienTrung","Tour", new { @id = item.ID})">
+                            <img src="@Url.Content("/images/tour_images/"+item.Hinhanh)" alt="" height="200" width="600">
+                            <p><span class="fa fa-tags"></span> <span>@item.Gianguoilon.ToString("#,##") đ</span></p>
+                        </a>
+                    </div>
+                    <div class="package-info">
+                        <h6 class="mt-1" style="text-overflow:ellipsis;white-space:nowrap; overflow:hidden" title="@item.Tentour"><span class="fa fa-map-marker mr-2"></span>@item.Tentour</h6>
+                        <h5 class="my-2">@item.Code</h5>
+                        <p class="" style="text-overflow:ellipsis;white-space:nowrap; overflow:hidden">@item.Mota</p>
+                        <ul class="listing mt-3">
+                            <li><span class="fa fa-clock-o mr-2"></span><span>@item.Ngaydi.ToShortDateString()| @item.Thoigiandi ngày | @item.Songuoi chỗ</span></li>
+                        </ul>
+                    </div>
+                </div>
+            }
         </div>
-    }
+    </div>
 </div>
+

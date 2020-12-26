@@ -137,7 +137,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tour = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 3 and ID = " + id).ToList();
+                tour = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 1 and ID = " + id).ToList();
                 conn.Close();
             }
 
@@ -150,7 +150,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tour = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 1 and ID = " + id).ToList();
+                tour = conn.Query<TourViewModel>(@"select * from Tour where Thuocmien = 3 and ID = " + id).ToList();
                 conn.Close();
             }
 

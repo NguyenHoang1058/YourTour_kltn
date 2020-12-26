@@ -100,7 +100,6 @@ namespace YourTour.Service
                     body = body.Replace("{{Noixuatphat}}", tour.Diadiemkhoihanh);
                     body = body.Replace("{{Diemden}}", tour.Diemden);
                     body = body.Replace("{{Ngaydi}}", tour.Ngaydi.ToString());
-                    body = body.Replace("{{Ngayve}}", tour.Ngayve.ToString());
                     body = body.Replace("{{Sobooking}}", cthd.Hoadoncode);
                     body = body.Replace("{{Tongtien}}", hd.Tongtien.ToString());
                     body = body.Replace("{{Ngaydangky}}", hd.Ngaylaphd.ToString());
@@ -181,7 +180,6 @@ namespace YourTour.Service
                     body = body.Replace("{{Noixuatphat}}", tour.Diadiemkhoihanh);
                     body = body.Replace("{{Diemden}}", tour.Diemden);
                     body = body.Replace("{{Ngaydi}}", tour.Ngaydi.ToString());
-                    body = body.Replace("{{Ngayve}}", tour.Ngayve.ToString());
                     body = body.Replace("{{Sobooking}}", cthd.Hoadoncode);
                     body = body.Replace("{{Tongtien}}", hd.Tongtien.ToString());
                     body = body.Replace("{{Ngaydangky}}", hd.Ngaylaphd.ToString());
@@ -269,7 +267,7 @@ namespace YourTour.Service
                 body = body.Replace("{{Noixuatphat}}", tour.Diadiemkhoihanh);
                 body = body.Replace("{{Diemden}}", tour.Diemden);
                 body = body.Replace("{{Ngaydi}}", tour.Ngaydi.ToString());
-                body = body.Replace("{{Ngayve}}", tour.Ngayve.ToString());
+                //body = body.Replace("{{Ngayve}}", tour.Ngayve.ToString());
                 body = body.Replace("{{Sobooking}}", cthd.Hoadoncode);
                 body = body.Replace("{{Tongtien}}", hd.Tongtien.ToString());
                 body = body.Replace("{{Ngaydangky}}", hd.Ngaylaphd.ToString());
@@ -349,7 +347,7 @@ namespace YourTour.Service
                 body = body.Replace("{{Noixuatphat}}", tour.Diadiemkhoihanh);
                 body = body.Replace("{{Diemden}}", tour.Diemden);
                 body = body.Replace("{{Ngaydi}}", tour.Ngaydi.ToString());
-                body = body.Replace("{{Ngayve}}", tour.Ngayve.ToString());
+                //body = body.Replace("{{Ngayve}}", tour.Ngayve.ToString());
                 body = body.Replace("{{Sobooking}}", cthd.Hoadoncode);
                 body = body.Replace("{{Tongtien}}", hd.Tongtien.ToString());
                 body = body.Replace("{{Ngaydangky}}", hd.Ngaylaphd.ToString());
@@ -438,7 +436,7 @@ namespace YourTour.Service
                 body = body.Replace("{{Noixuatphat}}", tour.Diadiemkhoihanh);
                 body = body.Replace("{{Diemden}}", tour.Diemden);
                 body = body.Replace("{{Ngaydi}}", tour.Ngaydi.ToString());
-                body = body.Replace("{{Ngayve}}", tour.Ngayve.ToString());
+                //body = body.Replace("{{Ngayve}}", tour.Ngayve.ToString());
                 body = body.Replace("{{Sobooking}}", cthd.Hoadoncode);
                 body = body.Replace("{{Tongtien}}", hd.Tongtien.ToString());
                 body = body.Replace("{{Ngaydangky}}", hd.Ngaylaphd.ToString());
@@ -515,7 +513,7 @@ namespace YourTour.Service
                 body = body.Replace("{{Noixuatphat}}", tour.Diadiemkhoihanh);
                 body = body.Replace("{{Diemden}}", tour.Diemden);
                 body = body.Replace("{{Ngaydi}}", tour.Ngaydi.ToString());
-                body = body.Replace("{{Ngayve}}", tour.Ngayve.ToString());
+                //body = body.Replace("{{Ngayve}}", tour.Ngayve.ToString());
                 body = body.Replace("{{Sobooking}}", cthd.Hoadoncode);
                 body = body.Replace("{{Tongtien}}", hd.Tongtien.ToString());
                 body = body.Replace("{{Ngaydangky}}", hd.Ngaylaphd.ToString());

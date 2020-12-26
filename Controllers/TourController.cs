@@ -25,14 +25,14 @@ namespace YourTour.Controllers
         }
         public IActionResult TourMienNam(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
-                return View("/Views/Shared/Error.cshtml");
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
             var model = this._tourService.ChiTietTourMienNam(id);
             if(model == null)
             {
-                return null;
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
             return View(model);
         }
@@ -40,12 +40,12 @@ namespace YourTour.Controllers
         {
             if (id == null)
             {
-                return View("/Views/Shared/Error.cshtml");
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
             var model = this._tourService.ChiTietTourMienBac(id);
             if (model == null)
             {
-                return null;
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
             return View(model);
         }
@@ -53,12 +53,12 @@ namespace YourTour.Controllers
         {
             if (id == null)
             {
-                return View("/Views/Shared/Error.cshtml");
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
             var model = this._tourService.ChiTietTourMienTrung(id);
             if (model == null)
             {
-                return null;
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
             return View(model);
         }
@@ -67,7 +67,7 @@ namespace YourTour.Controllers
             var model = this._tourService.ShowAllTourMienBac();
             if(model == null)
             {
-                return null;
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
             return View(model);
         }
@@ -76,7 +76,7 @@ namespace YourTour.Controllers
             var model = this._tourService.ShowAllTourMienTrung();
             if (model == null)
             {
-                return null;
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
             return View(model);
         }
@@ -85,7 +85,7 @@ namespace YourTour.Controllers
             var model = this._tourService.ShowAllTourMienNam();
             if (model == null)
             {
-                return null;
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
             return View(model);
         }

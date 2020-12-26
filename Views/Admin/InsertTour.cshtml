@@ -22,32 +22,33 @@
                 <span asp-validation-for="Tentour" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MultiDiaDiem" class="control-label">Địa điểm du lịch</label>
-                <select asp-for="MultiDiaDiem" class="form-control" name="MultiDiaDiem" 
-                        asp-items="@(new SelectList(@ViewBag.ListDiaDiem, "ID", "Tendiadiem"))" multiple>
-
+                <label asp-for="Thuocmien" class="control-label">Miền</label>
+                <select asp-for="Thuocmien" class="form-control" name="Thuocmien"
+                        asp-items="@(new SelectList(@ViewBag.ListMien, "ID", "Tenmien"))">
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diemden" class="control-label">Địa điểm du lịch</label>
+                <select asp-for="Diemden" class="form-control" name="Diemden"
+                        asp-items="@(new SelectList(@ViewBag.ListDiaDiem, "Tendiadiem", "Tendiadiem"))">
                 </select>
             </div>
             <div class="form-group">
                 <label asp-for="Diadiemkhoihanh" class="control-label">Địa điểm khởi hành</label>
-                <input name="Diadiemkhoihanh" class="form-control" />
-                <span asp-validation-for="Diadiemkhoihanh" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Diemden" class="control-label">Điểm đến</label>
-                <input name="Diemden" class="form-control" />
-                <span asp-validation-for="Diemden" class="text-danger"></span>
+                <select asp-for="Diadiemkhoihanh" class="form-control" name="Diadiemkhoihanh"
+                        asp-items="@(new SelectList(@ViewBag.ListDiaDiem, "Tendiadiem", "Tendiadiem"))">
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Ngaydi" class="control-label">Ngày đi</label>
-                <input type="date" asp-format="{0:yyyy-MM-dd}" name="Ngaydi" class="form-control" />
+                <input type="date" asp-format="{0:dd-MM-yyyy HH:mm}" name="Ngaydi" class="form-control" />
                 <span asp-validation-for="Ngaydi" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="Ngayve" class="control-label">Ngày về</label>
                 <input type="date" asp-format="{0:yyyy-MM-dd}" name="Ngayve" class="form-control" />
                 <span asp-validation-for="Ngayve" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
                 <label asp-for="Thoigiandi" class="control-label">Thời gian đi</label>
                 <input type="number" name="Thoigiandi" class="form-control" />
@@ -61,7 +62,7 @@
 
             <div class="form-group">
                 <label asp-for="Lichtrinh" class="control-label">Lịch trình</label>
-                <input name="Lichtrinh" class="form-control" />
+                <input name="Lichtrinh" class="form-control input-file" type="file" />
                 <span asp-validation-for="Lichtrinh" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -69,11 +70,11 @@
                 <input name="Gianguoilon" class="form-control" />
                 <span asp-validation-for="Gianguoilon" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="Giatreem" class="control-label">Giá trẻ em</label>
                 <input name="Giatreem" class="form-control" />
                 <span asp-validation-for="Giatreem" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
                 <label asp-for="Mota" class="control-label">Mô tả</label>
                 <input name="Mota" class="form-control" />
@@ -96,13 +97,13 @@
                 <input type="number" name="Songuoi" class="form-control" />
                 <span asp-validation-for="Songuoi" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="Trangthai" class="control-label">Trạng thái</label>
                 <input name="Trangthai" class="form-control" />
                 <span asp-validation-for="Trangthai" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
-                <input type="submit" value="Thêm tour mới" class="btn btn-primary" />
+                <input type="submit" value="Thêm tour mới" class="btn btn-primary"/>
             </div>
         }
     </div>

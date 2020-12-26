@@ -21,7 +21,7 @@
                 @Html.DisplayNameFor(model => model.First().Tentour)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.First().diadiemduliches)
+                @Html.DisplayNameFor(model => model.First().Diemden)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.First().Diadiemkhoihanh)
@@ -29,9 +29,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.First().Ngaydi)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.First().Ngayve)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.First().Lichtrinh)
             </th>
@@ -41,9 +41,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.First().Gianguoilon)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.First().Giatreem)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.First().TenHDV)
             </th>
@@ -69,7 +69,7 @@
                 @Html.DisplayFor(modelItem => item.Tentour)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.diadiemduliches)
+                @Html.DisplayFor(modelItem => item.Diemden)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Diadiemkhoihanh)
@@ -77,9 +77,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Ngaydi)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Ngayve)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Lichtrinh)
             </td>
@@ -89,9 +89,9 @@
             <td>
                 @item.Gianguoilon.ToString("#,##") VNĐ
             </td>
-            <td>
+            @*<td>
                 @item.Giatreem.ToString("#,##") VNĐ
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.TenHDV)
             </td>

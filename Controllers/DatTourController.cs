@@ -40,42 +40,30 @@ namespace YourTour.Controllers
         }
         public IActionResult DatTourMienNam(int? id)
         {
-            if (id == null)
-            {
-                return View("/Views/Shared/Error.cshtml");
-            }
             var model = this._tourService.ChiTietTourMienNam(id);
             if (model == null)
             {
-                return null;
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
 
             return View(model);
         }
         public IActionResult DatTourMienBac(int? id)
         {
-            if (id == null)
-            {
-                return View("/Views/Shared/Error.cshtml");
-            }
             var model = this._tourService.ChiTietTourMienBac(id);
             if (model == null)
             {
-                return null;
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
 
             return View(model);
         }
         public IActionResult DatTourMienTrung(int? id)
         {
-            if (id == null)
-            {
-                return View("/Views/Shared/Error.cshtml");
-            }
             var model = this._tourService.ChiTietTourMienTrung(id);
             if (model == null)
             {
-                return null;
+                return View("/Views/Shared/PageNotFound.cshtml");
             }
 
             return View(model);
