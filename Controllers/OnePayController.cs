@@ -29,7 +29,7 @@ namespace YourTour.Controllers
         {
             var hd = _hoaDonService.GetHoaDon();
             string total = (hd.Tongtien* 100).ToString();
-            string url = RedirectToOnpay("Thanh toán đặt tour" + hd.CTHoadon.Tour.Tentour, total, "190.168.0.1");
+            string url = RedirectToOnpay("Thanh toán đặt tour", total, "190.168.0.1");
             return Redirect(url);
         }
         public IActionResult OnePayResponse()

@@ -7,6 +7,7 @@ using YourTour.Models.ViewModels;
 using Dapper;
 using System.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using YourTour.Models.Commands;
 
 namespace YourTour.Service
 {
@@ -192,6 +193,26 @@ namespace YourTour.Service
                 conn.Close();
             }
             return result;
+        }
+        public TourViewModel ChiTietTour(int? id)
+        {
+            var tour = new List<TourViewModel>();
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                tour = conn.Query<TourViewModel>(@"select * from Tour where ID = " + id).ToList();
+                conn.Close();
+            }
+            return tour.SingleOrDefault(n => n.ID == id);
+        }
+        public void XoaTour(InsertTourCommand model)
+        {
+            var checkTour = _db.Tours.FirstOrDefault(n => n.ID == model.ID);
+            {
+                checkTour.Trangthai = "Xóa tour";
+            }
+            _db.SaveChanges();
         }
     }
 }

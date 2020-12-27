@@ -43,8 +43,8 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "EditStaff","Admin", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "ChiTietNhanVien", "NhanVien", new { id = item.ID }) |
+                    @Html.ActionLink("Sửa", "EditStaff","Admin", new { id = item.ID }) |
+                    @*@Html.ActionLink("Chi tiết", "ChiTietNhanVien", "NhanVien", new { id = item.ID }) |*@
                     @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
                 </td>
             </tr>

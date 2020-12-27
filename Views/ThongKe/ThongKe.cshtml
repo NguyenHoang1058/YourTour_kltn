@@ -1,0 +1,66 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@using X.PagedList.Web.Common;
+@model IPagedList<YourTour.Models.ViewModels.ThongKeDTViewModel>
+
+@{
+    ViewData["Title"] = "ThongKeDT";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 style="color:brown;text-align:center">Thống kê doanh thu</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().TenKH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().NgayLapHD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Thang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Nam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().DoanhThu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayLapHD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nam)
+            </td>
+            <td>
+                @item.DoanhThu.ToString("#,##") VNĐ
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<br />
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("ThongKe", new { page }))

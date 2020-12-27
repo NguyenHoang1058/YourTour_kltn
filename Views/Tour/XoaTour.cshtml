@@ -1,0 +1,22 @@
+﻿@model YourTour.Models.Commands.InsertTourCommand
+@{
+    ViewData["Title"] = "XoaTour";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 style="text-align:center;color:brown;text-transform:uppercase">Xác nhận xóa tour</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("XoaTour", "Tour", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <hr />
+            <h3>Ban có chắc chắn muốn xóa tour @Model.Tentour</h3>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Xác nhận xóa" class="btn btn-danger" />
+            </div>
+        }
+    </div>
+</div>
