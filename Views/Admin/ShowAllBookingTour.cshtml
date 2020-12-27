@@ -11,7 +11,7 @@
 <h1 style="color:brown;text-align:center">Danh sách tour đã đặt</h1>
 
 <input id="myInput" type="text" placeholder="Search..">
-<table class="table">
+<table class="table" id="myTable">
     <thead>
         <tr>
             <th>
@@ -55,4 +55,7 @@
             });
         });
     });
+    setTimeout(function () {
+        location.reload();
+    }, 5000);
 </script>

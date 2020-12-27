@@ -41,7 +41,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 6 * from Tour where Thuocmien = 3 and Trangthai=N'còn chỗ'").ToList();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 4 * from Tour where Thuocmien = 3 and Trangthai=N'còn chỗ'").ToList();
             }
 
             return tourTrongNuoc;
@@ -69,7 +69,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 3 * from Tour where Thuocmien = 2 and Trangthai=N'còn chỗ'").ToList();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 4 * from Tour where Thuocmien = 2 and Trangthai=N'còn chỗ'").ToList();
             }
 
             return tourTrongNuoc;
@@ -97,7 +97,7 @@ namespace YourTour.Service
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 3 * from Tour where Thuocmien = 1 and Trangthai=N'còn chỗ'").ToList();
+                tourTrongNuoc = conn.Query<TourViewModel>(@"select top 4 * from Tour where Thuocmien = 1 and Trangthai=N'còn chỗ'").ToList();
             }
 
             return tourTrongNuoc;

@@ -43,5 +43,7 @@ namespace YourTour.Models.ViewModels
         public byte Tinhtrang { get; set; }
         [DisplayName("Miền")]
         public int Thuocmien { get; set; }
+        [DisplayName("Ghi chú")]
+        public string Ghichu { get; set; }
     }
 }

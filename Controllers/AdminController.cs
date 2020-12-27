@@ -343,6 +343,14 @@ namespace YourTour.Controllers
             var model = this._commonService.GetChiTietThongTinBookingTourMienBac(id);
             return View(model);
         }
+        public IActionResult XacNhanThanhToan(int id)
+        {
+            var model = this._hoaDonService.XacNhanThanhToan(id);
+            model.Tinhtrang = 1;
+            _db.Hoadons.Update(model);
+            _db.SaveChanges();
+            return RedirectToAction("ShowAllBookingTour", "Admin");
+        }
 
         //hủy tour miền Nam
         public IActionResult HuyBookingTourMienNam(int id)

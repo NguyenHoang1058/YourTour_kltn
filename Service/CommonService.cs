@@ -29,7 +29,7 @@ namespace YourTour.Service
                            where cthd.Hoadoncode == bookingCode
                            select new { t.Tentour, t.Code, t.Diadiemkhoihanh, t.Ngaydi, /*t.Ngayve,*/ t.Diemden,
                                             cthd.Hotenkhachhang, cthd.Sdt, cthd.Email, cthd.Hoadoncode,
-                                            cthd.Songuoidi ,hd.Ngaylaphd, hd.Tongtien, hd.Ptthanhtoan, 
+                                            cthd.Songuoidi ,hd.Ngaylaphd, hd.Tongtien, hd.Ghichu, hd.Ptthanhtoan, 
                                             kh.Diachi, hd.Tinhtrang, t.Thuocmien};
             var common = new CommonViewModel();
             foreach (var item in lsResult)
@@ -39,7 +39,7 @@ namespace YourTour.Service
                 common.Diadiemkhoihanh = item.Diadiemkhoihanh;
                 common.Diemden = item.Diemden;
                 common.Ngaydi = item.Ngaydi;
-                //common.Ngayve = item.Ngayve;
+                common.Ghichu = item.Ghichu;
                 common.Hoadoncode = item.Hoadoncode;
                 common.Ptthanhtoan = item.Ptthanhtoan;
                 common.Tongtien = item.Tongtien;
@@ -80,6 +80,7 @@ namespace YourTour.Service
                                hd.Ngaylaphd,
                                hd.Tongtien,
                                hd.Ptthanhtoan,
+                               hd.Ghichu,
                                kh.Diachi,
                                hd.Tinhtrang,
                                t.Thuocmien
@@ -92,7 +93,7 @@ namespace YourTour.Service
                 common.Diadiemkhoihanh = item.Diadiemkhoihanh;
                 common.Diemden = item.Diemden;
                 common.Ngaydi = item.Ngaydi;
-                //common.Ngayve = item.Ngayve;
+                common.Ghichu = item.Ghichu;
                 common.Hoadoncode = item.Hoadoncode;
                 common.Ptthanhtoan = item.Ptthanhtoan;
                 common.Tongtien = item.Tongtien;
@@ -123,7 +124,6 @@ namespace YourTour.Service
                                t.Code,
                                t.Diadiemkhoihanh,
                                t.Ngaydi,
-                               //t.Ngayve,
                                t.Diemden,
                                cthd.Hotenkhachhang,
                                cthd.Sdt,
@@ -134,6 +134,7 @@ namespace YourTour.Service
                                hd.Tongtien,
                                hd.Ptthanhtoan,
                                kh.Diachi,
+                               hd.Ghichu,
                                hd.Tinhtrang,
                                t.Thuocmien
                            };
@@ -145,7 +146,7 @@ namespace YourTour.Service
                 common.Diadiemkhoihanh = item.Diadiemkhoihanh;
                 common.Diemden = item.Diemden;
                 common.Ngaydi = item.Ngaydi;
-                //common.Ngayve = item.Ngayve;
+                common.Ghichu = item.Ghichu;
                 common.Hoadoncode = item.Hoadoncode;
                 common.Ptthanhtoan = item.Ptthanhtoan;
                 common.Tongtien = item.Tongtien;

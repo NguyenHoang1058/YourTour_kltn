@@ -139,5 +139,17 @@ namespace YourTour.Service
             }
             return result;
         }
+        public Hoadon XacNhanThanhToan(int id)
+        {
+            var result = new Hoadon();
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                result = conn.Query<Hoadon>(@"select * from Hoadon where ID =" + id).FirstOrDefault();
+                conn.Close();
+            }
+            return result;
+        }
     }
 }

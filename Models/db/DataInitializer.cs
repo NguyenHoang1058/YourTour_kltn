@@ -148,6 +148,8 @@ namespace YourTour.Models.db
 
             var tour = new Tour[]
             {
+
+                //tour miền nam
                 new Tour{Code="TMN201220A", Tentour="Tour Tây An Cổ Tự - Miếu Bà Chúa Xứ", Diadiemkhoihanh="TP Hồ Chí Minh",
                     Diemden="An Giang", Ngaydi=DateTime.Parse("2021-01-15"), Thoigiandi=3,
                     Hinhanh="mieu_ba_chua_xu.jpg", Gianguoilon=1100000, Lichtrinh="/docs/lichtrinh/template_ctrinhtour_bluesky.pdf",
@@ -172,36 +174,59 @@ namespace YourTour.Models.db
                     Hinhanh="phu-yen-dam-o-loan.jpg", Gianguoilon=1150000,
                     Lichtrinh="/docs/lichtrinh/template_ctrinhtour_bluesky.pdf", Mota="Châu Đốc, một địa danh gắn liền với sự linh thiêng với thế phong thủy tiền tam giang, hậu thất sơn và huyền bí cùng nhiều tín ngưỡng tôn giáo tồn tại từ lâu đời.",
                     Loaitour="Trong nước", TenHDV="Nguyễn Văn B", Songuoi=9, Trangthai = "còn chỗ", Thuocmien = 1},
-                new Tour{Code="TMT201220DF", Tentour="Ghềnh đá đĩa", Diadiemkhoihanh = "Đà Nẵng",
-                        Diemden="Phú Yên", Ngaydi= DateTime.Parse("2020-12-22"), Thoigiandi=4,
-                        Hinhanh="ghenh-da-dia.jpg", Gianguoilon=1250000, Lichtrinh="/docs/lichtrinh/template_ctrinhtour_bluesky.pdf",
-                        Mota="Ghềnh đá đĩa là một trong những địa điểm du lịch đáng chú ý khi tới Phú Yên. Tạo hóa đã ban cho nơi này một khung cảnh thiên nhiên kì thú. Nhìn từ xa ghềnh đá không khác gì một chồng đĩa được  xếp ngay ngăn bên bờ biển, như có bàn tay của con người tạo lên.",
+
+                //tour miền Trung
+                new Tour{Code="TMT060120DF", Tentour="Huế - La Vang - 2 Động Phong Nha & Thiên Đường - Bà Nà - Cầu Vàng - Hội An - Đà Nẵng", Diadiemkhoihanh = "Tp Hồ Chí Minh",
+                        Diemden="Đà Nẵng", Ngaydi= DateTime.Parse("2020-01-06"), Thoigiandi=5,
+                        Hinhanh="danang.PNG", Gianguoilon=6390000, Lichtrinh="danang-hue.pdf",
+                        Mota="Đại Nội Huế rộng lớn nơi hoàng cung xưa của các vua chúa Triều Nguyễn. Động Phong Nha được xem như chốn thần tiên bởi hệ thống núi đá vôi và sông ngầm dài nhất thế giới." +
+                        " Động Thiên Đường kỳ ảo như hoàng cung dưới lòng đất.Bà Nà Hills với không gian như làng Pháp thu nhỏ đa sắc màu và Cầu Vàng mới siêu hot. Phố cổ Hội An với lung linh sắc màu của đèn lồng và những trò chơi dân gian đặc sắc.",
                         Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=2},
-                new Tour{Code="TMN201220DL", Tentour="Đồi thiên phúc", Diadiemkhoihanh = "Tp Hồ Chí Minh",
-                        Diemden="Lâm Đồng", Ngaydi= DateTime.Parse("2020-12-30"), Thoigiandi=3,
-                        Hinhanh="doi-thien-phuc-duc.jpg", Gianguoilon=9000000, Lichtrinh="/docs/lichtrinh/template_ctrinhtour_bluesky.pdf",
-                        Mota="Đồi thiên phúc Đức có lẽ không còn là địa điểm du lịch xa lạ với nhiều bạn trẻ. Nằm  cách trung tâm thành phố hoa khoảng 3 km, ngọn đồi cao du khách lên đây cắm trại qua đêm, chụp hình vào buổi sớm mai cũng rất đẹp.",
+
+                new Tour{Code="TMT201220DF", Tentour="Đà Nẵng - Bà Nà - Cầu Vàng - Hội An - KDL Thần Tài - Huế", Diadiemkhoihanh = "Tp Hồ Chí Minh",
+                        Diemden="Đà Nẵng", Ngaydi= DateTime.Parse("2020-01-07"), Thoigiandi=4,
+                        Hinhanh="cau-vang.PNG", Gianguoilon=5390000, Lichtrinh="danang.pdf",
+                        Mota="Đà Nẵng một trong những trung tâm du lịch hàng đầu miền trung là địa điểm du lịch mà bạn không thể bỏ qua. Với những bãi biển dài, xanh trong, không khí trong lành và những món ăn ngon lành. " +
+                        "Với những địa điểm du lịch Đà Nẵng đẹp đến quên lối về ngay và lên đường khám phá thành phố đáng sống nhất Việt Nam.",
                         Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=2},
-                new Tour{Code="TMT231220NT", Tentour="Thánh địa Mỹ Sơn", Diadiemkhoihanh = "Tp Hồ Chí Minh",
-                        Diemden="Quảng Nam", Ngaydi= DateTime.Parse("2021-02-24"), Thoigiandi=4,
-                        Hinhanh="my-son.jpg", Gianguoilon=12000000, Lichtrinh="/docs/lichtrinh/template_ctrinhtour_bluesky.pdf",
-                        Mota="Được phát hiện từ những năm 1885, thánh địa Mỹ Sơn là một trong những di sản của Việt Nam được UNESCO công nhận là Di sản Văn hóa Thế Giới vào năm 1999.",
+
+                new Tour{Code="TMN201220DL", Tentour="Đà Lạt - Puppy Farm - Phân Viện Sinh Học - Đồi Chè Cầu Đất - Đường Hầm Đất Sét", Diadiemkhoihanh = "Tp Hồ Chí Minh",
+                        Diemden="Đà Lạt", Ngaydi= DateTime.Parse("2020-12-31"), Thoigiandi=3,
+                        Hinhanh="puppy-farm.jpg", Gianguoilon=3250000, Lichtrinh="lichtrinh-dalat-puppyfarm.pdf",
+                        Mota="Đà Lạt mộng mơ khiến bao người ngơ ngẩn bởi nơi đây ăm ắp nắng vàng, bầu trời xanh ngắt, khí trời se lạnh thả hồn cho bao chuyện tình lãng mạn, nơi chốn hẹn hò của những trái tim khát khao. " +
+                        "Không chỉ dừng nơi ấy, Quý khách sẽ không khỏi ngỡ ngàng khi được tận mắt thấy được sự mênh mông của núi đồi, sự hùng vĩ của thác nước, sự êm ả của mặt hồ, sự đắm thắm của những bông hoa đang hé nụ,…" +
+                        " những tuyệt tác mà thiên nhiên ưu ái dành cho xứ sở sương mù.",
+                        Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=2},
+
+                new Tour{Code="TMT231220NT", Tentour="Phú Yên - Quy Nhơn", Diadiemkhoihanh = "Tp Hồ Chí Minh",
+                        Diemden="Phú Yên", Ngaydi= DateTime.Parse("2021-01-08"), Thoigiandi=3,
+                        Hinhanh="ghenh-da-dia.jpg", Gianguoilon=5300000, Lichtrinh="phuyen-quynhon.pdf",
+                        Mota="Du lịch Bình Định với khung cảnh thiên nhiên tuyệt đẹp, nhiều đặc sản hấp dẫn sẽ là điểm dừng chân thú vị cho du khách muốn tránh xa những nơi ồn ào, đông đúc. " +
+                        "Bình Định không chỉ có nhiều bãi biển và danh lam thắng cảnh đẹp mà còn được mệnh danh là vùng đất võ với môn võ cổ truyền Bình Định lưu danh sử sách, những điểm tham quan mang đậm tính lịch sử hào hùng của dân tộc.",
                         Loaitour="Trong nước", TenHDV="Nguyễn Trọng Sơn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=2},
-                new Tour{Code="TMB201220HG", Tentour="Phố cổ Đồng Văn", Diadiemkhoihanh = "Tp Hồ Chí Minh",
-                        Diemden="Hà Giang", Ngaydi= DateTime.Parse("2021-02-22"), Thoigiandi=3,
-                        Hinhanh="pho-co-dong-van.jpg", Gianguoilon=4500000, Lichtrinh="/docs/lichtrinh/template_ctrinhtour_bluesky.pdf",
+
+                //tour miền bắc
+                new Tour{Code="TMB201220HG", Tentour="Hà Nội - Đông Bắc: Hà Giang - Lũng Cú - Đồng Văn - Mã Pí Lèng - Mèo Vạc - Cao Bằng - Thác Bản Giốc - Hồ Ba Bể", Diadiemkhoihanh = "Tp Hồ Chí Minh",
+                        Diemden="Hà Nội", Ngaydi= DateTime.Parse("2021-01-05"), Thoigiandi=6,
+                        Hinhanh="pho-co-dong-van.jpg", Gianguoilon=8790000, Lichtrinh="hanoi-dongbac.pdf",
                         Mota="Phố cổ Đồng Văn là một thung lũng đẹp cổ kính, trầm mặc được bao bọc bởi núi đồi và cây xanh. Đó là những ngôi nhà 2 tầng trình tường, một lối kiến trúc phổ biến của Hà Giang xưa.",
                         Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=3, Tournoibat=1},
-                new Tour{Code="TMB191220YM", Tentour="Rừng thông Yên Minh", Diadiemkhoihanh = "Tp Hồ Chí Minh",
-                        Diemden="Hà Giang", Ngaydi= DateTime.Parse("2021-01-22"), Thoigiandi=5,
-                        Hinhanh="rung-thong-yen-minh.jpg", Gianguoilon=11750000, Lichtrinh="/docs/lichtrinh/template_ctrinhtour_bluesky.pdf",
-                        Mota="Rừng thông Yên Minh được mệnh danh là Đà Lạt thứ 2 ở phía Bắc với những cây thông xanh rì, cao ngút hướng thẳng lên trời.",
+                new Tour{Code="TMB191220YM", Tentour="HÀ NỘI - TÂY BẮC: NGHĨA LỘ - TÚ LỆ - MÙ CANG CHẢI - YÊN BÁI - SAPA - ĐIỆN BIÊN - SƠN LA - MỘC CHÂU - MÙNG 2 TẾT", Diadiemkhoihanh = "Tp Hồ Chí Minh",
+                        Diemden="Tây Bắc", Ngaydi= DateTime.Parse("2021-02-13"), Thoigiandi=6,
+                        Hinhanh="taybac.PNG", Gianguoilon=13990000, Lichtrinh="hanoi-taybac.pdf",
+                        Mota="Mù Cang Chải là một huyện vùng cao của tỉnh Yên Bái, nằm Cách Hà Nội gần 300 km về hướng Tây Bắc, Mù Cang Chải, Yên Bái là điểm đến ưa thích của người yêu thiên nhiên và thích thưởng ngoạn không khí vùng cao. " +
+                        "Hàng năm cứ vào khoảng tháng 9, hàng ngìn người đến đây để được chiêm ngưỡng những thửa ruộng bậc thang đẹp nhất cả nước.",
                         Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=3},
-                new Tour{Code="TMN201220GA", Tentour="Ga Đà Lạt", Diadiemkhoihanh = "Tp Hồ Chí Minh",
-                        Diemden="Lâm Đồng", Ngaydi= DateTime.Parse("2021-01-20"), Thoigiandi=3,
-                        Hinhanh="ga-da-lat.jpg", Gianguoilon=4250000, Lichtrinh="/docs/lichtrinh/template_ctrinhtour_bluesky.pdf",
-                        Mota="Nhà Ga Đà Lạt hay còn gọi là nhà Ga xe lửa có công trình đường sắt từ thời Pháp. Nên nó luôn mang trong mình một nét đẹp cổ tích pha lẫn sự hiện đại mà con người tạo thành.",
-                        Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=2},
+                new Tour{Code="TMN201220GA", Tentour="Hà Nội - Đông Tây Bắc: Nậm Ty - Nậm Hồng - Bắc Hà - Mù Cang Chải - Tú Lệ - Phú Thọ", Diadiemkhoihanh = "Tp Hồ Chí Minh",
+                        Diemden="Đông Tây Bắc", Ngaydi= DateTime.Parse("2021-02-12"), Thoigiandi=6,
+                        Hinhanh="dongtaybac.PNG", Gianguoilon=4250000, Lichtrinh="hanoi-dongtaybac.pdf",
+                        Mota="Hành trình khám phá vùng núi Tây Bắc với cảnh sắc thiên nhiên hoang sơ tuyệt đẹp hay Đông Bắc với những danh thắng đẹp nổi tiếng, thơ mộng đến ngỡ ngàng sẽ là một sự lựa chọn khó có thể bỏ qua cho du khách trong chuyến du lịch nghỉ dưỡng của mình.",
+                        Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=3},
+                new Tour{Code="TMN201220DTB", Tentour="Hà Nội - Đông Tây Bắc: Nậm Ty - Nậm Hồng - Bắc Hà - Mù Cang Chải - Tú Lệ - Phú Thọ", Diadiemkhoihanh = "Tp Hồ Chí Minh",
+                        Diemden="Đông Tây Bắc", Ngaydi= DateTime.Parse("2021-02-24"), Thoigiandi=6,
+                        Hinhanh="dongtaybac.PNG", Gianguoilon=4250000, Lichtrinh="hanoi-dongtaybac.pdf",
+                        Mota="Hành trình khám phá vùng núi Tây Bắc với cảnh sắc thiên nhiên hoang sơ tuyệt đẹp hay Đông Bắc với những danh thắng đẹp nổi tiếng, thơ mộng đến ngỡ ngàng sẽ là một sự lựa chọn khó có thể bỏ qua cho du khách trong chuyến du lịch nghỉ dưỡng của mình.",
+                        Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=3},
             };
             foreach (Tour tr in tour)
             {
