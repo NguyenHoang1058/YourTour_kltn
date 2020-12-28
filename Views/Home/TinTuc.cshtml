@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core.Common;
+@model IPagedList<YourTour.Models.ViewModels.TinTucViewModel>
+@{
+    ViewData["Title"] = "Tin Tức";
+    Layout = "~/Views/Shared/_LayoutTour.cshtml";
+}
+<h2 class="text-capitalize" style="color:red; text-align:center">tin tức du lịch</h2>
+<div class="container py-lg-4 py-sm-3">
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-lg-3 col-sm-12 mb-5">
+                <div class="image-tour position-relative">
+                    <img src="@Url.Content("/images/tin tuc/"+item.HinhAnh)" alt="" height="200" width="600">
+                </div>
+            </div>
+            <div class="col-lg-9 col-sm-12 mb-5">
+                <h5 class="my-2" style="color:black">@item.TieuDe</h5>
+                <h6 class="mt-1"><span class="fa fa-calendar"></span>@item.NgayDang.ToShortDateString()</h6>
+                <h6 class="mt-1" title="@item.NoiDung" style="color:gray">@item.NoiDung</h6>
+                <h6 class="pagination justify-content-end"><a href="#" style="color:red;">Xem thêm <span class="fa fa-long-arrow-right"></span></a></h6>
+            </div>
+        </div>
+    }
+    <div class="pagination justify-content-end" style="margin:10px 0">
+        @Html.PagedListPager(Model, page => Url.Action("TinTuc", new { page }),
+        new PagedListRenderOptions
+        {
+            LiElementClasses = new string[] { "page-item" },
+            PageClasses = new string[] { "page-link" }
+        })
+    </div>
+</div>

@@ -41,6 +41,9 @@ namespace YourTour
             services.AddScoped<StatisticService>();
             services.AddScoped<CommonService>();
             services.AddScoped<AdminService>();
+            services.AddScoped<KinhNghiemDuLichService>();
+            services.AddScoped<LienHeService>();
+            services.AddScoped<TinTucService>();
             services.AddMvc();
         }
 

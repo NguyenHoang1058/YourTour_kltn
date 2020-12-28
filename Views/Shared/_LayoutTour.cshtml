@@ -49,18 +49,46 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
                 <input type="checkbox" id="drop" />
-                <ul class="menu ml-auto mt-1">
+                <ul class="menu ml-auto mt-1" id="main-menu">
                     <li class="active"><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
                     <li class="active">
-                        <a href="@Url.Action("TourTrongNuoc","Tour")">Du lịch trong nước</a>
-                        <ul class="menu ml-auto mt-1 overlay-inner">
-                            <li class="active"><a href="@Url.Action("ShowAllTourMienBac","Tour")" style="color:orange">Du lịch miền Bắc</a></li>
-                            <li class="active"><a href="@Url.Action("ShowAllTourMienTrung","Tour")" style="color:orange">Du lịch miền Trung</a></li>
-                            <li class="active"><a href="@Url.Action("ShowAllTourMienNam","Tour")" style="color:orange">Du lịch miền Nam</a></li>
+                        <a href="@Url.Action("TourTrongNuoc","Tour")">Du lịch</a>
+                        <ul class="menu ml-auto mt-0 overlay-inner">
+                            <li class="active"><a href="@Url.Action("ShowAllTourMienBac","Tour")">Du lịch miền Bắc</a></li>
+                            <li class="active"><a href="@Url.Action("ShowAllTourMienTrung","Tour")">Du lịch miền Trung</a></li>
+                            <li class="active"><a href="@Url.Action("ShowAllTourMienNam","Tour")">Du lịch miền Nam</a></li>
+                            <li class="active"><a href="@Url.Action("DatTourTuyChon","DatTour")">Du lịch tự chọn</a></li>
                         </ul>
                     </li>
-                    <li class="active"><a href="@Url.Action("National","Tour")">Du lịch nước ngoài</a></li>
-                    <li class="active"><a href="@Url.Action("DatTourTuyChon","DatTour")">Du lịch tùy chọn</a></li>
+                    <li class="active"><a href="https://tripu.vn/vi/hotels">Khách sạn</a></li>
+                    <li class="active">
+                        <a href="https://www.worldtrans.vn/">Vận chuyển</a>
+                        <ul class="menu ml-auto mt-0 overlay-inner">
+                            <li class="active"><a href="http://car4rent.com/">Thuê xe</a></li>
+                            <li class="active"><a href="https://www.worldtrans.vn/">Vé máy bay</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="@Url.Action("TinTuc","Home")">Tin tức</a>
+                        <ul class="menu ml-auto mt-0 overlay-inner">
+                            <li class="active"><a href="@Url.Action("TinTuc","Home")">Tin tức</a></li>
+                            <li class="active" style="width:auto"><a href="@Url.Action("KinhNghiemDuLich","Home")">Kinh nghiệm du lịch</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#">Khuyến mãi</a>
+                        <ul class="menu ml-auto mt-0 overlay-inner">
+                            <li class="active"><a href="#">Ưu đãi One Pay</a></li>
+                            <li class="active"><a href="#">Ưu đãi Viettin Bank</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="#">Liên hệ</a></li>
+                    @*<li>
+            <form method="post">
+                <input type="text" name="diemDen" placeholder="Điểm đến ..." style="border:none" />
+                <button type="submit" style="border:none" class="btn btn-light fa fa-search"></button>
+            </form>
+        </li>*@
                 </ul>
             </nav>
             <!-- //nav -->

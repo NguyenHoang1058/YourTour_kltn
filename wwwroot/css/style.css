@@ -137,7 +137,7 @@ nav ul li {
 
 /* Styling the links */
 nav a {
-	color: #ddd;
+	color: #000;
 	text-transform: capitalize;
 	letter-spacing: 1px;
 	padding-left: 0;
@@ -168,7 +168,7 @@ nav a:hover {
 	color: #ddd;
 }
 .menu li.active  a{ 
-	color: #fff;
+	color: #000;
 }
 
 /* Hide Dropdowns by Default

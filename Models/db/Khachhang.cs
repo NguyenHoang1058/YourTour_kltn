@@ -13,7 +13,7 @@ namespace YourTour.Models.db
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public string Hoten { get; set; }
-        public int Cmnd { get; set; }
+        public string Cmnd { get; set; }
         public string  Diachi { get; set; }
         public string Sdt { get; set; }
         public string Email{ get; set; }

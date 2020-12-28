@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Liên hệ";
+    Layout = "/Views/Shared/_LayoutTour.cshtml";
+}
+@model YourTour.Models.ViewModels.LienHeViewModel;
+    
+
+<h2 class="text-capitalize" style="color:red;text-align:center">kinh nghiệm du lịch</h2>
+<p style="text-align:center">
+    Để có thể đáp ứng được các yêu cầu và các ý kiến đóng góp của quý vị một cách nhanh chóng xin vui lòng liên hệ
+</p>
+<div class="container py-lg-5 py-sm-4">
+    <h4 class="text-uppercase" style="color:red" ; text-align:center>thông tin liên lạc</h4>
+    @using (Html.BeginForm("LienHe", "Home", FormMethod.Post, new { @class = "row" }))
+    {
+        <div class="col-sm-6 form-group contact-forms">
+            @Html.DropDownList("LoaiLienHe", new List<SelectListItem> {
+                new SelectListItem {Text="Du lịch", Value="Du lịch", Selected=true},
+                new SelectListItem {Text="Chăm sóc khách hàng", Value="Chăm sóc khách hàng"}
+            })
+            @Html.ValidationMessage("LoaiLienHe", "", new { @style = "color:red;" })
+        </div>
+        <div class="col-sm-6 form-group contact-forms">
+            @Html.TextBox("HoTen", "", new { @class = "form-control", @placeholder = "Họ tên" })
+            @Html.ValidationMessage("HoTen", "", new { @style = "color:red;" })
+        </div>
+        <div class="col-sm-6 form-group contact-forms">
+            @Html.TextBox("Email", "", new { @class = "form-control", @placeholder = "Email" })
+            @Html.ValidationMessage("Email", "", new { @style = "color:red;" })
+        </div>
+        <div class="col-sm-6 form-group contact-forms">
+            @Html.TextBox("Sdt", "", new { @class = "form-control", @placeholder = "Số điện thoại" })
+            @Html.ValidationMessage("Sdt", "", new { @style = "color:red;" })
+        </div>
+        <div class="col-sm-6 form-group contact-forms">
+            @Html.TextBox("TenCongTy", "", new { @class = "form-control", @placeholder = "Tên công ty" })
+        </div>
+        <div class="col-sm-6 form-group contact-forms">
+            @Html.TextBox("SoKhach", "", new { @class = "form-control", @placeholder = "Số khách" })
+        </div>
+        <div class="col-sm-6 form-group contact-forms">
+            @Html.TextArea("TieuDe", "", new { @class = "form-control", @placeholder = "Tiêu đề" })
+        </div>
+        <div class="col-sm-6 form-group contact-forms">
+            @Html.TextArea("NoiDung", "", new { @class = "form-control", @placeholder = "Nội dung" })
+        </div>
+        <br />
+        <div class="col-md-12 booking-button">
+            <button type="submit" class="btn btn-block sent-butnn" id="btnSubmit">Gửi</button>
+        </div>
+    }
+
+</div>

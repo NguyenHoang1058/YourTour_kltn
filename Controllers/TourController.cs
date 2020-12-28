@@ -121,11 +121,12 @@ namespace YourTour.Controllers
         public IActionResult TimTour(string diemDen, DateTime ngayDi)
         {
             var model = this._tourService.TimTour(diemDen, ngayDi);
-            if(model == null)
+            if (model == null)
             {
                 return View("/Views/Shared/PageNotFound.cshtml");
             }
             return View(model);
+        }
         public IActionResult XoaTour(InsertTourCommand viewModel)
         {
             if (viewModel.ID == null)

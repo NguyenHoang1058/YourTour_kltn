@@ -28,6 +28,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="~/css/social_icon.css" rel="stylesheet" type="text/css" /><!--custom social icon-->
+    <link href="~/css/main-menu.css" rel="stylesheet" type="text/css"/><!--custom menu-->
     <!-- //css files -->
 
     <link href="/css/css_slider.css" type="text/css" rel="stylesheet" media="all">
@@ -45,6 +46,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- header -->
     <header>
         <div class="container">
+            @*<div class="pagination justify-content-end" style="margin:20px 0 0 0">
+                <form method="post">
+                    <input type="text" name="diemDen" placeholder="Điểm đến ..." style="border:none" />
+                    <button type="submit" style="border:none" class="btn btn-light fa fa-search"></button>
+                </form>
+            </div>*@
             <!-- nav -->
             <nav class="py-md-4 py-3 d-lg-flex">
                 <div id="logo">
@@ -53,18 +60,39 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
                 <input type="checkbox" id="drop" />
-                <ul class="menu ml-auto mt-1">
+                <ul class="menu ml-auto mt-1" id="main-menu">
                     <li class="active"><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
                     <li class="active">
-                        <a href="@Url.Action("TourTrongNuoc","Tour")">Du lịch trong nước</a>
-                        <ul class="menu ml-auto mt-1 overlay-inner">
-                            <li class="active"><a href="@Url.Action("ShowAllTourMienBac","Tour")" style="color:orange">Du lịch miền Bắc</a></li>
-                            <li class="active"><a href="@Url.Action("ShowAllTourMienTrung","Tour")" style="color:orange">Du lịch miền Trung</a></li>
-                            <li class="active"><a href="@Url.Action("ShowAllTourMienNam","Tour")" style="color:orange">Du lịch miền Nam</a></li>
+                        <a href="@Url.Action("TourTrongNuoc","Tour")">Du lịch</a>
+                        <ul class="menu ml-auto mt-0 overlay-inner">
+                            <li class="active"><a href="@Url.Action("ShowAllTourMienBac","Tour")">Du lịch miền Bắc</a></li>
+                            <li class="active"><a href="@Url.Action("ShowAllTourMienTrung","Tour")">Du lịch miền Trung</a></li>
+                            <li class="active"><a href="@Url.Action("ShowAllTourMienNam","Tour")">Du lịch miền Nam</a></li>
+                            <li class="active"><a href="@Url.Action("DatTourTuyChon","DatTour")">Du lịch tự chọn</a></li>
                         </ul>
                     </li>
-                    <li class="active"><a href="@Url.Action("National","Tour")">Du lịch nước ngoài</a></li>
-                    <li class="active"><a href="@Url.Action("DatTourTuyChon","DatTour")">Du lịch tùy chọn</a></li>
+                    <li class="active"><a href="https://tripu.vn/vi/hotels">Khách sạn</a></li>
+                    <li class="active">
+                        <a href="https://www.worldtrans.vn/">Vận chuyển</a>
+                        <ul class="menu ml-auto mt-0 overlay-inner">
+                            <li class="active"><a href="http://car4rent.com/">Thuê xe</a></li>
+                            <li class="active"><a href="https://www.worldtrans.vn/">Vé máy bay</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="@Url.Action("TinTuc","Home")">Tin tức</a>
+                        <ul class="menu ml-auto mt-0 overlay-inner">
+                            <li class="active"><a href="@Url.Action("TinTuc","Home")">Tin tức</a></li>
+                            <li class="active" style="width:auto"><a href="@Url.Action("KinhNghiemDuLich","Home")">Kinh nghiệm du lịch</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#">Khuyến mãi</a>
+                        <ul class="menu ml-auto mt-0 overlay-inner">
+                            <li class="active"><a href="#">Ưu đãi One Pay</a></li>
+                            <li class="active"><a href="#">Ưu đãi Viettin Bank</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="@Url.Action("LienHe","Home")">Liên hệ</a></li>
                 </ul>
             </nav>
             <!-- //nav -->
@@ -160,87 +188,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
     </div>
     <!-- //banner -->
-    <!-- about -->
-    <section class="about py-5">
-        <div class="container py-lg-5 py-sm-4">
-            <div class="row">
-                <div class="col-lg-6 about-left">
-                    <h3 class="mt-lg-3">Hãy cùng Tenlua Travel khám phá những điểm đến nổi tiếng trong và ngoài nước <strong>Let's go!</strong></h3>
-                    <p class="mt-4">
-                        Chúng tôi rất hân hạnh mang đến những tour du lịch đầy hấp dẫn, với những điểm đến nổi tiếng
-                        trong nước, với mục tiêu mang lại cho khách hàng những kỷ niệm khó quên, những khoảnh khắc thú vị,
-                        tràn ngập niềm vui trong suốt chuyến đi.
-                    </p>
-                    <p class="mt-3">
-                        Với sự chuyên nghiệp của đội ngũ nhân viên trong suốt chuyến đi. YourTour hy vọng sẽ mang lại
-                        những trải nghiệm tốt nhất cho bạn trong suốt chuyến đi. Hãy để YourTour đồng hành cùng bạn.
-                    </p>
-                </div>
-                <div class="col-lg-6 about-right text-lg-right mt-lg-0 mt-5">
-                    <img src="/images/about.jpg" alt="" class="img-fluid abt-image" />
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- //about -->
     <!-- tour packages -->
     <section class="packages py-5">
         <div class="container py-lg-4 py-sm-3">
             <h3 class="heading text-capitalize text-center">Tour nổi bật</h3>
-            <p class="text mt-2 mb-5 text-center">Các tour du lịch được nhiều người lựa chọn</p>
+            <p class="text mt-0 mb-0 text-center">Các tour du lịch được nhiều người lựa chọn</p>
             <div class="row">
                 @await Component.InvokeAsync("TourPackage")
             </div>
-            <div class="view-package text-center mt-4">
+            <div class="view-package text-center mt-0">
                 <a href="@Url.Action("TourTrongNuoc","Tour")">Xem thêm</a>
             </div>
         </div>
     </section>
     <!-- tour packages -->
-    <!-- how to book -->
-    <section class="book py-5">
-        <div class="container py-lg-5 py-sm-3">
-            <h2 class="heading text-capitalize text-center">Đặt tour với Tenlua Travel</h2>
-            <p class="mt-3 text-center" style="color:#fff">Với Tenlua Travel việc đặt tour của bạn rất đơn giản</p>
-            <div class="row mt-5 text-center">
-                <div class="col-lg-4 col-sm-6">
-                    <div class="grid-info">
-                        <div class="icon">
-                            <span class="fa fa-map-signs"></span>
-                        </div>
-                        <h4>Chọn tour</h4>
-                        <p class="mt-3">Chọn tour bạn muốn đi từ danh sách các tour du lịch của chúng tôi.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mt-sm-0 mt-5">
-                    <div class="grid-info">
-                        <div class="icon">
-                            <span class="fa fa-calendar"></span>
-                        </div>
-                        <h4>nhập thông tin</h4>
-                        <p class="mt-3">Cung cấp những thông tin cần thiết và tiến hành đặt tour.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mt-lg-0 mt-5">
-                    <div class="grid-info">
-                        <div class="icon">
-                            <span class="fa fa-gift"></span>
-                        </div>
-                        <h4>Tận hưởng chuyến đi</h4>
-                        <p class="mt-3">Lên xe và tận hưởng chuyến đi của bạn.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- //how to book -->
-    <!-- text -->
-    <!-- //text -->
     <!-- destinations -->
     <section class="destinations py-5" id="destinations">
         <div class="container py-xl-5 py-lg-3">
             <h3 class="heading text-capitalize text-center">Điểm đến yêu thích</h3>
-            <p class="text mt-2 mb-5 text-center">Các điểm đến du lịch được yêu thích trong nước</p>
+            <p class="text mt-0 mb-0 text-center">Các điểm đến du lịch được yêu thích trong nước</p>
             <div class="row inner-sec-w3layouts-w3pvt-lauinfo">
                 <div class="col-md-3 col-sm-6 col-6 destinations-grids text-center">
                     <div class="image-position position-relative">

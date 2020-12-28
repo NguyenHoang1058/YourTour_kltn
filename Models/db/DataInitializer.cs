@@ -224,7 +224,7 @@ namespace YourTour.Models.db
                         Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=3},
                 new Tour{Code="TMN201220DTB", Tentour="Hà Nội - Đông Tây Bắc: Nậm Ty - Nậm Hồng - Bắc Hà - Mù Cang Chải - Tú Lệ - Phú Thọ", Diadiemkhoihanh = "Tp Hồ Chí Minh",
                         Diemden="Đông Tây Bắc", Ngaydi= DateTime.Parse("2021-02-24"), Thoigiandi=6,
-                        Hinhanh="dongtaybac.PNG", Gianguoilon=4250000, Lichtrinh="hanoi-dongtaybac.pdf",
+                        Hinhanh="dongtaybac.PNG", Gianguoilon=6250000, Lichtrinh="hanoi-dongtaybac.pdf",
                         Mota="Hành trình khám phá vùng núi Tây Bắc với cảnh sắc thiên nhiên hoang sơ tuyệt đẹp hay Đông Bắc với những danh thắng đẹp nổi tiếng, thơ mộng đến ngỡ ngàng sẽ là một sự lựa chọn khó có thể bỏ qua cho du khách trong chuyến du lịch nghỉ dưỡng của mình.",
                         Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=3},
             };
@@ -294,6 +294,101 @@ namespace YourTour.Models.db
             //    context.CTHoadonBacs.Add(cTHoadonBac);
             //}
             //context.SaveChanges();
+
+            //
+            // init data table KinhNghiemDuLich
+            //
+
+            var kndl = new KinhNghiemDuLich[]
+            {
+                new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Đà Lạt", HinhAnh="gd_151113_kinh-nghiem-du-lich-da-lat.jpg",
+                Noidung="Cách thành phố Hồ Chí Minh 300km, Đà Lạt là thành phố lý tưởng để bạn trốn cái nóng mùa hè hay tận hưởng cảm giác mùa đông se lạnh. " +
+                "Đà Lạt nổi tiếng với những thắng cảnh như Hồ Xuân Hương, Thung Lũng Vàng, Đồi Mộng Mơ, Thung Lũng Tình Yêu, Langbiang… tất cả đã tạo nên một Đà Lạt lung linh, huyền diệu. " +
+                "Đà Lạt có nhiều dân tộc anh em như Hoa, Cơ Ho, Tày, Nùng, Chăm nhưng trong đó chiếm đại da số vẫn là người kinh."},
+                new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Đà Nẵng", HinhAnh="gd_151113_kinh-nghiem-du-lich-da-nang.jpg",
+                Noidung="Đà Nẵng là thành phố thuộc vùng duyên hải Nam Trung Bộ, thành phố vừa hiện đại, sạch đẹp vừa yên bình này nổi tiếng với những tên gọi như thành phố đáng sống nhất Việt Nam, " +
+                "thành phố của những chiếc cầu hay thành phố của những bãi biển. Với chiều dài hơn 60km, biển Đà Nẵng được tạp chí Forbes của Mỹ bình chọn là 1 trong 6 bãi biển quyến rũ nhất hành tinh, " +
+                "đến đây du khách còn được tham quan những thắng cảnh ấn tượng như bán đảo Sơn Trà, khu du lịch Bà Nà Hills, danh thắng Ngũ Hành Sơn,..."},
+                new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Hạ Long", HinhAnh="gd_151114_kinh-nghiem-du-lich-ha-long.jpg",
+                Noidung="Hạ Long là điểm đến du lịch bạn nên đến một lần trong đời, bởi ngoài thưởng ngoạn phong cảnh thiên nhiên tuyệt đẹp của Vịnh Hạ Long cùng với hệ thống các hang động, bạn còn trải nghiệm những hoạt động như ngủ đêm trên du thuyền, " +
+                "chèo kayak, tham quan những điểm đến linh thiêng như Yên Tử, Chùa Ba Vàng và không thể cưỡng lại với những món ăn làm mê hoặc lòng người như chả mực, hàu nướng, sá sùng…"},
+                new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Hà Nội", HinhAnh="gd_151114_kinh-nghiem-du-lich-ha-noi.jpg",
+                Noidung="Thành phố Hà Nội là Thủ đô ngàn năm văn hiến với những di tích cổ xưa, cuộc sống yên bình. Nếu đã một lần du lịch Hà Nội, chắc chắn bạn không thể nào quên không khí đặc trưng nơi đây, với Hồ Gươm, Hồ Tây, " +
+                "những quán cafe trầm mặc, những con đường nhỏ và những gánh hàng rong."},
+                new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Huế", HinhAnh="gd_151114_kinh-nghiem-du-lich-hue.jpg",
+                Noidung="Thành phố Huế nằm trên dải đất miền Trung được biết đến với Quần thể Di tích Cố đô Huế - Di sản Văn hóa Thế giới và Nhã nhạc Cung đình Huế - Kiệt tác phi vật thể và truyền miệng của nhân loại. " +
+                "Ngoài ra, Huế còn nổi tiếng với những lăng tẩm, món ăn ngon và làng nghề truyền thống lâu đầu."},
+                new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Ninh Bình", HinhAnh="gd_151114_kinh-nghiem-du-lich-ninh-binh.jpg",
+                Noidung="Ninh Bình là một trong ba điểm đến hấp dẫn nhất ở miền Bắc (sau Hạ Long và Sa Pa), bởi nơi đây có nhiều thắng cảnh hùng vĩ và tráng lệ, đó là các danh thắng đất ngập nước Tràng An, Tam Cốc, " +
+                "Vân Long hay những công trình kiến trúc đẹp và đồ sộ như Chùa Bái Đính, nhà thờ Phát Diệm, Cố Đô Hoa Lư và vườn quốc gia Cúc Phương dành cho những ai thích thiên nhiên và khám phá. " +
+                "Vùng đất Ninh Bình còn nổi tiếng với nhiều danh nhân đất Việt tiêu biểu như anh hùng dân tộc Đinh Bộ Lĩnh, Lê Hoàn, Lê…"},
+                new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Quảng Bình", HinhAnh="gd_151202_kinh-nghiem-du-lich-quang-binh.jpg",
+                Noidung="Quảng Bình, mảnh đất thuộc dải đất miền Bắc Trung Bộ Việt Nam, nơi đây được xem là thủ đô của hang động bởi hệ thống hang động dày đặt, hệ thống thạch nhũ kỳ ảo, tuyệt đẹp như động Phong Nha, " +
+                "động Thiên Đường hay những hang động dành cho những du khách ưu mạo hiểm, khám phá như hang Sơn Đoòng, hang Va, động Tiên Sơn… Ngoài ra, Quảng Bình còn nổi tiếng với biển Nhật Lệ êm đềm, bãi Đá Nhảy kỳ thú hay Vũng Chùa bình yên."},
+                new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Nha Trang", HinhAnh="gd_151214_kinh-nghiem-du-lich-nha-trang.jpg",
+                Noidung="Vốn nổi tiếng là thành phố biển du lịch của Việt Nam, Nha Trang có rất nhiều những danh lam thắng cảnh hút hồn các du khách bởi vẻ đẹp tuyệt vời. Khu giải trí Vinpearl Land với nhiều trò chơi thú vị và hấp dẫn, đảo Hòn Mun với những rặng san hô đẹp lộng lẫy, " +
+                "còn Hòn Tằm thu hút du khách với bãi tắm tuyệt đẹp hay dịch vụ tắm bùn khoáng tại I-Resort, khu du lịch Trăm Trứng sẽ giúp du khách thư giãn sau ngày dài. " +
+                "Đến Nha Trang không quên thưởng thức đặc sản nổi tiếng phố biển như bún sứa, nem…"},
+                new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Quảng Nam", HinhAnh="gd_151214_kinh-nghiem-du-lich-quang-nam.jpg",
+                Noidung="Hội An là một đô thị cổ của Việt Nam, là trung tâm giao thương chính của miền trung cuối thế kỷ 16 đến thế kỷ 17. Đến với Hội An bạn sẽ được ngắm nhìn những ngôi nhà cổ hàng trăm năm tuổi, những bãi biển đẹp tại Cửa Đại và Cù Lao Chàm. " +
+                "Quảng Nam là vùng đất còn lưu giữ nhiều dấu tích của nền văn hóa Chăm-pa, là nơi giao thoa của những sắc thái văn hóa giữa hai miền và giao lưu văn hóa với bên ngoài, điều này góp phần làm cho Quảng Nam giàu truyền thống văn hóa, độc đáo về bản sắc."},
+                new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Phan Thiết", HinhAnh="gd_151114_kinh-nghiem-du-lich-phan-thiet.jpg",
+                Noidung="Phan Thiết là thành phố trực thuộc tỉnh Bình Thuận, nơi đây có Mũi Né nổi tiếng là thủ đô resort trong cả nước, được biết đến vào năm 1995 khi xảy ra hiện tượng nhật thực toàn phần. " +
+                "Phan Thiết cách TP.HCM 200km nên thuận lợi cho việc tham quan, nghĩ dưỡng vào cuối tuần."},
+                new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Vũng Tàu", HinhAnh="gd_151214_kinh-nghiem-du-lich-vung-tau.jpg",
+                Noidung="Vũng Tàu là thành phố thuộc tỉnh Bà Rịa - Vũng Tàu, ở vùng Đông Nam Bộ Việt Nam. Cách TPHCM 100km, Vũng Tàu thích hợp cho những chuyến nghỉ ngơi, thư giãn vào cuối tuần hay các dịp lễ. " +
+                "Đến đây, ngoài tắm biển, tham quan bạn sẽ bị thu hút bởi những món ăn ngon và một thành phố năng động, mến khách. Cách Vũng Tàu 200km là Côn Đảo với những bãi tắm hoang sơ, tuyệt đẹp, " +
+                "Côn Đảo thích hợp cho những ai thích tìm hiểu văn hóa, lịch sử và tìm một cảm giác bình yên trong lòng."},
+            };
+            foreach (KinhNghiemDuLich item in kndl)
+            {
+                context.KinhNghiemDuLiches.Add(item);
+            }
+            context.SaveChanges();
+
+            //
+            // init data table Tin Tức
+            //
+
+            var tt = new TinTuc[]
+            {
+                new TinTuc {TieuDe="Xuân trọn niềm vui cùng tour du lịch Đà Lạt 3 ngày 2 đêm",
+                    NgayDang=DateTime.Parse("2020-12-25"), HinhAnh="du-lich-da-lat.jpg", NoiDung="“Cả nước du xuân – Khởi hành Tết mới”, tháng 1 này chúng ta hãy cùng nhau làm một chuyến du lịch Đà Lạt thôi nào. " +
+                    "Và nếu bạn ngại việc chen lấn tại các địa điểm check-in sống ảo ở Đà Lạt đang làm mưa làm gió trên các trang mạng xã hội những ngày qua, thì có thể tham khảo ngay những điểm đến này."},
+                new TinTuc {TieuDe="Tour chùa Hương và những điểm hành hương nổi tiếng ở miền Bắc",
+                    NgayDang=DateTime.Parse("2020-12-24"), HinhAnh="du-lich-phu-quoc.jpg", NoiDung="Phú Quốc là thành phố đảo đầu tiên của Việt Nam. " +
+                    "Du lịch Phú Quốc từ lâu đã được du khách biết đến là thiên đường nghỉ dưỡng ở phía Nam Việt Nam rất hút khách khi sở hữu nhiều bãi biển đẹp như Bãi Sao, Bãi Trường với một Sunset Sanato ma mị; " +
+                    "những hòn đảo yên bình, hoang sơ và các khu vui chơi đẳng cấp Quốc tế."},
+                new TinTuc {TieuDe="Về miền Tây đón Tết Tây miệt vườn, ngại gì không thử",
+                    NgayDang=DateTime.Parse("2020-12-26"), HinhAnh="du-xuan-don-tet-mien-tay.jpg", NoiDung="Miền Tây được biết đến là vùng đất dành riêng cho những du khách muốn “du lịch vườn”, Tết này về miền Tây bạn không những được tận hưởng một kỷ nghỉ đặc biệt với những trải nghiệm độc đáo, " +
+                    "mà còn được chiêm ngưỡng những vườn hoa rực rỡ đẹp nhất trong năm."},
+                new TinTuc {TieuDe="48 giờ khám phá những địa điểm du lịch Ninh Thuận nổi tiếng",
+                    NgayDang=DateTime.Parse("2020-12-25"), HinhAnh="48-gio-du-lich-ninh-thuan-vinh-vinh-hy.jpg", NoiDung="Vịnh Vĩnh Hy, Ninh Chữ là những cái tên vô cùng nổi bật của du lịch Ninh Thuận, " +
+                    "thu hút du khách bằng vẻ đẹp hoang sơ của những bãi biển dài cát trắng mịn màng, làn nước trong xanh như ngọc bích,…"},
+                new TinTuc {TieuDe="Top 8 địa điểm du lịch Hà Nội, Ninh Bình nổi tiếng bốn phương",
+                    NgayDang=DateTime.Parse("2020-12-27"), HinhAnh="du-lich-ha-noi-ninh-binh.jpg", NoiDung="Nếu Hà Nội được biết đến là vùng đất Thủ đô ngàn năm văn hiến đậm đà bản sắc dân tộc, " +
+                    "thì Ninh Bình lại nổi tiếng là nơi có cảnh sắc non nước hữu tình và là một trong những địa điểm du xuân du lịch hành hương hút khách nhất ở miền Bắc. " +
+                    "Du lịch Hà Nội, du lịch Ninh Bình bạn nhất định đừng bỏ 8 địa danh nổi tiếng này."},
+                new TinTuc {TieuDe="Du xuân, du lịch Tết Tây ở Nha Trang có gì thú vị?",
+                    NgayDang=DateTime.Parse("2020-12-27"), HinhAnh="vinwonders-nha-trang.jpg", NoiDung="Địa điểm du lịch Nha Trang không những nổi tiếng với những bãi biển tuyệt đẹp mà còn gây ấn tượng bởi các công trình kiến trúc độc đáo đẹp đến mê hồn. " +
+                    "Trong 3 ngày nghỉ Tết Tây năm nay, bạn hãy đưa gia đình, những người thân yêu của mình đến đây du xuân nhé."},
+                new TinTuc {TieuDe="Bật mí những địa điểm du lịch ngày đầu năm mới thú vị",
+                    NgayDang=DateTime.Parse("2020-12-25"), HinhAnh="dia-diem-du-xuan-ly-tuong.jpg", NoiDung="Những ngày đầu năm mới, nếu bạn không có nhiều thời gian để đi du lịch ở phương xa, " +
+                "thì hãy tham khảo ngay một vài địa điểm du xuân gần nhưng vô cùng thú vị trong bài viết này."},
+                new TinTuc {TieuDe="Tour chùa Hương và những điểm hành hương nổi tiếng ở miền Bắc",
+                    NgayDang=DateTime.Parse("2020-12-26"), HinhAnh="tour-chua-huong.jpg", NoiDung="Chùa Hương được biết đến là địa điểm hành hương bậc nhất tại Việt Nam. " +
+                "Do đó, nếu có dịp đi xuyên Việt để hành hương, bạn đừng quên tham gia tour chùa Hương đến với các ngôi chùa lịnh thiêng trong quần thể thắng cảnh này, " +
+                "cũng như những điểm hành hương nổi tiếng khác ở miền Bắc như chùa Đồng Yên Tử, chùa Bái Đính,…"},
+                new TinTuc {TieuDe="Mách bạn những điểm du xuân đầu năm chơi vui quên lối về",
+                    NgayDang=DateTime.Parse("2020-12-26"), HinhAnh="nhung-diem-du-xuan-dau-nam.jpg", NoiDung="Tết đến, xuân về là dịp để cả gia đình đoàn tụ, sum vầy bên nhau. " +
+                "Ngày nay, càng ngày càng có nhiều sự lựa chọn để tận hưởng Tết, thay vì chỉ quây quần bên bàn tiệc cùng bạn bè, dành trọn thời gian để đi chúc Tết, nhiều người đã chọn đi du lịch. " +
+                "Dưới đây là những điểm du xuân đầu năm được nhiều người lựa chọn."},
+            };
+            foreach (TinTuc item in tt)
+            {
+                context.TinTucs.Add(item);
+            }
+            context.SaveChanges();
         }
     }
 }

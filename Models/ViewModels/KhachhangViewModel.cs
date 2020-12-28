@@ -13,7 +13,7 @@ namespace YourTour.Models.ViewModels
         [DisplayName("Họ tên")]
         public string Hoten { get; set; }
         [DisplayName("Số cmnd")]
-        public int Cmnd { get; set; }
+        public string Cmnd { get; set; }
         [DisplayName("Địa chỉ")]
         public string Diachi { get; set; }
         [DisplayName("Số điện thoại")]
