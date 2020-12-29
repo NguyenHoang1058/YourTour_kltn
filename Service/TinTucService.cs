@@ -29,5 +29,16 @@ namespace YourTour.Service
             }
             return lsResult;
         }
+        public TinTucViewModel GetDetail(int id)
+        {
+            var result = new TinTucViewModel();
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                result = conn.Query<TinTucViewModel>(@"select * from TinTuc where ID = " + id).FirstOrDefault();
+                conn.Close();
+            }
+            return result;
+        }
     }
 }

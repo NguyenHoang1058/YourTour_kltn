@@ -1,5 +1,7 @@
-﻿body {
+﻿
+#main-menu a {
+    color: black;
 }
 #main-menu a:hover{
-    color:orangered;
+    color:red
 }

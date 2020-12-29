@@ -28,11 +28,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="~/css/social_icon.css" rel="stylesheet" type="text/css" /><!--custom social icon-->
+    <link href="/css/main-menu.css" rel="stylesheet" type="text/css" /><!--custom menu-->
     <!-- //css files -->
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
     @*<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">*@
+        <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">*@
     <!-- //google fonts -->
 
 </head>
@@ -82,13 +83,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <li class="active"><a href="#">Ưu đãi Viettin Bank</a></li>
                         </ul>
                     </li>
-                    <li class="active"><a href="#">Liên hệ</a></li>
-                    @*<li>
-            <form method="post">
-                <input type="text" name="diemDen" placeholder="Điểm đến ..." style="border:none" />
-                <button type="submit" style="border:none" class="btn btn-light fa fa-search"></button>
-            </form>
-        </li>*@
+                    <li class="active"><a href="@Url.Action("LienHe","Home")">Liên hệ</a></li>
                 </ul>
             </nav>
             <!-- //nav -->
@@ -96,10 +91,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </header>
     <!-- //header -->
     <!-- banner -->
-    <section class="banner_inner" id="home">
+    @*<section class="banner_inner" id="home">
         <div class="banner_inner_overlay">
         </div>
-    </section>
+    </section>*@
     <!-- //banner -->
     <!-- tour packages -->
     <section class="packages pt-5">

@@ -100,7 +100,7 @@ nav {
 	display: initial;
 	margin: 0;
 	letter-spacing: 1px;
-	color: #fff;
+	color: #000;
 	padding: 0px 0;
 	border: none;
 	font-family: 'Raleway', sans-serif;
@@ -137,7 +137,6 @@ nav ul li {
 
 /* Styling the links */
 nav a {
-	color: #000;
 	text-transform: capitalize;
 	letter-spacing: 1px;
 	padding-left: 0;
@@ -168,7 +167,7 @@ nav a:hover {
 	color: #ddd;
 }
 .menu li.active  a{ 
-	color: #000;
+	color: #fff;
 }
 
 /* Hide Dropdowns by Default
@@ -195,7 +194,7 @@ nav ul ul li {
 	position: relative;
 }
 nav ul ul li a {
-	color: #333;
+	color: #fff;
 	padding: 5px 10px;
 	display: block;
 }
@@ -309,7 +308,7 @@ li > a:only-child:after { content: ''; }
 
 	nav a:hover,
 	nav ul ul ul a {
-		background-color: transparent;
+		background-color: #fff;
 	}
   
 	nav ul li ul li .toggle,
@@ -731,7 +730,7 @@ li.linkedin a  {
 	position: relative;
 }
 .overlay-inner {
-	background: rgba(0, 0, 0, 0.5);
+	background: #eee;
 }
 
 .order-left-content h4 {

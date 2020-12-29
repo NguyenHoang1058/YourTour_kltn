@@ -16,13 +16,13 @@
         <div class="row">
             <div class="col-lg-3 col-sm-12 mb-5">
                 <div class="image-tour position-relative">
-                    <img src="@Url.Content("/images/tin tuc/"+item.HinhAnh)" alt="" height="200" width="600">
+                    <img src="@Url.Content("/images/tin tuc/"+item.Hinhanh)" alt="" height="200" width="600">
                 </div>
             </div>
             <div class="col-lg-9 col-sm-12 mb-5">
-                <h5 class="my-2" style="color:black">@item.TieuDe</h5>
+                <h5 class="my-2" style="color:black"><a href="@Url.Action("GetDetail","Home", new { @id = item.ID})">@item.Tieude</a></h5>
                 <h6 class="mt-1"><span class="fa fa-calendar"></span>@item.NgayDang.ToShortDateString()</h6>
-                <h6 class="mt-1" title="@item.NoiDung" style="color:gray">@item.NoiDung</h6>
+                <h6 class="mt-1" title="@item.Noidung" style="color:gray">@item.Noidung</h6>
                 <h6 class="pagination justify-content-end"><a href="#" style="color:red;">Xem thêm <span class="fa fa-long-arrow-right"></span></a></h6>
             </div>
         </div>

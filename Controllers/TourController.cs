@@ -27,45 +27,6 @@ namespace YourTour.Controllers
             var model = this._tourService.TourTrongNuoc();
             return View(model);
         }
-        public IActionResult TourMienNam(int? id)
-        {
-            if (id == null)
-            {
-                return View("/Views/Shared/PageNotFound.cshtml");
-            }
-            var model = this._tourService.ChiTietTourMienNam(id);
-            if(model == null)
-            {
-                return View("/Views/Shared/PageNotFound.cshtml");
-            }
-            return View(model);
-        }
-        public IActionResult TourMienBac(int? id)
-        {
-            if (id == null)
-            {
-                return View("/Views/Shared/PageNotFound.cshtml");
-            }
-            var model = this._tourService.ChiTietTourMienBac(id);
-            if (model == null)
-            {
-                return View("/Views/Shared/PageNotFound.cshtml");
-            }
-            return View(model);
-        }
-        public IActionResult TourMienTrung(int? id)
-        {
-            if (id == null)
-            {
-                return View("/Views/Shared/PageNotFound.cshtml");
-            }
-            var model = this._tourService.ChiTietTourMienTrung(id);
-            if (model == null)
-            {
-                return View("/Views/Shared/PageNotFound.cshtml");
-            }
-            return View(model);
-        }
         public IActionResult ShowAllTourMienBac()
         {
             var model = this._tourService.ShowAllTourMienBac();

@@ -28,5 +28,16 @@ namespace YourTour.Service
             }
             return lsResult;
         }
+        public KinhNghiemDuLichViewModel GetDetail(int id)
+        {
+            var result = new KinhNghiemDuLichViewModel();
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                result = conn.Query<KinhNghiemDuLichViewModel>(@"select * from KinhNghiemDuLich where ID = " + id).FirstOrDefault();
+                conn.Close();
+            }
+            return result;
+        }
     }
 }

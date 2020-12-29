@@ -352,35 +352,66 @@ namespace YourTour.Models.db
 
             var tt = new TinTuc[]
             {
-                new TinTuc {TieuDe="Xuân trọn niềm vui cùng tour du lịch Đà Lạt 3 ngày 2 đêm",
-                    NgayDang=DateTime.Parse("2020-12-25"), HinhAnh="du-lich-da-lat.jpg", NoiDung="“Cả nước du xuân – Khởi hành Tết mới”, tháng 1 này chúng ta hãy cùng nhau làm một chuyến du lịch Đà Lạt thôi nào. " +
+                new TinTuc {Tieude="Xuân trọn niềm vui cùng tour du lịch Đà Lạt 3 ngày 2 đêm",
+                    NgayDang=DateTime.Parse("2020-12-25"), Hinhanh="du-lich-da-lat.jpg", Noidung="“Cả nước du xuân – Khởi hành Tết mới”, tháng 1 này chúng ta hãy cùng nhau làm một chuyến du lịch Đà Lạt thôi nào. " +
                     "Và nếu bạn ngại việc chen lấn tại các địa điểm check-in sống ảo ở Đà Lạt đang làm mưa làm gió trên các trang mạng xã hội những ngày qua, thì có thể tham khảo ngay những điểm đến này."},
-                new TinTuc {TieuDe="Tour chùa Hương và những điểm hành hương nổi tiếng ở miền Bắc",
-                    NgayDang=DateTime.Parse("2020-12-24"), HinhAnh="du-lich-phu-quoc.jpg", NoiDung="Phú Quốc là thành phố đảo đầu tiên của Việt Nam. " +
+                new TinTuc {Tieude="Tour chùa Hương và những điểm hành hương nổi tiếng ở miền Bắc",
+                    NgayDang=DateTime.Parse("2020-12-24"), Hinhanh="du-lich-phu-quoc.jpg", Noidung="Phú Quốc là thành phố đảo đầu tiên của Việt Nam. " +
                     "Du lịch Phú Quốc từ lâu đã được du khách biết đến là thiên đường nghỉ dưỡng ở phía Nam Việt Nam rất hút khách khi sở hữu nhiều bãi biển đẹp như Bãi Sao, Bãi Trường với một Sunset Sanato ma mị; " +
                     "những hòn đảo yên bình, hoang sơ và các khu vui chơi đẳng cấp Quốc tế."},
-                new TinTuc {TieuDe="Về miền Tây đón Tết Tây miệt vườn, ngại gì không thử",
-                    NgayDang=DateTime.Parse("2020-12-26"), HinhAnh="du-xuan-don-tet-mien-tay.jpg", NoiDung="Miền Tây được biết đến là vùng đất dành riêng cho những du khách muốn “du lịch vườn”, Tết này về miền Tây bạn không những được tận hưởng một kỷ nghỉ đặc biệt với những trải nghiệm độc đáo, " +
+                new TinTuc {Tieude="Về miền Tây đón Tết Tây miệt vườn, ngại gì không thử",
+                    NgayDang=DateTime.Parse("2020-12-26"), Hinhanh="du-xuan-don-tet-mien-tay.jpg", Noidung="Miền Tây được biết đến là vùng đất dành riêng cho những du khách muốn “du lịch vườn”, Tết này về miền Tây bạn không những được tận hưởng một kỷ nghỉ đặc biệt với những trải nghiệm độc đáo, " +
                     "mà còn được chiêm ngưỡng những vườn hoa rực rỡ đẹp nhất trong năm."},
-                new TinTuc {TieuDe="48 giờ khám phá những địa điểm du lịch Ninh Thuận nổi tiếng",
-                    NgayDang=DateTime.Parse("2020-12-25"), HinhAnh="48-gio-du-lich-ninh-thuan-vinh-vinh-hy.jpg", NoiDung="Vịnh Vĩnh Hy, Ninh Chữ là những cái tên vô cùng nổi bật của du lịch Ninh Thuận, " +
+                new TinTuc {Tieude="48 giờ khám phá những địa điểm du lịch Ninh Thuận nổi tiếng",
+                    NgayDang=DateTime.Parse("2020-12-25"), Hinhanh="48-gio-du-lich-ninh-thuan-vinh-vinh-hy.jpg", Noidung="Vịnh Vĩnh Hy, Ninh Chữ là những cái tên vô cùng nổi bật của du lịch Ninh Thuận, " +
                     "thu hút du khách bằng vẻ đẹp hoang sơ của những bãi biển dài cát trắng mịn màng, làn nước trong xanh như ngọc bích,…"},
-                new TinTuc {TieuDe="Top 8 địa điểm du lịch Hà Nội, Ninh Bình nổi tiếng bốn phương",
-                    NgayDang=DateTime.Parse("2020-12-27"), HinhAnh="du-lich-ha-noi-ninh-binh.jpg", NoiDung="Nếu Hà Nội được biết đến là vùng đất Thủ đô ngàn năm văn hiến đậm đà bản sắc dân tộc, " +
+                new TinTuc {Tieude="Top 8 địa điểm du lịch Hà Nội, Ninh Bình nổi tiếng bốn phương",
+                    NgayDang=DateTime.Parse("2020-12-27"), Hinhanh="du-lich-ha-noi-ninh-binh.jpg", Noidung="Nếu Hà Nội được biết đến là vùng đất Thủ đô ngàn năm văn hiến đậm đà bản sắc dân tộc, " +
                     "thì Ninh Bình lại nổi tiếng là nơi có cảnh sắc non nước hữu tình và là một trong những địa điểm du xuân du lịch hành hương hút khách nhất ở miền Bắc. " +
                     "Du lịch Hà Nội, du lịch Ninh Bình bạn nhất định đừng bỏ 8 địa danh nổi tiếng này."},
-                new TinTuc {TieuDe="Du xuân, du lịch Tết Tây ở Nha Trang có gì thú vị?",
-                    NgayDang=DateTime.Parse("2020-12-27"), HinhAnh="vinwonders-nha-trang.jpg", NoiDung="Địa điểm du lịch Nha Trang không những nổi tiếng với những bãi biển tuyệt đẹp mà còn gây ấn tượng bởi các công trình kiến trúc độc đáo đẹp đến mê hồn. " +
+                new TinTuc {Tieude="Du xuân, du lịch Tết Tây ở Nha Trang có gì thú vị?",
+                    NgayDang=DateTime.Parse("2020-12-27"), Hinhanh="vinwonders-nha-trang.jpg", Noidung="Địa điểm du lịch Nha Trang không những nổi tiếng với những bãi biển tuyệt đẹp mà còn gây ấn tượng bởi các công trình kiến trúc độc đáo đẹp đến mê hồn. " +
                     "Trong 3 ngày nghỉ Tết Tây năm nay, bạn hãy đưa gia đình, những người thân yêu của mình đến đây du xuân nhé."},
-                new TinTuc {TieuDe="Bật mí những địa điểm du lịch ngày đầu năm mới thú vị",
-                    NgayDang=DateTime.Parse("2020-12-25"), HinhAnh="dia-diem-du-xuan-ly-tuong.jpg", NoiDung="Những ngày đầu năm mới, nếu bạn không có nhiều thời gian để đi du lịch ở phương xa, " +
+                new TinTuc {Tieude="Bật mí những địa điểm du lịch ngày đầu năm mới thú vị",
+                    NgayDang=DateTime.Parse("2020-12-25"), Hinhanh="dia-diem-du-xuan-ly-tuong.jpg", Noidung="Những ngày đầu năm mới, nếu bạn không có nhiều thời gian để đi du lịch ở phương xa, " +
                 "thì hãy tham khảo ngay một vài địa điểm du xuân gần nhưng vô cùng thú vị trong bài viết này."},
-                new TinTuc {TieuDe="Tour chùa Hương và những điểm hành hương nổi tiếng ở miền Bắc",
-                    NgayDang=DateTime.Parse("2020-12-26"), HinhAnh="tour-chua-huong.jpg", NoiDung="Chùa Hương được biết đến là địa điểm hành hương bậc nhất tại Việt Nam. " +
-                "Do đó, nếu có dịp đi xuyên Việt để hành hương, bạn đừng quên tham gia tour chùa Hương đến với các ngôi chùa lịnh thiêng trong quần thể thắng cảnh này, " +
-                "cũng như những điểm hành hương nổi tiếng khác ở miền Bắc như chùa Đồng Yên Tử, chùa Bái Đính,…"},
-                new TinTuc {TieuDe="Mách bạn những điểm du xuân đầu năm chơi vui quên lối về",
-                    NgayDang=DateTime.Parse("2020-12-26"), HinhAnh="nhung-diem-du-xuan-dau-nam.jpg", NoiDung="Tết đến, xuân về là dịp để cả gia đình đoàn tụ, sum vầy bên nhau. " +
+                new TinTuc {Tieude="Tour chùa Hương và những điểm hành hương nổi tiếng ở miền Bắc",
+                    NgayDang=DateTime.Parse("2020-12-26"), 
+                    Hinhanh="tour-chua-huong.jpg", 
+                    Noidung="Chùa Hương được biết đến là địa điểm hành hương bậc nhất tại Việt Nam. " +
+                    "Do đó, nếu có dịp đi xuyên Việt để hành hương, bạn đừng quên tham gia tour chùa Hương đến với các ngôi chùa lịnh thiêng trong quần thể thắng cảnh này, " +
+                    "cũng như những điểm hành hương nổi tiếng khác ở miền Bắc như chùa Đồng Yên Tử, chùa Bái Đính,…",
+                    Tieude1="Chùa Thiên Trù",
+                    Hinhanh1="camnhi-203528053526-chua-thien-tru.jpg",
+                    Noidung1="Đây là ngôi chùa được xem là điểm đến chính của nhiều du khách đi tour chùa Hương." +
+                    " Chùa được xây dựng từ thời vua Vua Lê Thánh Tông, uy nghi, tráng lệ như một lâu đài giữa núi rừng Hương Sơn. " +
+                    "Kiểu kiến trúc của ngôi chùa có tên là “Ngũ môn tam cấp” - tức năm cửa ba bậc. Hai bên sân là hai dãy nhà tranh làm cho du khách nghỉ ngơi trong ngày hội. " +
+                    "Trước bảo thềm thứ nhất có đặt một đỉnh đồng cao đến 3m lúc nào cũng khói nhang nghi ngút.",
+                    Tieude2="Động Tiên Sơn",
+                    Hinhanh2="camnhi-203728053740-dong-tien-son.jpg",
+                    Noidung2="Một địa điểm hành hương khác trong tour chùa Hương mà bạn không nên bỏ lỡ là Động Tiên Sơn. " +
+                    "Động được mở mang cùng thời với Chùa Thiên Trù, nhưng do bến cố của thiên nhiên động đã bị đất đá lấp đi. " +
+                    "Mãi đến năm 1904 mới được mở lại và đồng thời mở thêm một cửa động thứ hai ở bên phải. " +
+                    "Động Tiên Sơn tuy nhỏ nhưng có địa thế đẹp và nhiều nhũ đá với hình thù độc đáo như: bàn tay phật, ngà voi trắng,… khi gõ vào phát ra những âm thanh như tiếng nhạc. " +
+                    "Đặc biệt là 5 pho tượng gia đình bà Chúa Ba được tạc từ 3 phiến đá bạch thạch đào được ở trong động.",
+                    Tieude3="Chùa Trấn Quốc",
+                    Hinhanh3="camnhi-203828053849-chua-tran-quoc.jpg",
+                    Noidung3="Chùa Trấn Quốc nằm cách quần thể chùa Hương không xa, vì thế khi tham gia tour chùa Hương bạn hãy ghé qua địa điểm du lịch Hà Nội nổi tiếng này nhé. " +
+                    "Chùa Trấn Quốc được xem là ngôi chùa lâu đời nhất ở Thăng Long - Hà Nội với lịch sử gần 1.500 năm. " +
+                    "Từng là trung tâm Phật giáo thời Lý, Trần, đến nay chùa vẫn nổi tiếng là chốn Phật pháp linh thiêng, thu hút nhiều tín đồ Phật tử và du khách đến chiêm bái mỗi năm. " +
+                    "Ngôi chùa này từng lọt vào danh sách xếp hạng 16 ngôi chùa đẹp nhất thế giới của tờ báo Daily Mail (Anh) năm 2016 nữa đó.",
+                    Tieude4="Quần thể kiến trúc tâm linh trên đỉnh Fansipan",
+                    Hinhanh4="camnhi-203928053917-kim-son-bao-thang-tu-fansipan.jpg",
+                    Noidung4="Với các tín đồ Phật tử thì địa điểm trải nghiệm hành hương đầu năm ở miền Bắc không chỉ có tour chùa Hương là nơi quen thuộc mà còn có đỉnh thiêng Fansipan với quần thể kiến trúc tâm linh tại Sun World Fansipan Legend. " +
+                    "Điểm đến thu hút nhất trong quần thể tâm linh này phải kể đến Kim Sơn Bảo Thắng Tự. Ngôi chùa này là nơi trưng bày 18 vị La Hán bằng gỗ mít cao 2m và Bảo tháp 11 tầng ốp đá xanh nguyên khối theo thiết kế từ ngôi tháp chùa Phổ Minh ở Nam Định. " +
+                    "Hơn nữa, ở Sun World Fansipan Legend còn có nhiều kiến trúc độc đáo khác như Bích Vân Thiền Tự, Bảo An Thiền Tự với tượng đồng Quan Thế Âm Bồ Tát và Đai tượng Phật A Di Đà khoan thai sừng sững, uy nghi giữa đất trời.",
+                    Tieude5="Chùa Bái Đính",
+                    Hinhanh5="camnhi-205328055351-chua-bai-dinh.jpg",
+                    Noidung5="Chùa Bái Đính là điểm lễ chùa đầu năm ở khu vực miền Bắc được nhiều du khách lựa chọn. " +
+                    "Bái Đính là một quần thể chùa lớn với nhiều kỉ lục châu Á và Việt Nam được xác lập như chùa có tượng Phật bằng đồng dát vàng lớn nhất châu Á, chùa có hành lang La Hán dài nhất châu Á, chùa có tượng Di lặc bằng đồng lớn nhất Đông Nam Á,... " +
+                    "Sẽ thật thiếu sót nếu bạn đi tour chùa Hương mà không ghé qua địa điểm hành hương lân cận này đấy. Chùa Bái Đính thường khai hội vào mùng 6 Tết và kéo dài đến hết tháng 3 Âm lịch."},
+                new TinTuc {Tieude="Mách bạn những điểm du xuân đầu năm chơi vui quên lối về",
+                    NgayDang=DateTime.Parse("2020-12-26"), Hinhanh="nhung-diem-du-xuan-dau-nam.jpg", Noidung="Tết đến, xuân về là dịp để cả gia đình đoàn tụ, sum vầy bên nhau. " +
                 "Ngày nay, càng ngày càng có nhiều sự lựa chọn để tận hưởng Tết, thay vì chỉ quây quần bên bàn tiệc cùng bạn bè, dành trọn thời gian để đi chúc Tết, nhiều người đã chọn đi du lịch. " +
                 "Dưới đây là những điểm du xuân đầu năm được nhiều người lựa chọn."},
             };

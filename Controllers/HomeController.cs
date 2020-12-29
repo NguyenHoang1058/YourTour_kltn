@@ -83,5 +83,19 @@ namespace YourTour.Controllers
             }
             return View();
         }
+        public IActionResult GetDetail(int id)
+        {
+            if (id == null)
+            {
+                return View("/Views/Shared/PageNotFound.cshtml");
+            }
+            var model = this._tinTucService.GetDetail(id);
+            if (model == null)
+            {
+                return null;
+            }
+
+            return View(model);
+        }
     }
 }
