@@ -23,7 +23,7 @@
                 <h5 class="my-2" style="color:black"><a href="@Url.Action("GetDetail","Home", new { @id = item.ID})">@item.Tieude</a></h5>
                 <h6 class="mt-1"><span class="fa fa-calendar"></span>@item.NgayDang.ToShortDateString()</h6>
                 <h6 class="mt-1" title="@item.Noidung" style="color:gray">@item.Noidung</h6>
-                <h6 class="pagination justify-content-end"><a href="#" style="color:red;">Xem thêm <span class="fa fa-long-arrow-right"></span></a></h6>
+                <h6 class="pagination justify-content-end"><a href="@Url.Action("GetDetail","Home", new { @id = item.ID})" style="color:red;">Xem thêm <span class="fa fa-long-arrow-right"></span></a></h6>
             </div>
         </div>
     }

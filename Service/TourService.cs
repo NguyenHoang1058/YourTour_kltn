@@ -183,6 +183,18 @@ namespace YourTour.Service
             }
             return result;
         }
+        public List<TourViewModel> TimTourTheoDiaDiem(string diemDen)
+        {
+            var result = new List<TourViewModel>();
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                result = conn.Query<TourViewModel>(@"select * from Tour")
+                                                    .Where(d => d.Diemden.Contains(diemDen)).ToList();
+                conn.Close();
+            }
+            return result;
+        }
         public TourViewModel ChiTietTour(int? id)
         {
             var tour = new List<TourViewModel>();

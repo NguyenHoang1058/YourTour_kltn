@@ -312,9 +312,7 @@ namespace YourTour.Models.db
                 new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Hạ Long", HinhAnh="gd_151114_kinh-nghiem-du-lich-ha-long.jpg",
                 Noidung="Hạ Long là điểm đến du lịch bạn nên đến một lần trong đời, bởi ngoài thưởng ngoạn phong cảnh thiên nhiên tuyệt đẹp của Vịnh Hạ Long cùng với hệ thống các hang động, bạn còn trải nghiệm những hoạt động như ngủ đêm trên du thuyền, " +
                 "chèo kayak, tham quan những điểm đến linh thiêng như Yên Tử, Chùa Ba Vàng và không thể cưỡng lại với những món ăn làm mê hoặc lòng người như chả mực, hàu nướng, sá sùng…"},
-                new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Hà Nội", HinhAnh="gd_151114_kinh-nghiem-du-lich-ha-noi.jpg",
-                Noidung="Thành phố Hà Nội là Thủ đô ngàn năm văn hiến với những di tích cổ xưa, cuộc sống yên bình. Nếu đã một lần du lịch Hà Nội, chắc chắn bạn không thể nào quên không khí đặc trưng nơi đây, với Hồ Gươm, Hồ Tây, " +
-                "những quán cafe trầm mặc, những con đường nhỏ và những gánh hàng rong."},
+               
                 new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Huế", HinhAnh="gd_151114_kinh-nghiem-du-lich-hue.jpg",
                 Noidung="Thành phố Huế nằm trên dải đất miền Trung được biết đến với Quần thể Di tích Cố đô Huế - Di sản Văn hóa Thế giới và Nhã nhạc Cung đình Huế - Kiệt tác phi vật thể và truyền miệng của nhân loại. " +
                 "Ngoài ra, Huế còn nổi tiếng với những lăng tẩm, món ăn ngon và làng nghề truyền thống lâu đầu."},
@@ -339,6 +337,37 @@ namespace YourTour.Models.db
                 Noidung="Vũng Tàu là thành phố thuộc tỉnh Bà Rịa - Vũng Tàu, ở vùng Đông Nam Bộ Việt Nam. Cách TPHCM 100km, Vũng Tàu thích hợp cho những chuyến nghỉ ngơi, thư giãn vào cuối tuần hay các dịp lễ. " +
                 "Đến đây, ngoài tắm biển, tham quan bạn sẽ bị thu hút bởi những món ăn ngon và một thành phố năng động, mến khách. Cách Vũng Tàu 200km là Côn Đảo với những bãi tắm hoang sơ, tuyệt đẹp, " +
                 "Côn Đảo thích hợp cho những ai thích tìm hiểu văn hóa, lịch sử và tìm một cảm giác bình yên trong lòng."},
+                new KinhNghiemDuLich{Tieude="Kinh nghiệm du lịch Hà Nội",
+                    HinhAnh="gd_151114_kinh-nghiem-du-lich-ha-noi.jpg",
+                    Noidung="Thành phố Hà Nội là Thủ đô ngàn năm văn hiến với những di tích cổ xưa, cuộc sống yên bình. Nếu đã một lần du lịch Hà Nội, chắc chắn bạn không thể nào quên không khí đặc trưng nơi đây, với Hồ Gươm, Hồ Tây, " +
+                    "những quán cafe trầm mặc, những con đường nhỏ và những gánh hàng rong.",
+                    Tieude1="Phương tiện đi lại",
+                    Noidung1="Từ TP.HCM, Đà Nẵng hay Cần Thơ thì phương tiện thuận tiện và tiết kiệm thời gian nhất bạn nên chọn là máy bay, " +
+                    "bởi hiện nay các hãng hàng không Vietjet, Jestar hay Vietnam Airlines luôn có nhiều chương trình khuyến mãi hấp dẫn, " +
+                    "bạn nên đăng ký địa chỉ mail để các hãng hàng không gởi thông tin khuyến mãi nhé. " +
+                    "Ngoài ra, bạn có thể chọn xe lửa tàu Thống Nhất Bắc Nam tuy nhiên lưu ý bạn chỉ nên chọn khi có nhiều thời gian tham quan." +
+                    "Từ sân bay Nội Bài về trung tâm khoảng 30km, bạn có thể đi taxi nếu đi đông hay chọn xe bus trung chuyển của hai hãng hàng không nội địa là Jetstar và VietJet Air với giá mềm hơn. " +
+                    "Trong trung tâm Hà Nội để tham quan bạn nên thuê xe máy để di chuyển, ngoài ra còn 2 phương tiện cũng khá độc đáo để thăm thủ đô là xích lô và xe điện.",
+                    Tieude2="Nên đi Hà Nội mùa nào?",
+                    Noidung2="Thời gian thích hợp nhất để du lịch Hà Nội là vào tháng 9 đến tháng 11 hoặc từ tháng 3 đến tháng 4, đó là lúc chuyển mùa thời tiết ấm áp và dễ chịu, không quá nắng gắt hay hanh khô. " +
+                    "Tuyệt vời nhất là vào mùa thu, Hà Nội như khoác một chiếc áo mới, dịu dàng và lãng mạng nhất trong năm.",
+                    Tieude3="Những điểm nào nên tham quan khi đến Hà Nội",
+                    Noidung3="Hà Nội có rất nhiều điểm tham quan di tích lịch sử - văn hóa để bạn tham quan tìm hiểu, ngay khu vực trung tâm thủ đô bạn hãy ghé tham quan Hồ Hoàn Kiếm, ngắm tháp Rùa, đền Ngọc Sơn, cầu Thê Húc. " +
+                    "Chiêm ngưỡng và chụp hình tại Nhà thờ lớn Hà Nội, Nhà hát lớn Hà Nội, khu phố Cổ. Xa hơn một chút tầm 3km bạn hãy viếng Lăng Bác (lưu ý Lăng không mở thứ 2, 6 hàng tuần) thăm quan Bảo tàng Hồ Chí Minh, " +
+                    "nhà sàn Bác Hồ, chùa Một Cột, quảng trường Ba Đình; tiếp tục tham quan Văn Miếu - Quốc Tử Giám - nơi thờ Khổng Tử và các bậc hiền triết của Nho Giáo, Hoàng Thành Thăng Long.Ngày hôm sau tại Hà Nội bạn hãy ghé khu vực Hồ Tây, " +
+                    "tham quan Đền Quán Thánh, chùa Trấn Quốc. Thích tìm hiểu về văn hóa các dân tộc thì bạn ghé tham quan Bảo tàng dân tộc học Việt Nam, nếu còn thời gian tại Hà Nội bạn hãy ghé các khu vực lân cận như làng gốm Bát Tràng (cách trung tâm 20km), " +
+                    "làng cổ Đường Lâm (cách trung tâm 45km) nơi còn lưu giữ những nét cổ xưa của một làng quê miền Bắc.",
+                    Tieude4="Hà Nội có lễ hội gì đặc sắc?",
+                    Noidung4="Lễ hội Chùa Hương là lễ hội đặc sắc nhất ở Hà Nội, được diễn ra từ mùng 6 tháng Giêng đến hết tháng 3 âm lịch, tuy nhiên trong giai đoạn lễ hội thường rất đông nên bạn có thể đi dịp trước tết dương lịch và nguyên đán. " +
+                    "Ngoài ra, Hà Nội còn có các lễ hội như Hội gò Đống Đa mùng 5 Tết tại gò Đống Đa, lễ hội đền Gióng Sóc Sơn ngày 6/1 âm lịch, lễ hội Cổ Loa diễn ra từ ngày 6 đến 16 tháng giêng âm lịch (chính hội ngày 6).",
+                    Tieude5="Khách sạn và ẩm thực địa phương",
+                    Noidung5="Hà nội có rất nhiều khách sạn để bạn lựa chọn, để tham khảo các khách sạn hợp với túi tiền và vị trí gần trung tâm phố cổ bạn nên tham khảo trước trên các web tư vấn khách sạn như Agoda hay Tripadvisor rất hữu ích. " +
+                    "Ngoài ra, mình tư vấn cho bạn một số khách sạn như Asian Star, Chaerry 2, Crysral 2 sao hay khách sạn 3 sao như Boss, ATS, Church Boutique.Ẩm thực Hà Nội luôn hấp dẫn với những món ăn đậm chất riêng." +
+                    " Một số món ăn không thể bỏ qua khi du lịch Hà Nội: phở gánh Hàng Trống, chả cá Lã Vọng, bún chả, bún thang, bánh cốm, bánh cuốn, bún đậu mắm tôm.",
+                    Tieude6="Những điều lưu ý",
+                    Noidung6="Miền Bắc có bốn mùa rõ rệt trong năm, chính vì vậy thời tiết là điều bạn cần quan tâm khi đi du lịch Hà Nội. Mùa hè trời thường rất nắng nóng, mùa đông thì rất lạnh, mùa xuân thì hay mưa phùn, ẩm ướt. " +
+                    "Hãy có một tấm bản đồ để xác định quãng đường đi, tránh việc bị người khác (xe ôm, taxi) đưa đi lòng vòng rồi tính tiền. Hãy hỏi về giá cả trước khi sử dụng bất cứ dịch vụ nào. Cách tốt nhất là bạn nên nhờ lễ tân tại khách sạn mình ở tư vấn, " +
+                    "giúp đỡ khi cần thông tin. Để thưởng thức hết vẻ đẹp thiên nhiên, kiến trúc kỳ vĩ ở các chùa lớn thì không nên đi các chùa vào mùa lễ hội."},
             };
             foreach (KinhNghiemDuLich item in kndl)
             {

@@ -19,14 +19,16 @@ namespace YourTour.Controllers
         private readonly KinhNghiemDuLichService _kinhNghiemDuLichService;
         private readonly LienHeService _lienHeService;
         private readonly TinTucService _tinTucService;
+        private readonly TourService _tourService;
 
         public HomeController(ILogger<HomeController> logger, KinhNghiemDuLichService kinhNghiemDuLichService,
-            LienHeService lienHeService, TinTucService tinTucService)
+            LienHeService lienHeService, TinTucService tinTucService, TourService tourService)
         {
             _logger = logger;
             this._kinhNghiemDuLichService = kinhNghiemDuLichService;
             this._lienHeService = lienHeService;
             this._tinTucService = tinTucService;
+            this._tourService = tourService;
         }
 
         public IActionResult Index()
@@ -95,6 +97,29 @@ namespace YourTour.Controllers
                 return null;
             }
 
+            return View(model);
+        }
+        public IActionResult KinhNghiemDuLichDetail(int id)
+        {
+            if (id == null)
+            {
+                return View("/Views/Shared/PageNotFound.cshtml");
+            }
+            var model = this._kinhNghiemDuLichService.GetDetail(id);
+            if (model == null)
+            {
+                return null;
+            }
+
+            return View(model);
+        }
+        public IActionResult TimTour(string diemDen)
+        {
+            var model = this._tourService.TimTourTheoDiaDiem(diemDen);
+            if (model == null)
+            {
+                return View("/Views/Shared/PageNotFound.cshtml");
+            }
             return View(model);
         }
     }

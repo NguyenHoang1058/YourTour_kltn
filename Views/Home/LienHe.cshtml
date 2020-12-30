@@ -17,7 +17,7 @@
     @using (Html.BeginForm("LienHe", "Home", FormMethod.Post, new { @class = "row" }))
     {
         <div class="col-sm-6 form-group contact-forms">
-            @Html.DropDownList("LoaiLienHe", new List<SelectListItem> {
+            @Html.DropDownList("LoaiThongTin", new List<SelectListItem> {
                 new SelectListItem {Text="Du lịch", Value="Du lịch", Selected=true},
                 new SelectListItem {Text="Chăm sóc khách hàng", Value="Chăm sóc khách hàng"}
             })

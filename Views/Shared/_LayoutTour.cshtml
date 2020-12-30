@@ -38,7 +38,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </head>
 <body>
-
+    <div class="pagination justify-content-end py-lg-4 py-sm-3" style="margin:20px 0 0 0">
+        <form method="post" action="@Url.Action("TimTour","Home")">
+            <input type="text" name="diemDen" placeholder="Điểm đến ..." style="border:none" />
+            <button type="submit" style="border:none" class="btn btn-light fa fa-search"></button>
+        </form>
+    </div>
     <!-- header -->
     <header>
         <div class="container">
@@ -92,9 +97,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- //header -->
     <!-- banner -->
     @*<section class="banner_inner" id="home">
-        <div class="banner_inner_overlay">
-        </div>
-    </section>*@
+            <div class="banner_inner_overlay">
+            </div>
+        </section>*@
     <!-- //banner -->
     <!-- tour packages -->
     <section class="packages pt-5">
