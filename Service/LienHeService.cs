@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using YourTour.Models.db;
 using YourTour.Models.ViewModels;
+using Dapper;
+using System.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace YourTour.Service
 {
@@ -18,7 +21,7 @@ namespace YourTour.Service
         {
             var newLH = new LienHeViewModel
             {
-                LoaiLienHe = lh.LoaiLienHe,
+                LoaiThongTin = lh.LoaiThongTin,
                 HoTen = lh.HoTen,
                 Email = lh.Email,
                 Sdt = lh.Sdt,
@@ -32,6 +35,17 @@ namespace YourTour.Service
             var newLienHe = new LienHe(newLH);
             _db.LienHes.Add(newLienHe);
             _db.SaveChanges();
+        }
+        public LienHe GetYeuCauTuVan(int id)
+        {
+            var tour = new LienHe();
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                tour = conn.Query<LienHe>(@"select * from LienHe where ID = " + id).FirstOrDefault();
+                conn.Close();
+            }
+            return tour;
         }
     }
 }

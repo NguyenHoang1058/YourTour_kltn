@@ -17,30 +17,9 @@ namespace YourTour.Service
         {
             this._db = db;
         }
-        public List<TourTuyChonViewModel> GetTourTuyChon()
-        {
-            var tour = new List<TourTuyChonViewModel>();
-            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
-            {
-                conn.Open();
-                tour = conn.Query<TourTuyChonViewModel>(@"select * from TourTuyChon where Xacnhan = 0").ToList();
-                conn.Close();
-            }
-            return tour;
-        }
-        public List<TourTuyChonViewModel> GetTourTuyChonDaXacNhan()
-        {
-            var tour = new List<TourTuyChonViewModel>();
-            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
-            {
-                conn.Open();
-                tour = conn.Query<TourTuyChonViewModel>(@"select * from TourTuyChon where Xacnhan = 1").ToList();
-                conn.Close();
-            }
-            return tour;
-        }
 
         //lấy danh sách tour đã hủy miền Nam
+
         public List<CommonViewModel> GetAllTourDaHuyMienNam()
         {
             var lsResult = new List<CommonViewModel>();
@@ -88,6 +67,28 @@ namespace YourTour.Service
                 conn.Close();
             }
             return lsResult;
+        }
+        public List<LienHeViewModel> GetLienHeChuaXacNhan()
+        {
+            var lh = new List<LienHeViewModel>();
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                lh = conn.Query<LienHeViewModel>(@"select * from LienHe where Xacnhan = 0").ToList();
+                conn.Close();
+            }
+            return lh;
+        }
+        public List<LienHeViewModel> GetLienHeDaXacNhan()
+        {
+            var lh = new List<LienHeViewModel>();
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                lh = conn.Query<LienHeViewModel>(@"select * from LienHe where Xacnhan = 1").ToList();
+                conn.Close();
+            }
+            return lh;
         }
     }
 }

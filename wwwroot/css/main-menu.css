@@ -5,3 +5,25 @@
 #main-menu a:hover{
     color:red
 }
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 270px;
+    overflow: hidden;
+    background-color: #cdcdcd;
+}
+    .carousel .carousel-item {
+        position: absolute;
+        width: 100%;
+        height: 270px;
+        top: 0;
+        left: 100%;
+    }
+        .carousel .carousel-item.active {
+            left: 0;
+            transition: all 0.3s ease-out;
+        }
+
+        .carousel .carousel-item div {
+            height: 100%;
+        }

@@ -1,0 +1,76 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<YourTour.Models.ViewModels.LienHeViewModel>
+@{ 
+    ViewData["Title"] = "Danh sách yêu cầu tư vấn";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Danh sách khách yêu cầu tư vấn</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().LoaiThongTin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().HoTen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Sdt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().TenCongTy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().SoKhach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().TieuDe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().NoiDung)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiThongTin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sdt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenCongTy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoKhach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TieuDe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoiDung)
+            </td>
+            <td>
+                @Html.ActionLink("Xác nhận", "XacNhanYeuCauTuVan", "Admin", new { id = item.ID }) |
+                @Html.ActionLink("Xóa", "XoaYeuCauTuVan", "Admin", new { id = item.ID })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

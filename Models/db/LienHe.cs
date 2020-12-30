@@ -25,7 +25,7 @@ namespace YourTour.Models.db
         public LienHe(LienHeViewModel lh)
         {
             this.ID = lh.ID;
-            this.LoaiThongTin = lh.LoaiLienHe;
+            this.LoaiThongTin = lh.LoaiThongTin;
             this.HoTen = lh.HoTen;
             this.Email = lh.Email;
             this.Sdt = lh.Sdt;

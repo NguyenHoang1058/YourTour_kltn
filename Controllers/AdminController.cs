@@ -28,11 +28,12 @@ namespace YourTour.Controllers
         private readonly AdminService _adminService;
         private readonly TourService _tourService;
         private readonly HoaDonService _hoaDonService;
+        private readonly LienHeService _lienHeService;
 
         public AdminController(YourTourContext db, IHostingEnvironment hostingEnvironment,
             TravelService travelService, StaffService staffService, LocationService locationService,
             CommonService commonService, AdminService adminService, TourService tourService,
-            HoaDonService hoaDonService)
+            HoaDonService hoaDonService, LienHeService lienHeService)
         {
             this._db = db;
             this._hostingEnvironment = hostingEnvironment;
@@ -43,6 +44,7 @@ namespace YourTour.Controllers
             this._adminService = adminService;
             this._tourService = tourService;
             this._hoaDonService = hoaDonService;
+            this._lienHeService = lienHeService;
         }
         public IActionResult Index()
         {
@@ -380,25 +382,37 @@ namespace YourTour.Controllers
             return RedirectToAction("ShowAllBookingTour", "Admin");
         }
 
-        //hiển thị danh sách khách đặt tour tùy chọn
-        public IActionResult DanhSachTourTuyChon()
+        //hiển thị danh sách khách yêu cầu tư vấn
+
+        public IActionResult DanhSachYeuCauTuVan()
         {
-            var model = this._adminService.GetTourTuyChon();
+            var model = this._adminService.GetLienHeChuaXacNhan();
             return View(model);
         }
-        //xác nhận đặt tour tùy chọn
 
-        public IActionResult XacNhanDatTourTuyChon(int id)
+        //xác nhận yêu cầu tư vấn
+
+        public IActionResult XacNhanYeuCauTuVan(int id)
         {
-            var tour = this._tourService.GetTourTuyChon(id);
-            tour.Xacnhan = 1;
-            _db.TourTuyChons.Update(tour);
+            var lh = this._lienHeService.GetYeuCauTuVan(id);
+            lh.XacNhan = 1;
+            _db.LienHes.Update(lh);
             _db.SaveChanges();
-            return RedirectToAction("DanhSachTourTuyChon", "Admin");
+            return RedirectToAction("DanhSachYeuCauTuVan", "Admin");
         }
-        public IActionResult DanhSachTourTuyChonDaXacNhan()
+        public IActionResult XoaYeuCauTuVan(int id)
         {
-            var model = this._adminService.GetTourTuyChonDaXacNhan();
+            var lh = this._lienHeService.GetYeuCauTuVan(id);
+            _db.LienHes.Remove(lh);
+            _db.SaveChanges();
+            return RedirectToAction("DanhSachYeuCauTuVan", "Admin");
+        }
+
+        //hiển thị danh sách yêu cầu đã tư vấn
+
+        public IActionResult DanhSachYeuCauTuVanDaXacNhan()
+        {
+            var model = this._adminService.GetLienHeDaXacNhan();
             return View(model);
         }
         public IActionResult ShowTourDaHuy()

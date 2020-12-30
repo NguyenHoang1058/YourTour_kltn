@@ -171,17 +171,6 @@ namespace YourTour.Service
             return tour.SingleOrDefault(n => n.ID == id);
         }
 
-        public TourTuyChon GetTourTuyChon(int id)
-        {
-            var tour = new TourTuyChon();
-            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
-            {
-                conn.Open();
-                tour = conn.Query<TourTuyChon>(@"select * from TourTuyChon where ID = " + id).FirstOrDefault();
-                conn.Close();
-            }
-            return tour;
-        }
         public List<TourViewModel> TimTour(string diemDen, DateTime ngayDi)
         {
             var result = new List<TourViewModel>();
