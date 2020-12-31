@@ -38,10 +38,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </head>
 <body>
-    <div class="pagination justify-content-end py-lg-4 py-sm-3" style="margin:20px 0 0 0">
-        <form method="post" action="@Url.Action("TimTour","Home")">
+    <div class="pagination justify-content-end" id="search">
+        <form method="post" action="@Url.Action("TimTour","Home")" style="margin:0 30px 0 0">
             <input type="text" name="diemDen" placeholder="Điểm đến ..." style="border:none" />
-            <button type="submit" style="border:none" class="btn btn-light fa fa-search"></button>
+            <button type="submit" style="border:none;background-color:transparent " class="btn btn-light fa fa-search"></button>
         </form>
     </div>
     <!-- header -->
@@ -50,7 +50,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <!-- nav -->
             <nav class="py-md-4 py-3 d-lg-flex">
                 <div id="logo">
-                    <h1 class="mt-md-0 mt-2"> <a href="@Url.Action("Index","Home")"><span class="fa fa-map-signs"></span> Tenlua Travel </a></h1>
+                    <h1 class="mt-md-0 mt-2"> <a href="@Url.Action("Index","Home")"><span class="fas fa-rocket"></span> Tenlua Travel </a></h1>
                     <h6 class="mt-md-0 mt-2"><a href="#"><span>Be An Adventurer</span></a></h6>
                 </div>
                 <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
@@ -94,6 +94,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <!-- //nav -->
         </div>
     </header>
+    <div style="height:28px; background-color:lightgray"></div>
     <!-- //header -->
     <!-- banner -->
     @*<section class="banner_inner" id="home">

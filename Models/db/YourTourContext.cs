@@ -27,6 +27,8 @@ namespace YourTour.Models.db
         public DbSet<TourTuyChon> TourTuyChons { get; set; }
         public DbSet<KinhNghiemDuLich> KinhNghiemDuLiches { get; set; }
         public DbSet<TinTuc> TinTucs{ get; set; }
+        public DbSet<KhachSan> KhachSans { get; set; }
+        public DbSet<CTHoadonTuChon> CTHoadonTuChons { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -44,6 +46,8 @@ namespace YourTour.Models.db
             modelBuilder.Entity<TourTuyChon>().ToTable("TourTuyChon");
             modelBuilder.Entity<LienHe>().ToTable("LienHe");
             modelBuilder.Entity<TinTuc>().ToTable("TinTuc");
+            modelBuilder.Entity<KhachSan>().ToTable("KhachSan");
+            modelBuilder.Entity<CTHoadonTuChon>().ToTable("CTHoadonTuChon");
         }
     }
 }

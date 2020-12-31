@@ -21,6 +21,7 @@ namespace YourTour.Models.db
         public CTHoadonNam CTHoadon { get; set; }
         public CTHoadonBac CTHoadonBac { get; set; }
         public CTHoadonTrung CTHoadonTrung { get; set; }
+        public CTHoadonTuChon CTHoadonTuChon { get; set; }
 
         public Hoadon() { }
         public Hoadon(HoadonViewModel hoadonViewModel)

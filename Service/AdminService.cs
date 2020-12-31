@@ -68,27 +68,5 @@ namespace YourTour.Service
             }
             return lsResult;
         }
-        public List<LienHeViewModel> GetLienHeChuaXacNhan()
-        {
-            var lh = new List<LienHeViewModel>();
-            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
-            {
-                conn.Open();
-                lh = conn.Query<LienHeViewModel>(@"select * from LienHe where Xacnhan = 0").ToList();
-                conn.Close();
-            }
-            return lh;
-        }
-        public List<LienHeViewModel> GetLienHeDaXacNhan()
-        {
-            var lh = new List<LienHeViewModel>();
-            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
-            {
-                conn.Open();
-                lh = conn.Query<LienHeViewModel>(@"select * from LienHe where Xacnhan = 1").ToList();
-                conn.Close();
-            }
-            return lh;
-        }
     }
 }

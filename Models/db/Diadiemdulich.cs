@@ -15,5 +15,6 @@ namespace YourTour.Models.db
         public int MienID { get; set; }
         public Mien Mien { get; set; }
         public ICollection<Tour> Tours { get; set; }
+        public ICollection<KhachSan> KhachSans { get; set; }
     }
 }

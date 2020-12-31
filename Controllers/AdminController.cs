@@ -386,7 +386,7 @@ namespace YourTour.Controllers
 
         public IActionResult DanhSachYeuCauTuVan()
         {
-            var model = this._adminService.GetLienHeChuaXacNhan();
+            var model = this._lienHeService.GetLienHeChuaXacNhan();
             return View(model);
         }
 
@@ -412,7 +412,7 @@ namespace YourTour.Controllers
 
         public IActionResult DanhSachYeuCauTuVanDaXacNhan()
         {
-            var model = this._adminService.GetLienHeDaXacNhan();
+            var model = this._lienHeService.GetLienHeDaXacNhan();
             return View(model);
         }
         public IActionResult ShowTourDaHuy()
