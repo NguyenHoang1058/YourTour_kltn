@@ -16,6 +16,7 @@ namespace YourTour.Models.db
         public int Giaphong { get; set; }
         public int Giaphuthu { get; set; }
         public int Giatreem { get; set; }
+        public int Sophong { get; set; }
         public string Hoten { get; set; }
         public string Sdt { get; set; }
         public string Email { get; set; }
