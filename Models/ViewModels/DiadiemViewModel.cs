@@ -14,6 +14,7 @@ namespace YourTour.Models.ViewModels
         public string Tendiadiem { get; set; }
         [Required(ErrorMessage = "Mô tả không được để trống")]
         public string Mota { get; set; }
+        public string Hinhanh { get; set; }
         public int MienID { get; set; }
         //public int TourID { get; set; }
         //public Tinh Tinh { get; set; }

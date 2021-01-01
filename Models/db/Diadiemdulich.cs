@@ -12,6 +12,7 @@ namespace YourTour.Models.db
         public int ID { get; set; }
         public string Tendiadiem { get; set; }
         public string Mota { get; set; }
+        public string Hinhanh { get; set; }
         public int MienID { get; set; }
         public Mien Mien { get; set; }
         public ICollection<Tour> Tours { get; set; }

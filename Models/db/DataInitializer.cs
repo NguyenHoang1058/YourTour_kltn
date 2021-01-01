@@ -102,15 +102,15 @@ namespace YourTour.Models.db
                     Mota="An Giang là một trong 10 vùng du lịch trọng điểm quốc gia có một số thắng cảnh tiêu biểu như: Châu Đốc, Thất Sơn, Phú Tân, Rừng Tràm Trà Sư, Hồ Thoại Sơn,..."},
                 new Diadiemdulich{Tendiadiem="Bến Tre", MienID =1,
                     Mota="Bến Tre có điều kiện thuận tiện để phát triển du lịch sinh thái, bởi ở đó còn giữ được nét nguyên sơ của miệt vườn, giữ được môi trường sinh thái trong lành trong màu xanh của những vườn dừa, vườn cây trái rộng lớn."},
-                new Diadiemdulich{Tendiadiem="Lâm Đồng", MienID = 2,
+                new Diadiemdulich{Tendiadiem="Đà Lạt", MienID = 2,Hinhanh="4-da-lat.jpg",
                     Mota="Lâm Đồng có nhiều thắng cảnh nổi tiếng như các thác nước tại huyện Đức Trọng và những thắng cảnh thiên nhiên tại Đà Lạt như Hồ Than Thở, Hồ Xuân Hương."},
-                new Diadiemdulich{Tendiadiem="Đắk Lắk", MienID = 2,
+                new Diadiemdulich{Tendiadiem="Vũng Tàu", MienID = 2, Hinhanh="2-vung-tau.jpg",
                     Mota="Du lịch Đắk Lắk đang có lợi thế với nhiều địa danh cho phép khai thác theo hướng kết hợp cảnh quan, sinh thái, môi trường và truyền thống văn hoá của nhiều dân tộc trong tỉnh như hồ Lắk, Thác Gia Long, cụm du lịch Buôn Đôn, Thác Krông Kmar, Diệu Thanh, Tiên Nữ… bên cạnh các vườn quốc gia, khu bảo tồn thiên nhiên Chư Yang Sin, Easo..."},
-                new Diadiemdulich{Tendiadiem="Gia Lai", MienID = 2,
+                new Diadiemdulich{Tendiadiem="Phú Quốc", MienID = 2,Hinhanh="1-phu-quoc.jpg",
                     Mota="Tiềm năng du lịch của Gia Lai rất phong phú, đa dạng với núi rùng cao có nhiều cảnh quan tự nhiên và nhân tạo. Rừng nguyên sinh nơi đây có hệ thống động thực vật phong phú, nhiều ghềnh thác, suối, hồ như Biển Hồ là một thắng cảnh nổi tiếng, ngoài ra có chùa Minh Thành (Gia Lai). Nhiều đồi núi như cổng trời Mang Yang, đỉnh Hàm Rồng, thác Hang Dơi và thác K50 (Huyện Kbang). Các cảnh quan nhân tạo có các rừng cao su, đồi chè, cà phê bạt ngàn. Kết hợp với tuyến đường rừng, có các tuyến dã ngoại bằng thuyền trên sông, cưỡi voi xuyên rừng,..."},
-                new Diadiemdulich{Tendiadiem="Đà Nẵng", MienID = 2,
+                new Diadiemdulich{Tendiadiem="Phan Thiết", MienID = 2, Hinhanh="3-phan-thiet.jpg",
                     Mota="Đà Nẵng là một thành phố có nhiều tiềm năng để phát triển du lịch, là trung tâm du lịch lớn hàng đầu của Việt Nam. Phía bắc thành phố được bao bọc bởi núi cao với đèo Hải Vân được mệnh danh là Thiên hạ đệ nhất hùng quan."},
-                new Diadiemdulich{Tendiadiem="Bình Thuận", MienID = 2,
+                new Diadiemdulich{Tendiadiem="Đà Nẵng", MienID = 2, Hinhanh ="7-da-nang.jpg",
                     Mota="Là một tỉnh ven biển, khí hậu quanh năm nắng ấm, nhiều bãi biển sạch đẹp, cảnh quan tự nhiên và thơ mộng, giao thông thuận lợi, Bình Thuận đang là một trong những trung tâm du lịch lớn của Việt Nam."},
                 new Diadiemdulich{Tendiadiem="Khánh Hòa", MienID = 2,
                     Mota="Khánh Hòa là một trong những trung tâm du lịch lớn của Việt Nam. Nhờ có bờ biển dài hơn 200 km và gần 200 hòn đảo lớn nhỏ cùng nhiều vịnh biển đẹp như Vân Phong, Nha Trang (một trong 12 vịnh đẹp nhất thế giới), Cam Ranh... với khí hậu ôn hòa, nhiệt độ trung bình 26 °C, có hơn 300 ngày nắng trong năm, và nhiều di tích lịch sử văn hóa và danh lam thắng cảnh, nên dịch vụ - du lịch là ngành phát triển nhất ở Khánh Hòa."},
@@ -156,13 +156,13 @@ namespace YourTour.Models.db
                     Mota="Châu Đốc, một địa danh gắn liền với sự linh thiêng với thế phong thủy tiền tam giang, hậu thất sơn và huyền bí cùng nhiều tín ngưỡng tôn giáo tồn tại từ lâu đời. " +
                     "Nhắc tới mảnh đất này, người ta không thể không nhớ tới Miếu Bà Chúa Xứ Núi Sam là điểm du lịch tâm linh nổi tiếng không chỉ ở miền Tây Nam Bộ, mà ngay cả người Việt ở nước " +
                     "ngoài vẫn biết đến.",  Loaitour="Trong nước", TenHDV="Nguyễn Văn A",
-                    Songuoi=9, Trangthai = "còn chỗ", Tournoibat=1, Thuocmien = 1},
+                    Songuoi=9, Trangthai = "còn chỗ", Thuocmien = 1},
                 new Tour{Code="TMT291220B", Tentour="Tour Đầm Ô Loan", Diadiemkhoihanh="Đà Nẵng",
                     Diemden="Phú Yên", Ngaydi=DateTime.Parse("2021-02-14"), Thoigiandi=5,
                     Hinhanh="phu-yen-dam-o-loan.jpg", Gianguoilon=1250000,
                     Lichtrinh="/docs/lichtrinh/template_ctrinhtour_bluesky.pdf", Mota="Ô Loan có diện tích 1570km, nổi danh là một đầm nước lợ nằm sát cửa biển với vẻ đẹp bình dị, mộc mạc và yên bình. " +
                     "Toạ lạc sát chân đèo Quán Cau; từ trên đèo nhìn xuống, đầm có hình dáng như một con chim phượng hoàng đang dang đôi cánh phủ rợp cả vùng.",
-                    Loaitour="Trong nước", TenHDV="Nguyễn Văn B", Songuoi=9, Trangthai = "còn chỗ", Tournoibat=1, Thuocmien = 2},
+                    Loaitour="Trong nước", TenHDV="Nguyễn Văn B", Songuoi=9, Trangthai = "còn chỗ", Thuocmien = 2},
                 new Tour{Code="TMB181220R", Tentour="Tour Thác Dải Yếm", Diadiemkhoihanh="Hải Phòng",
                     Diemden="Sơn La", Ngaydi=DateTime.Parse("2021-03-20"), Thoigiandi=4,
                     Hinhanh="thac-dai-yem.jpg", Gianguoilon=1400000,
@@ -188,7 +188,7 @@ namespace YourTour.Models.db
                         Hinhanh="cau-vang.PNG", Gianguoilon=5390000, Lichtrinh="danang.pdf",
                         Mota="Đà Nẵng một trong những trung tâm du lịch hàng đầu miền trung là địa điểm du lịch mà bạn không thể bỏ qua. Với những bãi biển dài, xanh trong, không khí trong lành và những món ăn ngon lành. " +
                         "Với những địa điểm du lịch Đà Nẵng đẹp đến quên lối về ngay và lên đường khám phá thành phố đáng sống nhất Việt Nam.",
-                        Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=2},
+                        Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=2, Tournoibat=1},
 
                 new Tour{Code="TMN201220DL", Tentour="Đà Lạt - Puppy Farm - Phân Viện Sinh Học - Đồi Chè Cầu Đất - Đường Hầm Đất Sét", Diadiemkhoihanh = "Tp Hồ Chí Minh",
                         Diemden="Đà Lạt", Ngaydi= DateTime.Parse("2020-12-31"), Thoigiandi=3,
@@ -196,7 +196,7 @@ namespace YourTour.Models.db
                         Mota="Đà Lạt mộng mơ khiến bao người ngơ ngẩn bởi nơi đây ăm ắp nắng vàng, bầu trời xanh ngắt, khí trời se lạnh thả hồn cho bao chuyện tình lãng mạn, nơi chốn hẹn hò của những trái tim khát khao. " +
                         "Không chỉ dừng nơi ấy, Quý khách sẽ không khỏi ngỡ ngàng khi được tận mắt thấy được sự mênh mông của núi đồi, sự hùng vĩ của thác nước, sự êm ả của mặt hồ, sự đắm thắm của những bông hoa đang hé nụ,…" +
                         " những tuyệt tác mà thiên nhiên ưu ái dành cho xứ sở sương mù.",
-                        Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=2},
+                        Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Tournoibat=1, Thuocmien=2},
 
                 new Tour{Code="TMT231220NT", Tentour="Phú Yên - Quy Nhơn", Diadiemkhoihanh = "Tp Hồ Chí Minh",
                         Diemden="Phú Yên", Ngaydi= DateTime.Parse("2021-01-08"), Thoigiandi=3,
@@ -221,12 +221,12 @@ namespace YourTour.Models.db
                         Diemden="Đông Tây Bắc", Ngaydi= DateTime.Parse("2021-02-12"), Thoigiandi=6,
                         Hinhanh="dongtaybac.PNG", Gianguoilon=4250000, Lichtrinh="hanoi-dongtaybac.pdf",
                         Mota="Hành trình khám phá vùng núi Tây Bắc với cảnh sắc thiên nhiên hoang sơ tuyệt đẹp hay Đông Bắc với những danh thắng đẹp nổi tiếng, thơ mộng đến ngỡ ngàng sẽ là một sự lựa chọn khó có thể bỏ qua cho du khách trong chuyến du lịch nghỉ dưỡng của mình.",
-                        Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=3},
+                        Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=3, Tournoibat=1},
                 new Tour{Code="TMN201220DTB", Tentour="Hà Nội - Đông Tây Bắc: Nậm Ty - Nậm Hồng - Bắc Hà - Mù Cang Chải - Tú Lệ - Phú Thọ", Diadiemkhoihanh = "Tp Hồ Chí Minh",
                         Diemden="Đông Tây Bắc", Ngaydi= DateTime.Parse("2021-02-24"), Thoigiandi=6,
                         Hinhanh="dongtaybac.PNG", Gianguoilon=6250000, Lichtrinh="hanoi-dongtaybac.pdf",
                         Mota="Hành trình khám phá vùng núi Tây Bắc với cảnh sắc thiên nhiên hoang sơ tuyệt đẹp hay Đông Bắc với những danh thắng đẹp nổi tiếng, thơ mộng đến ngỡ ngàng sẽ là một sự lựa chọn khó có thể bỏ qua cho du khách trong chuyến du lịch nghỉ dưỡng của mình.",
-                        Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=3},
+                        Loaitour="Trong nước", TenHDV="Lê Tấn", Songuoi=9, Trangthai="còn chỗ", Thuocmien=3, Tournoibat=1},
             };
             foreach (Tour tr in tour)
             {
