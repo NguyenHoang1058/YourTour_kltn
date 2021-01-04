@@ -1,0 +1,109 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Chi tiết booking";
+    Layout = "/Views/Shared/_LayoutTour.cshtml";
+}
+@model YourTour.Models.ViewModels.CommonTuChonViewModel
+<div class="container py-lg-4 py-sm-3">
+    <div class="contact-grids">
+        <div class="col-lg-12 col-sm-6 mt-lg-0 mt-4">
+            <h3 style="color:red">PHIẾU XÁC NHẬN BOOKING</h3>
+            <div style="background-color: #D8D8D8">
+                <table class="table table-hover">
+                    <tr>
+                        <td>Mã booking:</td>
+                        <td><b>@Model.Hoadoncode</b></td>
+                        <td>Ngày tạo:</td>
+                        <td><b>@Model.Ngaylaphd.ToShortDateString()</b></td>
+                    </tr>
+                    <tr>
+                        <td>Họ tên:</td>
+                        <td><b>@Model.Hoten</b></td>
+                        <td>Email:</td>
+                        <td><b>@Model.Email</b></td>
+                    </tr>
+                    <tr>
+                        <td>Số điện thoại:</td>
+                        <td><b>@Model.Sdt</b></td>
+                        <td>Tình trạng thanh toán:</td>
+                        <td><b>@Model.Tinhtrang</b></td>
+                    </tr>
+                    <tr>
+                        <td>Ghi chú:</td>
+                        <td><b>@Model.Ghichu</b></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-6 mt-lg-0 mt-4">
+            <h3 style="color:red">CHI TIẾT BOOKING</h3>
+            <table class="table table-hover">
+                <tr>
+                    <td>Khách sạn:</td>
+                    <td><b>@Model.Tenks</b></td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ:</td>
+                    <td>@Model.Diachi</td>
+                </tr>
+                <tr>
+                    <td>Ngày nhận phòng</td>
+                    <td>@Model.Ngaynhan.ToShortDateString()</td>
+                </tr>
+                <tr>
+                    <td>Ngày trả phòng</td>
+                    <td>@Model.Ngaytra.ToShortDateString()</td>
+                </tr>
+            </table>
+            <div style="background-color: #D8D8D8">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>THÔNG TIN</th>
+                            <th>SỐ LƯỢNG</th>
+                            <th>ĐƠN GIÁ (VND)</th>
+                            <th>THÀNH TIỀN (VND)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>PHÒNG ĐĂNG KÝ</b></td>
+                        </tr>
+                        <tr>
+                            <td><b>@Model.Loaiphong</b></td>
+                            <td>@Model.Sophong</td>
+                            <td>@Model.Gia.ToString("#,##")</td>
+                        </tr>
+                        <tr>
+                            <td>Giá phụ thu thêm giường:</td>
+                            <td>@Model.Sogiuongthem</td>
+                            <td>@Model.Giaphuthu.ToString("#,##")</td>
+                        </tr>
+                        <tr>
+                            <td>Giá phụ thu trẻ em:</td>
+                            <td>@Model.Sotreem</td>
+                            <td>@Model.Giatreem.ToString("#,##")</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><b>TỔNG TIỀN BOOKING</b></td>
+                            <td>@Model.Tongtien.ToString("#,##")</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <div style="background-color: #D8D8D8; text-align: center">
+                <p>Chúc quý khách có 1 chuyến đi thú vị và tuyệt vời</p>
+                <p>Quý khách vui lòng kiểm tra email để nhận phiếu xác nhận đặt dịch vụ thành công từ YourTour</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container py-lg-4 py-sm-3" style="text-align:center">
+    <a href="@Url.Action("ThanhToan","OnePay")"><button class="btn btn-primary">Thanh toán</button></a>
+</div>

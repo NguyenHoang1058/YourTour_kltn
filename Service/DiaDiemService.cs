@@ -17,14 +17,42 @@ namespace YourTour.Service
         {
             this._db = db;
         }
-        public List<DiadiemViewModel> Diadiem()
+
+        //địa điểm thuộc miền Nam
+        public List<DiadiemViewModel> DiadiemMienNam()
         {
             var diaDiem = new List<DiadiemViewModel>();
 
             using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
             {
                 conn.Open();
-                diaDiem = conn.Query<DiadiemViewModel>(@"select top 4 * from Diadiemdulich").ToList();
+                diaDiem = conn.Query<DiadiemViewModel>(@"select top 4 * from Diadiemdulich where MienID = 1").ToList();
+            }
+            return diaDiem;
+        }
+
+        //địa điểm thuộc miền Bắc
+        public List<DiadiemViewModel> DiadiemMienBac()
+        {
+            var diaDiem = new List<DiadiemViewModel>();
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                diaDiem = conn.Query<DiadiemViewModel>(@"select top 4 * from Diadiemdulich where MienID = 3").ToList();
+            }
+            return diaDiem;
+        }
+
+        //địa điểm thuộc miền Trung
+        public List<DiadiemViewModel> DiadiemMienTrung()
+        {
+            var diaDiem = new List<DiadiemViewModel>();
+
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                diaDiem = conn.Query<DiadiemViewModel>(@"select top 4 * from Diadiemdulich where MienID = 2").ToList();
             }
             return diaDiem;
         }

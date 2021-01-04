@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Thông tin booking tour tự chọn</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!--bs4 js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--custom css-->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+            body h1 {
+                text-align: center;
+            }
+        /*xác nhận booking*/
+        /*        .xacnhanbooking {
+            height: 300px;
+        }*/
+        /*thông tin booking*/
+        .thongtinbooking {
+            background-color: lightgray;
+        }
+
+        .xacnhanbooking h2 {
+            color: red;
+        }
+        /*chi tiết booking*/
+        /*        .chitietbooking {
+            height: 320px;
+        }*/
+
+        .chitietbooking h2 {
+            color: red;
+        }
+
+        .table-chitietbooking {
+            background-color: lightgray;
+        }
+        /*thông tin liên lạc*/
+        /*        .thongtinlienlac {
+            height: 320px;
+        }*/
+
+        .thongtinlienlac h2 {
+            color: red;
+        }
+
+        .table-thongtinlienlac {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>BOOKING CỦA QUÝ KHÁCH</h1>
+    <section class="xacnhanbooking">
+        <div>
+            <h2>I. PHIẾU XÁC NHẬN BOOKING</h2>
+            <div class="thongtinbooking">
+                <table class="table table-borderless" id="table-thongtinbooking">
+                    <tr>
+                        <td>Mã booking:  </td>
+                        <td><b>{{hoadoncode}}</b></td>
+                        <td>Ngày tạo:</td>
+                        <td><b>{{ngaylaphd}}</b></td>
+                    </tr>
+                    <tr>
+                        <td>Họ tên:</td>
+                        <td><b>{{hoten}}</b></td>
+                        <td>Email:</td>
+                        <td><b>{{email}}</b></td>
+                    </tr>
+                    <tr>
+                        <td>Số điện thoại:</td>
+                        <td><b>{{sdt}}</b></td>
+                        <td>Tình trạng thanh toán:</td>
+                        <td><b>{{tinhtrang}}</b></td>
+                    </tr>
+                    <tr>
+                        <td>Ghi chú:</td>
+                        <td><b>{{ghichu}}</b></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="chitietbooking">
+        <h2>II. CHI TIẾT BOOKING</h2>
+        <div class="table-chitietbooking">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Khách sạn:</td>
+                    <td><b>{{tenks}}</b></td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ:</td>
+                    <td>{{diachi}}</td>
+                </tr>
+                <tr>
+                    <td>Ngày nhận phòng</td>
+                    <td>{{ngaynhanphong}}</td>
+                </tr>
+                <tr>
+                    <td>Ngày trả phòng</td>
+                    <td>{{ngaytraphong}}</td>
+                </tr>
+            </table>
+            <div style="background-color: #D8D8D8">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>THÔNG TIN</th>
+                            <th>SỐ LƯỢNG</th>
+                            <th>ĐƠN GIÁ (VND)</th>
+                            <th>THÀNH TIỀN (VND)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>PHÒNG ĐĂNG KÝ</b></td>
+                        </tr>
+                        <tr>
+                            <td><b>{{loaiphong}}</b></td>
+                            <td>{{sophong}}</td>
+                            <td>{{gia}}</td>
+                        </tr>
+                        <tr>
+                            <td>Giá phụ thu thêm giường:</td>
+                            <td>{{sogiuongthem}}</td>
+                            <td>{{giaphuthu}}</td>
+                        </tr>
+                        <tr>
+                            <td>Giá phụ thu trẻ em:</td>
+                            <td>{{sotreem}}</td>
+                            <td>{{giatreem}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><b>TỔNG TIỀN BOOKING</b></td>
+                            <td>{{tongtien}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <b>Chúc quý khách 1 chuyến du lịch thật vui vẻ và bổ ích!</b>
+    </section>
+</body>
+</html>

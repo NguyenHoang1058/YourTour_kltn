@@ -30,7 +30,7 @@ namespace YourTour.Service
                            select new { t.Tentour, t.Code, t.Diadiemkhoihanh, t.Ngaydi, /*t.Ngayve,*/ t.Diemden,
                                             cthd.Hotenkhachhang, cthd.Sdt, cthd.Email, cthd.Hoadoncode,
                                             cthd.Songuoidi ,hd.Ngaylaphd, hd.Tongtien, hd.Ghichu, hd.Ptthanhtoan, 
-                                            kh.Diachi, hd.Tinhtrang, t.Thuocmien};
+                                            kh.Diachi, hd.Tinhtrang, t.Thuocmien, t.Gianguoilon};
             var common = new CommonViewModel();
             foreach (var item in lsResult)
             {
@@ -39,6 +39,7 @@ namespace YourTour.Service
                 common.Diadiemkhoihanh = item.Diadiemkhoihanh;
                 common.Diemden = item.Diemden;
                 common.Ngaydi = item.Ngaydi;
+                common.Gianguoilon = item.Gianguoilon;
                 common.Ghichu = item.Ghichu;
                 common.Hoadoncode = item.Hoadoncode;
                 common.Ptthanhtoan = item.Ptthanhtoan;
@@ -163,6 +164,61 @@ namespace YourTour.Service
             return common;
         }
 
+        //lấy tất cả thông tin đặt tour tự chọn theo mã booking
+        public CommonTuChonViewModel GetThongTinBookingTourTuChon(string bookingCode)
+        {
+            var lsResult = from cthd in _db.CTHoadonTuChons
+                           join ks in _db.KhachSans on cthd.KhachsanID equals ks.ID
+                           join hd in _db.Hoadons on cthd.HoadonID equals hd.ID
+                           join kh in _db.Khachhangs on hd.KhachHangID equals kh.ID
+                           where cthd.Hoadoncode == bookingCode
+                           select new
+                           {
+                               ks.Tenks,
+                               ks.Diachi,
+                               ks.Gia,
+                               ks.Giaphuthu,
+                               ks.Giatreem,
+                               ks.Loaiphong,
+                               cthd.Ngaynhan,
+                               cthd.Ngaytra,
+                               cthd.Sophong,
+                               cthd.Hoadoncode,
+                               cthd.Sogiuongthem,
+                               cthd.Sotreem,
+                               hd.Ngaylaphd,
+                               hd.Tongtien,
+                               hd.Ghichu,
+                               kh.Hoten,
+                               kh.Sdt,
+                               kh.Email,
+                               hd.Tinhtrang
+                           };
+            var common = new CommonTuChonViewModel();
+            foreach (var item in lsResult)
+            {
+                common.Tenks = item.Tenks;
+                common.Diachi = item.Diachi;
+                common.Gia = item.Gia;
+                common.Giaphuthu = item.Giaphuthu;
+                common.Giatreem = item.Giatreem;
+                common.Loaiphong = item.Loaiphong;
+                common.Hoadoncode = item.Hoadoncode;
+                common.Ngaynhan = item.Ngaynhan;
+                common.Ngaytra = item.Ngaytra;
+                common.Sophong = item.Sophong;
+                common.Sogiuongthem = item.Sogiuongthem;
+                common.Sotreem= item.Sotreem;
+                common.Ngaylaphd = item.Ngaylaphd;
+                common.Ghichu = item.Ghichu;
+                common.Tongtien = item.Tongtien;
+                common.Tinhtrang = item.Tinhtrang;
+                common.Hoten = item.Hoten;
+                common.Sdt = item.Sdt;
+                common.Email = item.Email;
+            }
+            return common;
+        }
         //
         //admin
         //

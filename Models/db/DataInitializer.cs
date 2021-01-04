@@ -102,22 +102,22 @@ namespace YourTour.Models.db
                     Mota="An Giang là một trong 10 vùng du lịch trọng điểm quốc gia có một số thắng cảnh tiêu biểu như: Châu Đốc, Thất Sơn, Phú Tân, Rừng Tràm Trà Sư, Hồ Thoại Sơn,..."},
                 new Diadiemdulich{Tendiadiem="Bến Tre", MienID =1,
                     Mota="Bến Tre có điều kiện thuận tiện để phát triển du lịch sinh thái, bởi ở đó còn giữ được nét nguyên sơ của miệt vườn, giữ được môi trường sinh thái trong lành trong màu xanh của những vườn dừa, vườn cây trái rộng lớn."},
-                new Diadiemdulich{Tendiadiem="Đà Lạt", MienID = 2,Hinhanh="4-da-lat.jpg",
-                    Mota="Lâm Đồng có nhiều thắng cảnh nổi tiếng như các thác nước tại huyện Đức Trọng và những thắng cảnh thiên nhiên tại Đà Lạt như Hồ Than Thở, Hồ Xuân Hương."},
-                new Diadiemdulich{Tendiadiem="Vũng Tàu", MienID = 2, Hinhanh="2-vung-tau.jpg",
-                    Mota="Du lịch Đắk Lắk đang có lợi thế với nhiều địa danh cho phép khai thác theo hướng kết hợp cảnh quan, sinh thái, môi trường và truyền thống văn hoá của nhiều dân tộc trong tỉnh như hồ Lắk, Thác Gia Long, cụm du lịch Buôn Đôn, Thác Krông Kmar, Diệu Thanh, Tiên Nữ… bên cạnh các vườn quốc gia, khu bảo tồn thiên nhiên Chư Yang Sin, Easo..."},
-                new Diadiemdulich{Tendiadiem="Phú Quốc", MienID = 2,Hinhanh="1-phu-quoc.jpg",
-                    Mota="Tiềm năng du lịch của Gia Lai rất phong phú, đa dạng với núi rùng cao có nhiều cảnh quan tự nhiên và nhân tạo. Rừng nguyên sinh nơi đây có hệ thống động thực vật phong phú, nhiều ghềnh thác, suối, hồ như Biển Hồ là một thắng cảnh nổi tiếng, ngoài ra có chùa Minh Thành (Gia Lai). Nhiều đồi núi như cổng trời Mang Yang, đỉnh Hàm Rồng, thác Hang Dơi và thác K50 (Huyện Kbang). Các cảnh quan nhân tạo có các rừng cao su, đồi chè, cà phê bạt ngàn. Kết hợp với tuyến đường rừng, có các tuyến dã ngoại bằng thuyền trên sông, cưỡi voi xuyên rừng,..."},
-                new Diadiemdulich{Tendiadiem="Phan Thiết", MienID = 2, Hinhanh="3-phan-thiet.jpg",
-                    Mota="Đà Nẵng là một thành phố có nhiều tiềm năng để phát triển du lịch, là trung tâm du lịch lớn hàng đầu của Việt Nam. Phía bắc thành phố được bao bọc bởi núi cao với đèo Hải Vân được mệnh danh là Thiên hạ đệ nhất hùng quan."},
-                new Diadiemdulich{Tendiadiem="Đà Nẵng", MienID = 2, Hinhanh ="7-da-nang.jpg",
-                    Mota="Là một tỉnh ven biển, khí hậu quanh năm nắng ấm, nhiều bãi biển sạch đẹp, cảnh quan tự nhiên và thơ mộng, giao thông thuận lợi, Bình Thuận đang là một trong những trung tâm du lịch lớn của Việt Nam."},
                 new Diadiemdulich{Tendiadiem="Khánh Hòa", MienID = 2,
                     Mota="Khánh Hòa là một trong những trung tâm du lịch lớn của Việt Nam. Nhờ có bờ biển dài hơn 200 km và gần 200 hòn đảo lớn nhỏ cùng nhiều vịnh biển đẹp như Vân Phong, Nha Trang (một trong 12 vịnh đẹp nhất thế giới), Cam Ranh... với khí hậu ôn hòa, nhiệt độ trung bình 26 °C, có hơn 300 ngày nắng trong năm, và nhiều di tích lịch sử văn hóa và danh lam thắng cảnh, nên dịch vụ - du lịch là ngành phát triển nhất ở Khánh Hòa."},
                 new Diadiemdulich{Tendiadiem="Thừa Thiên Huế", MienID = 2,
                     Mota="Thừa Thiên Huế là trung tâm văn hoá lớn và đặc sắc của Việt Nam. Thừa Thiên Huế có 5 danh hiệu UNESCO (1 di sản văn hoá thế giới, 1 di sản văn hóa phi vật thể, 3 di sản tư liệu thế giới)."},
                 new Diadiemdulich{Tendiadiem="Nghệ An", MienID = 2,
                     Mota="Có bãi tắm Cửa Lò là khu nghỉ mát; Khu du lịch biển diễn Thành, huyện Diễn Châu - một bãi biển hoang sơ và lãng mạn; khu di tích Hồ Chí Minh, khu di tích đền Cuông. Năm 2008, Khu du lịch Bãi Lữ được đưa vào khai thác."},
+                new Diadiemdulich{Tendiadiem="Vũng Tàu", MienID = 2, Hinhanh="2-vung-tau.jpg",
+                    Mota="Du lịch Đắk Lắk đang có lợi thế với nhiều địa danh cho phép khai thác theo hướng kết hợp cảnh quan, sinh thái, môi trường và truyền thống văn hoá của nhiều dân tộc trong tỉnh như hồ Lắk, Thác Gia Long, cụm du lịch Buôn Đôn, Thác Krông Kmar, Diệu Thanh, Tiên Nữ… bên cạnh các vườn quốc gia, khu bảo tồn thiên nhiên Chư Yang Sin, Easo..."},
+                new Diadiemdulich{Tendiadiem="Phú Quốc", MienID = 2,Hinhanh="1-phu-quoc.jpg",
+                    Mota="Tiềm năng du lịch của Gia Lai rất phong phú, đa dạng với núi rùng cao có nhiều cảnh quan tự nhiên và nhân tạo. Rừng nguyên sinh nơi đây có hệ thống động thực vật phong phú, nhiều ghềnh thác, suối, hồ như Biển Hồ là một thắng cảnh nổi tiếng, ngoài ra có chùa Minh Thành (Gia Lai). Nhiều đồi núi như cổng trời Mang Yang, đỉnh Hàm Rồng, thác Hang Dơi và thác K50 (Huyện Kbang). Các cảnh quan nhân tạo có các rừng cao su, đồi chè, cà phê bạt ngàn. Kết hợp với tuyến đường rừng, có các tuyến dã ngoại bằng thuyền trên sông, cưỡi voi xuyên rừng,..."},
+                new Diadiemdulich{Tendiadiem="Phan Thiết", MienID = 2, Hinhanh="3-phan-thiet.jpg",
+                    Mota="Đà Nẵng là một thành phố có nhiều tiềm năng để phát triển du lịch, là trung tâm du lịch lớn hàng đầu của Việt Nam. Phía bắc thành phố được bao bọc bởi núi cao với đèo Hải Vân được mệnh danh là Thiên hạ đệ nhất hùng quan."},
+                new Diadiemdulich{Tendiadiem="Đà Lạt", MienID = 2,Hinhanh="4-da-lat.jpg",
+                    Mota="Lâm Đồng có nhiều thắng cảnh nổi tiếng như các thác nước tại huyện Đức Trọng và những thắng cảnh thiên nhiên tại Đà Lạt như Hồ Than Thở, Hồ Xuân Hương."},
+                new Diadiemdulich{Tendiadiem="Đà Nẵng", MienID = 2, Hinhanh ="7-da-nang.jpg",
+                    Mota="Là một tỉnh ven biển, khí hậu quanh năm nắng ấm, nhiều bãi biển sạch đẹp, cảnh quan tự nhiên và thơ mộng, giao thông thuận lợi, Bình Thuận đang là một trong những trung tâm du lịch lớn của Việt Nam."},
                 new Diadiemdulich{Tendiadiem="Hà Nội", MienID = 3,
                     Mota="So với các tỉnh, thành phố khác của Việt Nam, Hà Nội là một thành phố có tiềm năng để phát triển du lịch. Trong nội ô, cùng với các công trình kiến trúc, Hà Nội còn sở hữu một hệ thống bảo tàng đa dạng bậc nhất Việt Nam. Thành phố cũng có nhiều lợi thế trong việc giới thiệu văn hóa Việt Nam với du khách nước ngoài thông qua các nhà hát sân khấu dân gian, các làng nghề truyền thống,..."},
                 new Diadiemdulich{Tendiadiem="Hải Phòng", MienID = 3,
@@ -447,6 +447,34 @@ namespace YourTour.Models.db
             foreach (TinTuc item in tt)
             {
                 context.TinTucs.Add(item);
+            }
+            context.SaveChanges();
+
+            //
+            //init data table KhachSan
+            //
+            var ks = new KhachSan[]
+            {
+                new KhachSan{Tenks="Khách Sạn Lan Anh Đà Lạt", Diachi=" 27/6 Hai Bà Trưng, Phường 6, Đà Lạt, Lâm Đồng", Hinhanh="thb_hotel_dalat_lan_anh.jpg", Sdt="1900 1839",
+                Gia=550000, Giaphuthu=250000, Giatreem=80000, DiaDiemID=9,Mota="Tọa lạc tại thành phố Đà Lạt, cách Quảng trường Lâm Viên 2,1 km, Lan Anh Hotel có nhà hàng, chỗ đỗ xe riêng miễn phí, trung tâm thể dục và quán bar. Khách sạn 3 sao này còn có phòng khách chung và máy ATM. Chỗ nghỉ cũng cung cấp dịch vụ lễ tân 24 giờ, dịch vụ đưa đón sân bay, dịch vụ phòng và WiFi miễn phí. Tất cả phòng nghỉ tại khách sạn đều được trang bị truyền hình cáp màn hình phẳng, tủ lạnh, ấm đun nước, vòi sen, máy sấy tóc và tủ để quần áo. Mỗi phòng còn có phòng tắm riêng với đồ vệ sinh cá nhân miễn phí. Lan Anh Hotel nằm cách Hồ Xuân Hương 2,3 km và Công viên Yersin 2,4 km. Sân bay gần nhất là sân bay Liên Khương, nằm trong bán kính 30 km từ chỗ nghỉ.",
+                Loaiphong="Deluxe Giường Đôi/2 Giường Đơn", Thongtinphong="Tiện nghi trong phòng: - Diện tích phòng: 25m2 - Két an toàn - Nhà vệ sinh - Truyền hình cáp - Dịch vụ báo thức - Giờ nhận phòng:- Nhận phòng: 14h00 - Trả phòng: 12h00 - Tiện ích của Khách Sạn - Bãi đỗ xe miễn phí - Phòng hội thảo - Phòng họp - Thang máy - Truyền hình cáp/vệ tinh - Wifi miễn phí - Phòng gia đình - Đưa đón sân bay tính phí - Cho thuê xe máy - Xe đưa đón tham quan tính phí - Cho thuê xe đạp - Phòng xông hơi khô - Phòng gym - Phục vụ đồ ăn tại phòng - Giặt khô - Cửa hàng dụng cụ thể thao"},
+                new KhachSan{Tenks="Khách Sạn Dalat Palace Convention", Diachi = "2 Trần Phú, Phường 3, Đà Lạt, Lâm Đồng", Hinhanh="thb_hotel_dalat_palace.jpeg", Sdt="1900 1839",
+                Gia=3750000, Giaphuthu=600000, Giatreem=120000, DiaDiemID=9, Mota="Khách sạn Dalat Palace Covention tọa lạc trên con đường Trần Phú, ngay trung tâm thành phố Đà Lạt. Khách sạn cách sân bay Liên Khương khoảng 31 km, cách chợ Đà Lạt tầm 1,3 km. Trước đây khách sạn này tên là Langbian Palace do người Pháp xây dựng năm 1916 hoàn thành năm 1922. Về sau nó mang tên Dalat Sofitel Palace rồi đổi thành Dalat Palace Hotel như hiện nay. Khách sạn Dalat Palace là một công trình kiến trúc kiểu Pháp. Khuôn viên của khách sạn rộng đến hơn 40.000 m2, chung quanh là vườn hoa, thảm cỏ, rừng thông. Khách sạn gồm 43 phòng và suite rộng rãi với hướng nhìn ra Hồ Xuân Hương hoặc nhà thờ. Nơi đây thường thu hút nhiều đối tượng khách du lịch như gia đình, cặp đôi hay khách công tác."
+                , Loaiphong="Royal Superior", Thongtinphong="Ban công/ sân thượng " +
+                "Quầy bar nhỏ (mini bar)" +
+                "TV màn hình phẳng" +
+                "Vòi hoa sen" +
+                "Bồn tắm Máy sấy tóc Két sắt trong phòng Dép đi trong phòng Buồng tắm đứng Cà phê/ trà Giờ nhận phòng: Nhận phòng: 14h00 Trả phòng: 12h00.Tiện ích của Khách Sạn Bãi đỗ xe miễn phí Phòng hội thảo Phòng họp Thang máy Truyền hình cáp/ vệ tinh Wifi miễn phí Giặt là Hỗ trợ đặt tour Nhà hàng Lễ tân 24 / 24 Đưa đón sân bay tính phí Taxi / Cho thuê xe hơi Phục vụ đồ ăn tại phòng Dọn phòng hàng ngày Két an toàn Đặt vé xe / máy bay Giữ hành lý miễn phí Khu vực hút thuốc Tổ chức sự kiện"},
+                new KhachSan{Tenks="Đà Lạt Wonder Resort", Diachi="19 Hoa Hồng, Hồ Tuyền Lâm, Đà Lạt, Lâm Đồng", Hinhanh="thb_hotel_dalat_wonder_resort.jpg", Sdt="1900 1839",
+                Gia=1200000, Giatreem=180000, DiaDiemID=9, Mota="Dalat Wonder Resort là lựa chọn sáng giá dành cho những ai đang tìm kiếm một trải nghiệm xa hoa đầy thú vị trong kỳ nghỉ của mình. Lưu trú tại đây cũng là cách để quý khách chiều chuộng bản thân với những dịch vụ xuất sắc nhất và khiến kỳ nghỉ của mình trở nên thật đáng nhớ. Điểm nhấn của khách sạn: Dalat Wonder Resort là lựa chọn sáng giá dành cho những ai đang tìm kiếm một trải nghiệm xa hoa đầy thú vị trong kỳ nghỉ của mình. Lưu trú tại đây cũng là cách để quý khách chiều chuộng bản thân với những dịch vụ xuất sắc nhất và khiến kỳ nghỉ của mình trở nên thật đáng nhớ. Có bãi đậu xe, Wifi miễn phí."
+                ,Loaiphong="Deluxe Garden View/ Bungalow - Phòng 02 Giường Đơn (tặng kèm 1 bữa tối)", Thongtinphong="Tiện nghi trong phòng: Diện tích phòng 30m2 Internet miễn phí Wifi Bữa sáng miễn phí -Lò sưởi -Ấm nấu bằng điện -Điều hòa nhiệt độ -Giá quần áo -Dịch vụ đánh thức / đồng hồ báo thức -Vòi sen -Đồ dùng nhà tắm miễn phí. *Giờ nhận phòng: - Nhận phòng: sau 14h00 - Trả phòng: trước 12h00 *Số lượng khách tối đa trong 1 phòng: 02 khách người lớn. *Lưu ý cho trẻ em: Từ 0 - 05 tuổi: miễn phí (ăn ngủ chung với ba mẹ) Từ 06 tuổi trở lên tính bằng giá người lớn."},
+                new KhachSan{Tenks="River Prince Đà Lạt", Diachi="135-145 Phan Đình Phùng, Phường 2, Đà Lạt, Lâm Đồng", Hinhanh="thb_hotel_dalat_river_prince.jpg", Sdt="1900 1839",
+                Gia=580000, Giatreem=120000,DiaDiemID=9, Mota="Khách sạn River Prince Đà Lạt là một khách sạn được xây dựng theo lối kiến trúc Châu Âu, hiện đại, nằm trên con đường trung tâm của thánh phố Đà Lạt –  đường Phan Đình Phùng. Khách sạn bao gồm 102 phòng với tiện nghi trang trọng, hiện đại. Tất cả phòng đều có cửa sổ với không gian rộng rãi, thoáng mát.",
+                Loaiphong="Loại superior 1 giường đôi hoặc 2 giường đơn", Thongtinphong="*Tiện nghi trong phòng: - Diện tích phòng 39m2 - Wifi miễn phí -Bữa sáng miễn phí - Máy điều hòa - Phòng tắm vòi sen & bồn tắm - Nước đóng chai miễn phí - Giá treo quần áo, tủ quần áo - Dịch vụ đánh thức / đồng hồ báo thức - Dép đi trong nhà, máy sấy tóc, lò vi sóng - Két sắt trong phòng - Mini Bar *Giờ nhận phòng: - Nhận phòng: 14h00 - Trả phòng: 12h00"},
+            };
+            foreach (KhachSan item in ks)
+            {
+                context.KhachSans.Add(item);
             }
             context.SaveChanges();
         }

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using YourTour.Helpers;
 using YourTour.Models.db;
 using YourTour.Models.Validate;
+using YourTour.Models.Validation;
 using YourTour.Models.ViewModels;
 
 namespace YourTour.Service
@@ -545,6 +546,160 @@ namespace YourTour.Service
             var newTourTuyChon = new TourTuyChon(newTour);
             _db.TourTuyChons.Add(newTourTuyChon);
             _db.SaveChanges();
+        }
+
+        //đặt tour tự chọn
+        public void DatTourTuChon(TourTuChonValidation validation)
+        {
+            var ks = _db.KhachSans.FirstOrDefault(n => n.ID == validation.ID);
+            var kh = _db.Khachhangs.FirstOrDefault(k => k.Cmnd == validation.Cmnd);
+            if(kh == null)
+            {
+                KhachhangViewModel khs = new KhachhangViewModel
+                {
+                    Hoten = validation.Hoten,
+                    Cmnd = validation.Cmnd,
+                    Diachi = validation.Diachi,
+                    Sdt = validation.Sdt,
+                    Email = validation.Email
+                };
+                var newKH = new Khachhang(khs);
+                _db.Khachhangs.Add(newKH);
+                _db.SaveChanges();
+                HoadonViewModel hd = new HoadonViewModel
+                {
+                    Ngaylaphd = DateTime.Now,
+                    Ptthanhtoan = "Thanh toán online",
+                    Tongtien = validation.Tongtien,
+                    Tinhtrang = 0,
+                    KhachhangID = newKH.ID
+                };
+                var newHD = new Hoadon(hd);
+                _db.Hoadons.Add(newHD);
+                _db.SaveChanges();
+                CTHoadonTuChonViewModel cthd = new CTHoadonTuChonViewModel()
+                {
+                    Ngaynhan = validation.Ngaynhan,
+                    Ngaytra = validation.Ngaytra,
+                    Sophong = validation.Sophong,
+                    Sogiuongthem = validation.Sogiuongthem,
+                    Sotreem = validation.Sotreem,
+                    Hoten = validation.Hoten,
+                    Sdt = validation.Sdt,
+                    Email = validation.Email,
+                    Ghichu = validation.Ghichu,
+                    Hoadoncode = RandomString(),
+                    KhachsanID = ks.ID,
+                    HoadonID = newHD.ID
+                };
+                var newCTHD = new CTHoadonTuChon(cthd);
+                _db.CTHoadonTuChons.Add(newCTHD);
+                _db.SaveChanges();
+
+                //send mail
+                var webRoot = _hostingEnvironment.WebRootPath;
+                var body = string.Empty;
+                var pathToFile = _hostingEnvironment.WebRootPath
+                    + Path.DirectorySeparatorChar.ToString()
+                    + "templates"
+                    + Path.DirectorySeparatorChar.ToString()
+                    + "email"
+                    + Path.DirectorySeparatorChar.ToString()
+                    + "bookingtourtuchon.html";
+                using (StreamReader reader = new StreamReader(pathToFile))
+                {
+                    body = reader.ReadToEnd();
+                }
+                body = body.Replace("{{hoadoncode}}", cthd.Hoadoncode);
+                body = body.Replace("{{ngaylaphd}}", hd.Ngaylaphd.ToShortDateString());
+                body = body.Replace("{{hoten}}", validation.Hoten);
+                body = body.Replace("{{email}}", validation.Email);
+                body = body.Replace("{{sogiuongthem}}", validation.Sogiuongthem.ToString());
+                body = body.Replace("{{sdt}}", validation.Sdt);
+                body = body.Replace("{{tinhtrang}}", "chưa thanh toán");
+                body = body.Replace("{{ghichu}}", validation.Ghichu);
+                body = body.Replace("{{tenks}}", ks.Tenks);
+                body = body.Replace("{{diachi}}", ks.Diachi);
+                body = body.Replace("{{ngaynhanphong}}", validation.Ngaynhan.ToShortDateString());
+                body = body.Replace("{{ngaytraphong}}", validation.Ngaytra.ToShortDateString());
+                body = body.Replace("{{loaiphong}}", ks.Loaiphong);
+                body = body.Replace("{{sophong}}", validation.Sophong.ToString());
+                body = body.Replace("{{gia}}", ks.Gia.ToString());
+                body = body.Replace("{{giaphuthu}}", ks.Giaphuthu.ToString());
+                body = body.Replace("{{sotreem}}", validation.Sotreem.ToString());
+                body = body.Replace("{{giatreem}}", ks.Giatreem.ToString());
+                body = body.Replace("{{tongtien}}", validation.Tongtien.ToString());
+                var mailHelper = new MailHelpers();
+                mailHelper.SendMail(validation.Email, "Thông tin booking tour tự chọn", body);
+            }
+            else
+            {
+                HoadonViewModel hd = new HoadonViewModel
+                {
+                    Ngaylaphd = DateTime.Now,
+                    Ptthanhtoan = "Thanh toán online",
+                    Tongtien = validation.Tongtien,
+                    Tinhtrang = 0,
+                    KhachhangID = kh.ID
+                };
+                var newHD = new Hoadon(hd);
+                _db.Hoadons.Add(newHD);
+                _db.SaveChanges();
+                CTHoadonTuChonViewModel cthd = new CTHoadonTuChonViewModel()
+                {
+                    Ngaynhan = validation.Ngaynhan,
+                    Ngaytra = validation.Ngaytra,
+                    Sophong = validation.Sophong,
+                    Sogiuongthem = validation.Sogiuongthem,
+                    Sotreem = validation.Sotreem,
+                    Hoten = validation.Hoten,
+                    Sdt = validation.Sdt,
+                    Email = validation.Email,
+                    Ghichu = validation.Ghichu,
+                    Hoadoncode = RandomString(),
+                    KhachsanID = ks.ID,
+                    HoadonID = newHD.ID
+                };
+                var newCTHD = new CTHoadonTuChon(cthd);
+                _db.CTHoadonTuChons.Add(newCTHD);
+                _db.SaveChanges();
+
+                //send mail
+                var webRoot = _hostingEnvironment.WebRootPath;
+                var body = string.Empty;
+                var pathToFile = _hostingEnvironment.WebRootPath
+                    + Path.DirectorySeparatorChar.ToString()
+                    + "templates"
+                    + Path.DirectorySeparatorChar.ToString()
+                    + "email"
+                    + Path.DirectorySeparatorChar.ToString()
+                    + "bookingtourtuchon.html";
+                using (StreamReader reader = new StreamReader(pathToFile))
+                {
+                    body = reader.ReadToEnd();
+                }
+                body = body.Replace("{{hoadoncode}}", cthd.Hoadoncode);
+                body = body.Replace("{{ngaylaphd}}", hd.Ngaylaphd.ToShortDateString());
+                body = body.Replace("{{hoten}}", validation.Hoten);
+                body = body.Replace("{{email}}", validation.Email);
+                body = body.Replace("{{sogiuongthem}}", validation.Sogiuongthem.ToString());
+                body = body.Replace("{{sdt}}", validation.Sdt);
+                body = body.Replace("{{tinhtrang}}", "chưa thanh toán");
+                body = body.Replace("{{ghichu}}", validation.Ghichu);
+                body = body.Replace("{{tenks}}", ks.Tenks);
+                body = body.Replace("{{diachi}}", ks.Diachi);
+                body = body.Replace("{{ngaynhanphong}}", validation.Ngaynhan.ToShortDateString());
+                body = body.Replace("{{ngaytraphong}}", validation.Ngaytra.ToShortDateString());
+                body = body.Replace("{{loaiphong}}", ks.Loaiphong);
+                body = body.Replace("{{sophong}}", validation.Sophong.ToString());
+                body = body.Replace("{{gia}}", ks.Gia.ToString());
+                body = body.Replace("{{giaphuthu}}", ks.Giaphuthu.ToString());
+                body = body.Replace("{{sotreem}}", validation.Sotreem.ToString());
+                body = body.Replace("{{giatreem}}", ks.Giatreem.ToString());
+                body = body.Replace("{{tongtien}}", validation.Tongtien.ToString());
+                var mailHelper = new MailHelpers();
+                mailHelper.SendMail(validation.Email, "Thông tin booking tour tự chọn", body);
+            }
         }
         private string RandomString()
         {

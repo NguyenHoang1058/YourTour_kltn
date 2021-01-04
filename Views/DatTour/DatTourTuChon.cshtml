@@ -1,0 +1,160 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model YourTour.Models.ViewModels.KhachSanViewModel
+@{
+    ViewData["Title"] = Model.Tenks;
+    Layout = "/Views/Shared/_LayoutTour.cshtml";
+}
+<form method="post" action="@Url.Action("DatTourTuChon","DatTour")">
+    <div class="container py-lg-4 py-sm-3">
+        <h6 style="color:red">@Model.Tenks</h6>
+        <br />
+        <p class="fas fa-map-marked-alt">@Model.Diachi</p>
+        <br />
+        <p class="fas fa-phone">@Model.Sdt</p>
+        <h5 style="color:red">Thông tin @Model.Tenks</h5>
+        <div style="border:solid 1px #808080">
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 image-position position-relative">
+                    <img src="@Url.Content("/images/khachsan/"+Model.Hinhanh)" alt="" class="img-fluid" height="200">
+                </div>
+                <div class="col-lg-8 col-sm-6">
+                    <p>@Model.Mota</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6">
+                <h5>Giá chỉ từ: <b style="color:red">@Model.Gia.ToString("#,##")</b></h5>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <input type="date" name="Ngaynhan" class="form-control" id="Ngaynhan" onchange="KTraNgayNhan()"/>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <input type="date" name="Ngaytra" class="form-control" id="Ngaytra"/>
+            </div>
+        </div>
+        <div style="border:solid 1px #808080; border-top:none">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><b>Thông tin</b></th>
+                        <th><b>Số lượng</b></th>
+                        <th><b>Đơn giá</b></th>
+                        <th><b>Thành tiền</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="4" width="550px">
+                            @Model.Loaiphong <br />
+                            @Model.Thongtinphong
+                        </td>
+                        <td>
+                            <input type="number" name="Sophong" value="0" class="form-control" id="a" onchange="CalGiaNguoiLon(), CalToTal()"/>
+                        </td>
+                        <td style="color:red">@Model.Gia.ToString("#,##")</td>
+                        <td><input type="text" id="1"  style="color:red" value="0" name="Sophong" readonly/></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="number" name="Sogiuongthem" value="0" class="form-control" id="b" onchange="CalGiaPhuThu(), CalToTal()"/>
+                        </td>
+                        <td style="color:red">@Model.Giaphuthu.ToString("#,##")</td>
+                        <td><input type="text" id="2" style="color:red" name="Sogiuongthem" value="0" readonly/></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="number" name="Sotreem" value="0" class="form-control" id="c" onchange="CalGiaTreEm(), CalToTal()"/>
+                        </td>
+                        <td style="color:red">@Model.Giatreem.ToString("#,##")</td>
+                        <td><input type="text" id="3" style="color:red" value="0" name="Sotreem" readonly/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Tổng tiền</td>
+                        <td><input type="text" id="total" style="color:red" name="Tongtien" value="0" readonly/></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="border: solid 1px #808080; border-top:none">
+            <h5 style="color:red" class="text-capitalize">Thông tin liên hệ</h5>
+            <div class="row">
+                <div class="col-sm-4 form-group contact-forms" style="margin-left:15px">
+                    @Html.TextBox("Hoten", "", new { @class = "form-control", @placeholder = "Họ và tên" })
+                    @Html.ValidationMessage("Hoten", "", new { @style = "color:red;" })
+                </div>
+                <div class="col-sm-4 form-group contact-forms" style="margin-left:-15px">
+                    @Html.TextBox("Sdt", "", new { @class = "form-control", @placeholder = "Số điện thoại" })
+                    @Html.ValidationMessage("Sdt", "", new { @style = "color:red;" })
+                </div>
+                <div class="col-sm-4 form-group contact-forms" style="margin-left:-15px">
+                    @Html.TextBox("Email", "", new { @class = "form-control", @placeholder = "Email" })
+                    @Html.ValidationMessage("Email", "", new { @style = "color:red;" })
+                </div>
+            </div>
+            <div class="col-sm-12 form-group contact-forms">
+                @Html.TextArea("Ghichu", "", new { @class = "form-control", @placeholder = "Ghi chú" })
+                @Html.ValidationMessage("Ghichu", "", new { @style = "color:red;" })
+            </div>
+            <input type="text" value="12 Nguyễn Văn Bảo" name="Diachi" hidden />
+            <input type="text" value="251139125" name="Cmnd" hidden />
+        </div>
+        <button class="btn btn-primary" type="submit">Đặt ngay</button>
+    </div>
+</form>
+<script>
+    function CalGiaNguoiLon() {
+        var gianguoilon = @Model.Gia;
+        var ngaynhan = document.getElementById("Ngaynhan").value;
+        var ngaytra = document.getElementById("Ngaytra").value;
+        var songuoi = document.getElementById("a").value;
+        var n = new Date(ngaynhan);
+        var t = new Date(ngaytra);
+        var total = (gianguoilon * songuoi * (t.getDate() - n.getDate()));
+        document.getElementById("1").value = total;
+    }
+    function CalGiaPhuThu() {
+        var giaphuthu = @Model.Giaphuthu;
+        var phuthu = document.getElementById("b").value;
+        var ngaynhan = document.getElementById("Ngaynhan").value;
+        var ngaytra = document.getElementById("Ngaytra").value;
+        var n = new Date(ngaynhan);
+        var t = new Date(ngaytra);
+        var total = (giaphuthu * phuthu * (t.getDate() - n.getDate()));
+        document.getElementById("2").value = total;
+    }
+    function CalGiaTreEm() {
+        var giatreem = @Model.Giatreem;
+        var treem = document.getElementById("c").value;
+        var ngaynhan = document.getElementById("Ngaynhan").value;
+        var ngaytra = document.getElementById("Ngaytra").value;
+        var n = new Date(ngaynhan);
+        var t = new Date(ngaytra);
+        var total = (giatreem * treem * (t.getDate() - n.getDate()));
+        document.getElementById("3").value = total;
+    }
+    function CalToTal() {
+        var gianguoilon = @Model.Gia;
+        var giaphuthu = @Model.Giaphuthu;
+        var giatreem = @Model.Giatreem;
+        var treem = document.getElementById("c").value;
+        var phuthu = document.getElementById("b").value;
+        var songuoi = document.getElementById("a").value;
+        var ngaynhan = document.getElementById("Ngaynhan").value;
+        var ngaytra = document.getElementById("Ngaytra").value;
+        var n = new Date(ngaynhan);
+        var t = new Date(ngaytra);
+        var total = (gianguoilon * songuoi + giaphuthu * phuthu + giatreem * treem) * (t.getDate() - n.getDate());
+        document.getElementById("total").value = total;
+    }
+    //function KTraNgayNhan() {
+    //    var ngaynhan = document.getElementById("Ngaynhan").value;
+    //    var date = new Date(ngaynhan);
+    //    if (date.getDate() < Date.now) {
+    //        alert("Ngày nhận phòng phải lớn hơn ngày hiện tại");
+    //    }
+    //}
+</script>

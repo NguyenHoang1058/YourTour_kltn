@@ -22,7 +22,18 @@
                 <hr />
                 <h5 style="color:red">@Model.Gianguoilon.ToString("#,##") đ</h5>
                 <p>Số chỗ còn nhận: @Model.Songuoi</p>
-                <a href="@Url.Action("DatTourMienBac","DatTour", new { @id = Model.ID})"><button class="btn btn-outline-primary">Đặt ngay</button></a>
+                @if (Model.Thuocmien == 3)
+                {
+                    <a href="@Url.Action("DatTourMienBac","DatTour", new { @id = Model.ID})"><button class="btn btn-outline-primary">Đặt ngay</button></a>
+                }
+                else if (Model.Thuocmien == 2)
+                {
+                    <a href="@Url.Action("DatTourMienTrung","DatTour", new { @id = Model.ID})"><button class="btn btn-outline-primary">Đặt ngay</button></a>
+                }
+                else
+                {
+                    <a href="@Url.Action("DatTourMienNam","DatTour", new { @id = Model.ID})"><button class="btn btn-outline-primary">Đặt ngay</button></a>
+                }
                 <br />
                 <a href="~/docs/lichtrinh/@Model.Lichtrinh" target="_top">Chương trình tour</a> |
                 <a href="~/docs/dieukhoan/ĐIỀU KHOẢN CÁC CHƯƠNG TRÌNH DU LỊCH TRONG NƯỚC.pdf" target="_top">Điều khoản đăng ký online</a>

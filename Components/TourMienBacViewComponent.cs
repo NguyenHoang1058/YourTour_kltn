@@ -16,7 +16,7 @@ namespace YourTour.Components
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var model = this._tourService.TourMienBac();
+            var model =  this._tourService.TourMienBac();
             return View(model);
         }
     }

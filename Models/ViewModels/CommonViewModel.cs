@@ -45,5 +45,6 @@ namespace YourTour.Models.ViewModels
         public int Thuocmien { get; set; }
         [DisplayName("Ghi chú")]
         public string Ghichu { get; set; }
+        public int Gianguoilon { get; set; }
     }
 }

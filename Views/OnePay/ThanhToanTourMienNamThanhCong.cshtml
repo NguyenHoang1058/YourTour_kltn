@@ -1,0 +1,133 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model YourTour.Models.ViewModels.CommonViewModel
+@{
+    ViewData["Title"] = "Thanh toán thành công";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+</head>
+<body>
+    <div style="text-align:right">
+        <input type="button" id="create_pdf" value="Tải hóa đơn" onclick="getPDF()" />
+    </div>
+    <div class="canvas_div_pdf">
+        <div class="container py-lg-4 py-sm-3">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <div class="image-position position-relative">
+                        <img src="~/images/tenluatravel.png" alt="Logo" class="img-fluid" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <h3 class="text-uppercase">hóa đơn thanh toán</h3>
+                </div>
+            </div>
+            <div class="col-lg-12 col-sm-12">
+                <table class="table table-hover">
+                    <tr>
+                        <td>Tên công ty: </td>
+                        <td>Công ty CP Du lịch và Tiếp thị GTVT Tên Lửa Travel</td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ: </td>
+                        <td>12 Nguyễn Văn Bảo, phường 4, quận Gò Vấp, thành phố Hồ Chí Minh</td>
+                    </tr>
+                    <tr>
+                        <td>Điện thoại: </td>
+                        <td>+84 369052254</td>
+                    </tr>
+                    <tr>
+                        <td>Email: </td>
+                        <td>tenluatravel.services@gmail.com</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-12 col-sm-12">
+                <table class="table table-hover">
+                    <tr>
+                        <td>Tên khách hàng: </td>
+                        <td>@Model.Hoten</td>
+                    </tr>
+                    <tr>
+                        <td>Số điện thoại: </td>
+                        <td>@Model.Sdt</td>
+                    </tr>
+                    <tr>
+                        <td>Email: </td>
+                        <td>@Model.Email</td>
+                    </tr>
+                    <tr>
+                        <td>Hình thức thanh toán: </td>
+                        <td>Thanh toán online</td>
+                    </tr>
+                </table>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>THÔNG TIN</th>
+                            <th>SỐ LƯỢNG</th>
+                            <th>ĐƠN GIÁ (VND)</th>
+                            <th>THÀNH TIỀN (VND)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Model.Tentour</td>
+                            <td>@Model.Songuoidi</td>
+                            <td>@Model.Gianguoilon.ToString("#,##")</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><b>TỔNG TIỀN BOOKING</b></td>
+                            <td>@Model.Tongtien.ToString("#,##")</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        function getPDF() {
+
+            var HTML_Width = $(".canvas_div_pdf").width();
+            var HTML_Height = $(".canvas_div_pdf").height();
+            var top_left_margin = 15;
+            var PDF_Width = HTML_Width + (top_left_margin * 2);
+            var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
+            var canvas_image_width = HTML_Width;
+            var canvas_image_height = HTML_Height;
+
+            var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+
+
+            html2canvas($(".canvas_div_pdf")[0], { allowTaint: true }).then(function (canvas) {
+                canvas.getContext('2d');
+
+                console.log(canvas.height + "  " + canvas.width);
+
+
+                var imgData = canvas.toDataURL("image/jpeg", 1.0);
+                var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+                pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+
+
+                for (var i = 1; i <= totalPDFPages; i++) {
+                    pdf.addPage(PDF_Width, PDF_Height);
+                    pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
+                }
+
+                pdf.save("hoadon.pdf");
+            });
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Khách sạn";
+    Layout = "/Views/Shared/_LayoutTour.cshtml";
+}
+@model IEnumerable<YourTour.Models.ViewModels.KhachSanViewModel>
+<h2 class="text-capitalize" style="text-align:center; color:red">Danh sách khách sạn</h2>
+<div class="container py-lg-4 py-sm-3">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 col-sm-6 col-6 destinations-grids text-center">
+                <div class="image-position position-relative">
+                    <a href="@Url.Action("DatTourTuChon","DatTour", new { @id = item.ID})">
+                        <img src="@Url.Content("/images/khachsan/"+item.Hinhanh)" alt="" height="200" width="600">
+                        <p><span class="text-uppercase"><b>@item.Tenks</b></span></p>
+                        <p style="color:red">@item.Gia.ToString("#,##") VND</p>
+                    </a>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

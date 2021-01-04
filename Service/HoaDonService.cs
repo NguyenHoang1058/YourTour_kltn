@@ -151,5 +151,18 @@ namespace YourTour.Service
             }
             return result;
         }
+
+        //lấy thông tin hóa đơn tour tự chọn
+        public CTHoadonTuChon GetCTHoaDonTourTuChon()
+        {
+            var cthd = new CTHoadonTuChon();
+            using (var conn = new SqlConnection(this._db.Database.GetDbConnection().ConnectionString))
+            {
+                conn.Open();
+                cthd = conn.Query<CTHoadonTuChon>(@"select top 1 * from CTHoadonTuChon order by ID desc").FirstOrDefault();
+                conn.Close();
+            }
+            return cthd;
+        }
     }
 }

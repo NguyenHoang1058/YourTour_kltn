@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 //using Aspose.Pdf.Text;
 using System.Data;
 using System.IO;
+using YourTour.Models.Validation;
 
 namespace YourTour.Controllers
 {
@@ -24,15 +25,20 @@ namespace YourTour.Controllers
         private readonly TourService _tourService;
         private readonly CommonService _commonService;
         private readonly IConfiguration _configuration;
-        public DatTourController(DattourService dattourService, TourService tourService, 
+        private readonly DiaDiemService _diaDiemService;
+        private readonly KhachSanService _khachSanService;
+        public DatTourController(DattourService dattourService, TourService tourService,
                                     IConfiguration configuration, HoaDonService hoaDonService,
-                                    CommonService commonService)
+                                    CommonService commonService, DiaDiemService diaDiemService,
+                                    KhachSanService khachSanService)
         {
             this._dattourService = dattourService;
             this._tourService = tourService;
             this._configuration = configuration;
             this._hoaDonService = hoaDonService;
             this._commonService = commonService;
+            this._diaDiemService = diaDiemService;
+            this._khachSanService = khachSanService;
         }
         public IActionResult Index()
         {
@@ -143,6 +149,34 @@ namespace YourTour.Controllers
             return View(model);
         }
 
-        //export hóa đơn
+        //đặt tour tự chọn
+        public IActionResult DatTourTuChon(int id)
+        {
+            var model = this._khachSanService.ChiTietKS(id);
+            if(model == null)
+            {
+                return View("/Views/Shared/PageNotFound.cshtml");
+            }
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult DatTourTuChon(TourTuChonValidation validation)
+        {
+            if (ModelState.IsValid)
+            {
+                this._dattourService.DatTourTuChon(validation);
+                return RedirectToAction("ChiTietBookingTourTuChon", "DatTour");
+            }
+            return View("/Views/Shared/PageNotFound.cshtml");
+        }
+
+        //chi tiết booking tour tự chọn
+        public IActionResult ChiTietBookingTourTuChon()
+        {
+            var cthd = this._hoaDonService.GetCTHoaDonTourTuChon();
+            var model = this._commonService.GetThongTinBookingTourTuChon(cthd.Hoadoncode);
+            return View(model);
+        }
+
     }
 }
